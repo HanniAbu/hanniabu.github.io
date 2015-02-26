@@ -1,0 +1,29 @@
+div {
+	}
+
+#header {
+	background-color: black;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 10%;
+	z-index: 1;
+}
+
+#div1 {
+	background-color: gray;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 600px;
+}
+}
+
+#div2 {
+	background-color: lightsalmon;
+}
+
+#div1 {
+	background-color: darkslategray;
+}
