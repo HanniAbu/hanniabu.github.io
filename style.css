@@ -1,29 +1,44 @@
-div {
+body {
+	background-color: #D1FFD5;
 	}
 
 #header {
-	background-color: black;
+	background-color: #4A4238;
 	position: absolute;
+	display: inline-block;
+	height: 12%;
 	left: 0;
 	right: 0;
 	top: 0;
-	height: 10%;
-	z-index: 1;
 }
 
-#div1 {
-	background-color: gray;
+#footer {
+	background-color: #4D5359;
 	position: absolute;
+	display: inline-block;
+	height: 6%;
 	left: 0;
 	right: 0;
-	height: 600px;
-}
-}
-
-#div2 {
-	background-color: lightsalmon;
+	top: 94%;
 }
 
-#div1 {
-	background-color: darkslategray;
+/*#div2 {
+	background-color: gray;
+	position: absolute;
+	display: inline-block;
+	height: 10%;
+	left: 0;
+	right: 0;
+	top: 90%;
 }
+
+#div3 {
+	background-color: gray;
+	position: absolute;
+	display: inline-block;
+	height: 10%;
+	left: 0;
+	right: 0;
+	top: 90%;
+}
+*/
