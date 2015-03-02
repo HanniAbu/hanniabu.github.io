@@ -5,6 +5,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 
 html,
 body {
+  width: 100%;
   height: 100%;
   background-color: #000;
 }
@@ -15,6 +16,7 @@ margin:0;
 padding:0;
 color: #fff;
 text-align: center;
+display: table;
 background: url(../images/bg.jpg) right bottom no-repeat;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -35,13 +37,15 @@ height: 100%;
 
 #wrapper{
 	position: relative;
+	height: 100%;
 	width: 100%;
 	margin: auto;
 }
 
 #header{
 	width: 100%;
-	padding: 100px 0 100px 0;
+	/*padding: 100px 0 100px 0;*/
+	padding-top: 15%;
 	margin: auto;
 }
 
@@ -160,7 +164,8 @@ background-position: -180px -62px;
 @media screen and (max-width: 568px){
 	#header{
 		width: 100%;
-		padding: 30px 0 30px 0;
+		/*padding: 30px 0 30px 0;*/
+		padding-top: 25%;
 		margin: auto;
 	}
 
@@ -171,7 +176,7 @@ background-position: -180px -62px;
 	
 	h2{
 		
-		font-size: 15px;
+		font-size: 1em;
 		letter-spacing: 2px;
 	}
 
@@ -203,7 +208,10 @@ background-position: -180px -62px;
 	#middle p span{
 		color:#e63b4d;
 	}
-
+	
+	#footer {
+		padding-top: 50px;
+		}
 	
 }
 
