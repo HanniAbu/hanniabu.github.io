@@ -36,7 +36,10 @@ setTimeout(function(){
 
 },false);
 
-
+var goFS = document.getElementById("container");
+   goFS.addEventListener("click", function() {
+      document.body.requestFullscreen();
+   }, false);
 
 // Draw second canvas
 //  document.addEventListener('DOMContentLoaded', function(){
