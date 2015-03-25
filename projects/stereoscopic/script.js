@@ -38,6 +38,11 @@ setTimeout(function(){
 
 
 
+var elem = document.getElementById('play');
+elem.requestFullscreen();
+
+
+
 // Draw second canvas
 //  document.addEventListener('DOMContentLoaded', function(){
 //  var video, context, canvas2, canvas1;
