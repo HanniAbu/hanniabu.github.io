@@ -85,6 +85,18 @@ body {
     background-color: #74CFAE;
 }
 
+.navbar-inverse > .collapse > .nav > .a:focus,
+.navbar-inverse > .navbar-collapse > .nav > .a:focus,
+.navbar-inverse > .collapse > .navbar-nav > .a:focus,
+.navbar-inverse > .navbar-collapse > .navbar-nav > .a:focus {
+    color: #74CFAE;
+}
+
+
+.navbar-inverse .navbar-header .navbar-brand:hover {
+    color: #74CFAE;
+} 
+
 .header-icons {
     height: 150px;
     width: auto;
