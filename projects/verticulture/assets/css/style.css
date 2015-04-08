@@ -109,10 +109,10 @@ img {
 	margin-bottom: 10px;
 }
 #header .main-navigation .navbar-header img {
-	/*height: auto;*/
-	/*display: inline-block;*/
-	/*float: left;*/
-	/*height: 30px; //adjusted so logo/banner and navbar toggle fit on same line*/
+	height: auto;
+	display: inline-block;
+	float: left;
+	height: 30px; //adjusted so logo/banner and navbar toggle fit on same line
 }
 #header .nav {
     list-style: none;
