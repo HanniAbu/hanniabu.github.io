@@ -37,6 +37,11 @@ a:hover {
 }
 /* Nav  */
 
+#header .navbar-collapse{
+	background-color: #fff;
+	border-top: 2px solid #496b5f;
+}
+
 #header .main-navigation{
 	border-bottom: 2px solid #496b5f;
 }
