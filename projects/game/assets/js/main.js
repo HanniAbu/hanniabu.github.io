@@ -45,18 +45,14 @@ var seconds = 14;
 function countdown() {
     // var start = document.getElementById('startCountDown');
     // start.innerHTML = "Reset";
-    // start.setAttribute("id", "resetCountDown");
     // start.setAttribute("onclick", "clickReset()");
+    // start.setAttribute("id", "resetCountDown");
     var time = document.getElementById('time');
-    var counter = document.getElementById('counter').innerHTML;
-    var highscore = document.getElementById('highscore').innerHTML;
+    var counter = Number(document.getElementById('counter').innerHTML);
+    var highscore = Number(document.getElementById('highscore').innerHTML);
     interval = setInterval(function() {
         if(minutes == 0) {
             if(seconds == 0) {
-                if(Number(counter) > Number(highscore) ) {
-                    highscore = counter;
-                    return;
-                }
                 var pasteButton = document.getElementById('paste');
                 pasteButton.removeAttribute("onclick");
                 var copyButton = document.getElementById('copy');
@@ -68,6 +64,11 @@ function countdown() {
         }
         var second_text = seconds > 9 ? '' : '0';
         time.innerHTML = '0:' + second_text + seconds ;
+        if (time.innerHTML == '0:00') {
+            if(counter > highscore) {
+                console.log('it worked');
+            };
+        };
         seconds--;
     }, 1000);
 }
@@ -78,18 +79,10 @@ function clickStart () {
     start.setAttribute("id", "resetCountDown");
     start.setAttribute("onclick", "clickReset()");
     countdown();
-    document.getElementById('counter').innerHTML = '1';
-    document.getElementById('pasteValue').innerHTML = '1';
     var copyButton = document.getElementById('copy');
     copyButton.setAttribute("onclick", "copyCurrentValue()");
     var pasteButton = document.getElementById('paste');
     pasteButton.setAttribute("onclick", "addPasteValue()");
-    if (document.getElementById('time').innerHTML == "0:00") {
-        var pasteButton = document.getElementById('paste');
-        pasteButton.removeAttribute("onclick");
-        var copyButton = document.getElementById('copy');
-        copyButton.removeAttribute("onclick");
-    };
 };
 
 function clickReset () {
@@ -104,6 +97,8 @@ function clickReset () {
     copyButton.removeAttribute("onclick");
     var pasteButton = document.getElementById('paste');
     pasteButton.removeAttribute("onclick");
+    document.getElementById('counter').innerHTML = '1';
+    document.getElementById('pasteValue').innerHTML = '1';
 }
 
 function copyCurrentValue() {

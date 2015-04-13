@@ -87,7 +87,7 @@ hr {
   border: 0;
   cursor: pointer;
  /* -webkit-box-shadow: inset 0 -2px #2A5E96;
-  box-shadow: inset 0 -2px #2A5E96;*/
+  box-shadow: in set 0 -2px #2A5E96;*/
 }
 .flat-button:active {
   top: 1px;
@@ -129,15 +129,15 @@ hr {
     height: 100%;
 }
 .scoreboard {
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   background-color: #fff;
 }
 
 #counter {
   font-size: 3em;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 9%;
+  padding-bottom: 9%;
 }
 
 .record {
