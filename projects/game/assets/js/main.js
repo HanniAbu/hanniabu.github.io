@@ -57,7 +57,7 @@ function countdown() {
                 if (time.innerHTML == '0:00') {
                     var counter = document.getElementById('counter').innerHTML;
                     if (Number(counter) > Number(highscore)) {
-                        document.getElementById('highscore').innerHTML = Number(counter);
+                        document.getElementById('highscore').innerHTML = Number(counter).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     };
                 };
                 return; 
