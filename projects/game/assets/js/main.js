@@ -43,13 +43,8 @@ var minutes = 0;
 var seconds = 14;
 
 function countdown() {
-    // var start = document.getElementById('startCountDown');
-    // start.innerHTML = "Reset";
-    // start.setAttribute("onclick", "clickReset()");
-    // start.setAttribute("id", "resetCountDown");
     var time = document.getElementById('time');
-    var counter = Number(document.getElementById('counter').innerHTML);
-    var highscore = Number(document.getElementById('highscore').innerHTML);
+    var highscore = document.getElementById('highscore').innerHTML;
     interval = setInterval(function() {
         if(minutes == 0) {
             if(seconds == 0) {
@@ -59,16 +54,17 @@ function countdown() {
                 copyButton.removeAttribute("onclick");
                 time.innerHTML = "0:00";                    
                 clearInterval(interval);
-                return;
+                if (time.innerHTML == '0:00') {
+                    var counter = document.getElementById('counter').innerHTML;
+                    if (Number(counter) > Number(highscore)) {
+                        document.getElementById('highscore').innerHTML = Number(counter);
+                    };
+                };
+                return; 
             } 
         }
         var second_text = seconds > 9 ? '' : '0';
         time.innerHTML = '0:' + second_text + seconds ;
-        if (time.innerHTML == '0:00') {
-            if(counter > highscore) {
-                console.log('it worked');
-            };
-        };
         seconds--;
     }, 1000);
 }
@@ -114,4 +110,3 @@ function addPasteValue() {
     document.getElementById('counter').innerHTML = newCountValue;
 
 };
-
