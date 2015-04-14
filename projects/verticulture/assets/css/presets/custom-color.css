@@ -40,12 +40,13 @@ a:hover {
 
 #header .navbar-collapse{
 	background-color: #fff;
-	border-top: 2px solid #496b5f;
+	/*border-top: 2px solid #496b5f;*/
 }
 
 #header .main-navigation{
 	background-color: #fff;
 	border-bottom: 2px solid #496b5f;
+	border-top: 2px solid #496b5f;
 }
 #header .nav li a{
 	color: #496b5f;

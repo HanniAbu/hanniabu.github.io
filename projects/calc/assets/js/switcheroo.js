@@ -1,3 +1,5 @@
+window.onload = disable;
+
 function disable() {
 	document.getElementById('default').style.display = "block";	
 	document.getElementById('paint').style.display = "none";
@@ -5,8 +7,6 @@ function disable() {
 	document.getElementById('tile').style.display = "none";
 
 };
-
-window.onload = disable;
 
 function paint() {
 	document.getElementById('default').style.display = "none";
