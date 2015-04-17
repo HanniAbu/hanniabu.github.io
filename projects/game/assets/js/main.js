@@ -40,7 +40,7 @@
 
 var interval;
 var minutes = 0;
-var seconds = 14;
+var seconds = 9;
 
 function countdown() {
     var time = document.getElementById('time');
@@ -57,6 +57,7 @@ function countdown() {
                 if (time.innerHTML == '0:00') {
                     var counter = document.getElementById('counter').innerHTML;
                     if (Number(counter) > Number(highscore)) {
+                        // document.cookie = "document.getElementById('highscore').innerHTML = Number(counter); expires=Fri, 31 Dec 9999 23:59:59 GMT;"
                         document.getElementById('highscore').innerHTML = Number(counter);
                         // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     };
@@ -83,9 +84,9 @@ function clickStart () {
 };
 
 function clickReset () {
-    document.getElementById('time').innerHTML = "0:15";
+    document.getElementById('time').innerHTML = "0:10";
     clearInterval(interval);
-    seconds = 14;
+    seconds = 9;
     var reset = document.getElementById('resetCountDown');
     reset.innerHTML = "Start";
     reset.setAttribute("onclick", "clickStart()");
@@ -111,3 +112,5 @@ function addPasteValue() {
     document.getElementById('counter').innerHTML = newCountValue;
 
 };
+
+// document.getElementById.

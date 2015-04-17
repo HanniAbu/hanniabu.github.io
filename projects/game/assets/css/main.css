@@ -1,17 +1,11 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://Alvarez.is
- *
- * Project Name: SHIELD - Free Bootstrap 3 Theme
- * Version: 1.0
- * Date: 02-11-2013
- * URL: http://blacktie.co/
- */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://hanniabu.com/projects/game/assets/fonts/latothin.woff) format('woff');
+}
 
 
-/* ==========================================================================
-   Base Styles and Bootstrap Modifications
-   ========================================================================== */
 html {
     height: 100%;
 }
@@ -29,12 +23,12 @@ body {
     /*background-color: #2b2b2b;*/
     font-size: 1em;
     line-height: 1.4;
-    font-family: "Lato";
-    font-weight: 300;
+    font-family: 'Lato';
+    /*font-weight: 300;*/
     font-size: 16px;
     color: #555;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
