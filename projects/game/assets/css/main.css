@@ -2,10 +2,17 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(https://hanniabu.com/projects/game/assets/fonts/latothin.woff) format('woff');
+  src:  url(https://hanniabu.com/projects/game/assets/fonts/latolight.woff) format('woff');
 }
 
+/*@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://hanniabu.com/projects/game/assets/fonts/latolight.woff) format('woff');
+}
 
+*/
 html {
     height: 100%;
 }
