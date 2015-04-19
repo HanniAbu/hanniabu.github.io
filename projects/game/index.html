@@ -8,77 +8,67 @@
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	    <link href="assets/css/main.css" rel="stylesheet">
-	    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'> -->
-	    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+	    <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
 	    <script type="text/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="assets/js/main.js"></script>
   </head>
-
   <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
 
-	<!-- ==== NAVBAR ==== -->
-  	<div id="navbar-main">
-	    <div class="navbar navbar-inverse navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-		      <a class="navbar-brand inline" href="#">
-		      	<!-- <img class="logo inline" src="assets/img/icon.png"> --> Copy & Paste </a>
-	        </div>
-	      </div>
-	    </div>
-    </div>
-    <!-- ==== NAVBAR ==== -->
-
-
-		<!-- ==== CONTENT ==== -->
-		<div id="wrap" class="light-grey">
-			<div class="content container center clear-top">
+<!-- ==== CONTENT ==== -->
+	<div class="container center">
+	<!-- ==== HEADER ==== -->
+		<div class="row">
+			<div class="col-xs-5">
 				<div class="row">
-	    			<div class="left-block">Shot Clock</div>
-	    			<div class="right-block">Current Paste</div>
-    			</div>
-
+					<div class="left-block">Shot Clock</div>
+				</div>
 				<div class="row">
-	    			<div id="time" class="left-block">0:10</div>
-	    			<div id="pasteValue" class="right-block">1</div>
-    			</div>
+					<div id="time" class="left-block">0:10</div>
+				</div>
+			</div>
 
-    			<div class="row scoreboard">
-					<div id="counter">1</div>
-    			</div>
-
-    			<div class="row record">
-					<div>High Score: <span id="highscore">0</span></div>
-    			</div>
-
-				<p id="buttons" class="center">
-					<input id="copy" type="submit" value="Copy" class="flat-button">
-					<input id="paste" type="submit" value="Paste" class="flat-button">
-				</p>
-
-				<div class="row">
-					<div id="controls">
-						<button id="startCountDown" class="flat-button control" onclick="clickStart()">Start!</button>
-						<!-- <button id="restart" class="flat-button" onclick="clickStart()">Restart</button> -->
-					</div>
+			<div class="col-xs-2">
+    			<div id="reset" class="center-block">
+    				<img src="assets/img/reset1.png" onclick="clickReset()">
     			</div>
 			</div>
+
+			<div class="col-xs-5">
+				<div class="row">
+					<div class="right-block">Current Paste</div>
+				</div>
+				<div class="row">
+					<div id="pasteValue" class="right-block">1</div>
+				</div>
+			</div>
 		</div>
-		<!-- ==== CONTENT ==== -->
+		<div>High Score: <span id="highscore">0</span></div>
+		<hr>
+	<!-- ==== HEADER ==== -->
 
 
+	<!-- ==== CENTER ==== -->
+		<div id="counter">1</div>
+		<div  id="start">
+			<img src="assets/img/start128.png" class="start" onclick="clickStart()">
+		</div>
+	<!--<div id="play1"></div>
+		<div id="play"></div> -->
+	</div>
+	<!-- ==== CENTER ==== -->
 
-		<!-- ==== FOOTER ====  -->
-	
-		<!-- ==== FOOTER ====  -->
+\
+	<!-- ==== FOOTER ==== -->
+	<div class="copy">
+		<input id="copy" type="submit" value="Copy" class="flat-button">
+	</div>
+
+	<div class="footer">
+		<input id="paste" type="submit" value="Paste" class="flat-button">
+	</div>
+	<!-- ==== FOOTER ==== -->
+<!-- ==== CONTENT ==== -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.5.5/jquery.smooth-scroll.min.js"></script>
-	<script type="text/javascript" src="assets/js/jquery-func.js"></script>-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
   </body>

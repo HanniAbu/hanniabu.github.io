@@ -1,116 +1,104 @@
-
-// function startTimer(duration, display) {
-//     var timer = duration, minutes, seconds;
-//     setInterval(function () {
-//         minutes = parseInt(timer / 60, 10);
-//         seconds = parseInt(timer % 60, 10);
-
-//         minutes = minutes < 10 ?  + minutes : minutes;
-//         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-//         display.textContent = minutes + ":" + seconds;
-
-//         if (--timer < 0) {
-//             timer = duration;
-//         }
-//     }, 1000);
-// };
-
-// function clickStart () {
-//     var start = document.getElementById('startCountDown');
-//     start.innerHTML = "Reset";
-//     start.setAttribute("id", "resetCountDown");
-//     start.setAttribute("onclick", "clickReset()");
-//     var fifteenSeconds = 15,
-//         display = document.querySelector('#time');
-//     startTimer(fifteenSeconds, display);
-// };
-
-// function clickReset () {
-//     var reset = document.getElementById('resetCountDown');
-//     reset.innerHTML = "Start";
-//     reset.setAttribute("onclick", "clickStart()");
-//     reset.setAttribute("id", "startCountDown");
-
-//     document.getElementById('time').innerHTML = "0:15";
-//     var fifteenSeconds = 15,
-//         display = document.querySelector('#time');
-//     startTimer(fifteenSeconds, display);
-// }
+var start = document.getElementById('start');
+var reset = document.getElementById('reset');
+var copyButton = document.getElementById('copy');
+var pasteButton = document.getElementById('paste');
+var pasteValue = document.getElementById('pasteValue');
+var time = document.getElementById('time');
+var score = document.getElementById('counter');
+var highscore = document.getElementById('highscore');
 
 var interval;
 var minutes = 0;
 var seconds = 9;
 
 function countdown() {
-    var time = document.getElementById('time');
-    var highscore = document.getElementById('highscore').innerHTML;
     interval = setInterval(function() {
         if(minutes == 0) {
             if(seconds == 0) {
-                var pasteButton = document.getElementById('paste');
-                pasteButton.removeAttribute("onclick");
-                var copyButton = document.getElementById('copy');
-                copyButton.removeAttribute("onclick");
+                disableCopy();
+                disablePaste();
                 time.innerHTML = "0:00";                    
+                // hideReset();
+                // hideScore();
+                // showStart();
                 clearInterval(interval);
                 if (time.innerHTML == '0:00') {
-                    var counter = document.getElementById('counter').innerHTML;
-                    if (Number(counter) > Number(highscore)) {
+                    if (Number(score.innerHTML) > Number(highscore.innerHTML)) {
+                        //used to store hgihscore in local storage
                         // document.cookie = "document.getElementById('highscore').innerHTML = Number(counter); expires=Fri, 31 Dec 9999 23:59:59 GMT;"
-                        document.getElementById('highscore').innerHTML = Number(counter);
-                        // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        highscore.innerHTML = Number(score.innerHTML);
+                        //adds commas to highscore. took out for now b/c turns number into string
+                        // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
                     };
                 };
                 return; 
-            } 
+            }  
         }
         var second_text = seconds > 9 ? '' : '0';
         time.innerHTML = '0:' + second_text + seconds ;
-        seconds--;
-    }, 1000);
+        seconds--
+;    }, 1000);
+}
+
+function enableCopy() {
+    copyButton.setAttribute("onclick", "copyCurrentValue()");
+}
+function enablePaste() {
+    pasteButton.setAttribute("onclick", "addPasteValue()");
+}
+function disableCopy() {
+    copyButton.removeAttribute("onclick", "copyCurrentValue()");
+}
+function disablePaste() {
+    pasteButton.removeAttribute("onclick", "addPasteValue()");
+}
+function hideStart() {
+    start.style.display = 'none';
+}
+function showStart() {
+    start.style.display = 'block';
+}
+function hideReset() {
+    reset.style.display = 'none';
+}
+function showReset() {
+    reset.style.display = 'block';
+}
+function hideScore() {
+    score.style.display = 'none';
+}
+function showScore() {
+    score.style.display = 'block';
 }
 
 function clickStart () {
-    var start = document.getElementById('startCountDown');
-    start.innerHTML = "Reset";
-    start.setAttribute("id", "resetCountDown");
-    start.setAttribute("onclick", "clickReset()");
     countdown();
-    var copyButton = document.getElementById('copy');
-    copyButton.setAttribute("onclick", "copyCurrentValue()");
-    var pasteButton = document.getElementById('paste');
-    pasteButton.setAttribute("onclick", "addPasteValue()");
+    enableCopy();
+    enablePaste();
+    hideStart();
+    showReset();
+    showScore();
 };
-
 function clickReset () {
-    document.getElementById('time').innerHTML = "0:10";
+    time.innerHTML = "0:10";
     clearInterval(interval);
     seconds = 9;
-    var reset = document.getElementById('resetCountDown');
-    reset.innerHTML = "Start";
-    reset.setAttribute("onclick", "clickStart()");
-    reset.setAttribute("id", "startCountDown");
-    var copyButton = document.getElementById('copy');
-    copyButton.removeAttribute("onclick");
-    var pasteButton = document.getElementById('paste');
-    pasteButton.removeAttribute("onclick");
-    document.getElementById('counter').innerHTML = '1';
-    document.getElementById('pasteValue').innerHTML = '1';
+    disablePaste();
+    disableCopy();
+    score.innerHTML = '1';
+    pasteValue.innerHTML = '1';
+    hideReset();
+    hideScore();
+    showStart();
 }
-
 function copyCurrentValue() {
-    var currentCount = document.getElementById('counter').innerHTML;
-    var oldPasteValue = document.getElementById('pasteValue');
-    oldPasteValue.innerHTML = currentCount;
+    pasteValue.innerHTML = score.innerHTML;
 };
 
 function addPasteValue() {
-    var currentPasteValue = Number(document.getElementById('pasteValue').innerHTML);
-    var currentCountValue = Number(document.getElementById('counter').innerHTML);
-    var newCountValue = currentPasteValue + currentCountValue;
-    document.getElementById('counter').innerHTML = newCountValue;
-
+    var newCountValue = Number(pasteValue.innerHTML) + Number(score.innerHTML);
+    score.innerHTML = newCountValue;
 };
+
 
 // document.getElementById.

@@ -2,21 +2,26 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src:  url(https://hanniabu.com/projects/game/assets/fonts/latolight.woff) format('woff');
+  src: local('Lato Light'), 
+       local('Lato-Light'), 
+       url(https://hanniabu.com/projects/game/assets/fonts/latolight.woff) format('woff'), 
+       url(https://hanniabu.com/projects/game/assets/fonts/latolight.ttf) format('ttf');
 }
 
 /*@font-face {
-  font-family: 'Lato';
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(https://hanniabu.com/projects/game/assets/fonts/latolight.woff) format('woff');
-}
+  src: local('Raleway Light'), 
+       local('Raleway-Light'), 
+       url(https://hanniabu.com/projects/game/assets/fonts/ralewaylight.woff) format('woff'), 
+       url(https://hanniabu.com/projects/game/assets/fonts/ralewaylight.ttf) format('ttf');
+}*/
 
 */
 html {
     height: 100%;
 }
-
 html,
 button,
 input,
@@ -24,23 +29,14 @@ select,
 textarea {
     color: #222;
 }
-
 body {
     height: 100%;
-    /*background-color: #2b2b2b;*/
-    font-size: 1em;
-    line-height: 1.4;
     font-family: 'Lato';
-    /*font-weight: 300;*/
     font-size: 16px;
     color: #555;
-    /*-webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;*/
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
-    font-weight: 300;
     color: #333;
 }
 h1 {
@@ -52,7 +48,8 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: 1em 0;
+    margin: 0;
+    margin-top: 3px;
     padding: 0;
 }
 .center {
@@ -64,18 +61,11 @@ hr {
 .inline {
     float: left;
 }
-/*#buttons {
-  padding-left: 25px;
-}*/
 .flat-button {
   position: relative;
   vertical-align: top;
   width: 40%;
   height: 60px;
- /* margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 20px;
-  margin-bottom: 15px;*/
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 3%;
@@ -87,8 +77,6 @@ hr {
   background: #50DE7D;
   border: 0;
   cursor: pointer;
- /* -webkit-box-shadow: inset 0 -2px #2A5E96;
-  box-shadow: in set 0 -2px #2A5E96;*/
 }
 .flat-button:active {
   top: 1px;
@@ -97,71 +85,90 @@ hr {
   box-shadow: none;
 }
 
-/*NAVIGATION*/
-.navbar {
-    font-weight: 800;
-    /*background-color: #F2F2F2;*/
-    background-color: #50DE7D;
-    border-bottom: none;
-}
-.navbar-toggle {
-    /*background-color: #b2b2b2;*/
-    background-color: #50DE7D;
-    border-color: transparent;
-    border: 0px solid transparent;
-}
-.navbar-inverse .navbar-header .navbar-brand {
-    color: #fff;
-} 
-.navbar-inverse .navbar-header .navbar-brand:hover {
-    color: #2b2b2b;
-} 
-.logo {
-    margin-top: -5px;
-    padding-right: 5px;
-}
-
-/*CONTENT*/
-.light-grey {
-    background-color: #F2F2F2;
-}
-#wrap {
-    padding-top: 50px;
-    height: 100%;
-}
-.scoreboard {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  background-color: #fff;
-}
-
-#counter {
-  font-size: 3em;
-  padding-top: 9%;
-  padding-bottom: 9%;
-}
-
-.record {
-  padding-bottom: 7%;
-}
+/*HEADER*/
 .left-block {
   float: left;
-  padding-left: 8%;
-  padding-top: 2%;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: .9em;
 }
 .right-block {
   float: right;
-  padding-right: 8%;
-  padding-top: 2%;
+  padding-right: 10px;
+  padding-top: 3px;
+  font-size: .9em;
 }
-
-#time {
-  font-size: 1.75em;
+.center-block {
+  margin-top: 8px;
+  color: #fff;
 }
+#time,
 #pasteValue {
-  font-size: 1.75em;
+  font-size: 1.1em;
+}
+#reset {
+  width: 32px;
+  height: 32px;
+  display: none;
 }
 
+/*BODY*/
+#counter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%-50%);
+  font-size: 3em;
+  color: #DEDEDE;
+  font-weight: 700;
+  display: none;
+}
+#start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%-50%);
+}
+.copy {
+  position: fixed;
+  bottom: 80px;
+  width: 100%
+}
+#copy {
+  width: 80%;
+  margin-left: 10%; 
+  text-align: center;
+}
+#play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /*width: 0px;*/
+  /*height: 0px;*/
+  border-style: solid;
+  border-width: 50px 0 50px 86.6px;
+  border-color: transparent transparent transparent #DEDEDE;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%-50%);
+}
+
+
+/*FOOTER*/
+.footer {
+  position: fixed;
+  bottom: 12px;
+  width: 100%;
+}
+#paste {
+  width: 80%;
+  margin-left: 10%; 
+  text-align: center;
+}
 
 
 /* ==========================================================================
