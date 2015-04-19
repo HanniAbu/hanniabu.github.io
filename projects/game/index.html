@@ -7,6 +7,8 @@
 	    <title> Copy & Paste</title>
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet"> -->
+
 	    <link href="assets/css/main.css" rel="stylesheet">
 	    <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
 	    <script type="text/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
@@ -47,12 +49,17 @@
 
 
 	<!-- ==== CENTER ==== -->
-		<div id="counter">1</div>
-		<div  id="start">
-			<img src="assets/img/start128.png" class="start" onclick="clickStart()">
+		<div id="scoreboard">
+			<div id="counter">1</div>
+			<div id="newHighscoreMessage">New High Score!</div>
 		</div>
-	<!--<div id="play1"></div>
-		<div id="play"></div> -->
+		<!-- <div  id="start">
+			<img src="assets/img/start128.png" class="start" onclick="clickStart()">
+		</div> -->
+		<div id="start" onclick="clickStart()">
+			<div id="play2"></div> 
+			<div id="play3"></div>
+		</div>
 	</div>
 	<!-- ==== CENTER ==== -->
 
@@ -70,5 +77,10 @@
 
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="assets/js/main.js"></script>
+	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<!-- <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.minjs"></script> -->
+
+	<script type="text/javascript" src="assets/js/main.js"></script>
   </body>

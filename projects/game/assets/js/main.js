@@ -6,10 +6,13 @@ var pasteValue = document.getElementById('pasteValue');
 var time = document.getElementById('time');
 var score = document.getElementById('counter');
 var highscore = document.getElementById('highscore');
+var newHighscoreMessage = document.getElementById('newHighscoreMessage');
 
 var interval;
 var minutes = 0;
-var seconds = 9;
+var seconds = 3;
+
+
 
 function countdown() {
     interval = setInterval(function() {
@@ -17,16 +20,14 @@ function countdown() {
             if(seconds == 0) {
                 disableCopy();
                 disablePaste();
-                time.innerHTML = "0:00";                    
-                // hideReset();
-                // hideScore();
-                // showStart();
+                time.innerHTML = "0:00";
                 clearInterval(interval);
                 if (time.innerHTML == '0:00') {
                     if (Number(score.innerHTML) > Number(highscore.innerHTML)) {
                         //used to store hgihscore in local storage
                         // document.cookie = "document.getElementById('highscore').innerHTML = Number(counter); expires=Fri, 31 Dec 9999 23:59:59 GMT;"
                         highscore.innerHTML = Number(score.innerHTML);
+                        newHighscore();
                         //adds commas to highscore. took out for now b/c turns number into string
                         // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
                     };
@@ -90,6 +91,7 @@ function clickReset () {
     hideReset();
     hideScore();
     showStart();
+    newHighscoreMessage.style.visibility = 'hidden';
 }
 function copyCurrentValue() {
     pasteValue.innerHTML = score.innerHTML;
@@ -99,6 +101,23 @@ function addPasteValue() {
     var newCountValue = Number(pasteValue.innerHTML) + Number(score.innerHTML);
     score.innerHTML = newCountValue;
 };
+
+// $(document).ready(function() {
+//     $('div').hover(function() {
+//         $('div').effect('shake');
+//     });
+//     $('div').click(function() {
+//         $('div').effect('explode');
+//     });
+// });
+function newHighscore() {
+    newHighscoreMessage.style.visibility = 'visible';
+    $("#scoreboard").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
+  // $("#counter").effect("shake");
+  // $("#scoreboard").stop().css("background-color", "#FFFF9C")
+  //   .animate({ backgroundColor: "#000"}, 15000);
+};
+
 
 
 // document.getElementById.
