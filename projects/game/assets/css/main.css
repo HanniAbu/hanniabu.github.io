@@ -104,7 +104,7 @@ hr {
 }
 #time,
 #pasteValue {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 #reset {
   width: 32px;
@@ -158,21 +158,22 @@ hr {
   left: 50%;
   width: 150px;
   height: 150px;
-  border: 2px solid #DEDEDE;
+  border: 2px solid #919191;
   border-radius: 100%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%-50%);
 }
-#play2 {
+/*colors tried deded-e, bfbfb-f, dark-grey, */
+#start2 {
   position: relative;
   top: 40px;
   left: 55px;
   border-style: solid;
   border-width: 33px 0 33px 57px;
-  border-color: transparent transparent transparent #DEDEDE;
+  border-color: transparent transparent transparent #919191;
 }
-#play3 {
+#start3 {
   position: absolute;
   top: 44px;
   left: 57px;
