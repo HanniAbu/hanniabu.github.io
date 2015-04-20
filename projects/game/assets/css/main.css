@@ -134,6 +134,12 @@ hr {
   font-weight: 500;
   visibility: hidden;
 }
+#timesUp {
+  font-size: 1.25em;
+  color: #FF2200;
+  font-weight: 500;
+  visibility: hidden;
+}
 /*#start {
   position: absolute;
   top: 50%;
@@ -158,27 +164,27 @@ hr {
   left: 50%;
   width: 150px;
   height: 150px;
-  border: 2px solid #919191;
+  border: 1px solid #878787;
   border-radius: 100%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%-50%);
 }
-/*colors tried deded-e, bfbfb-f, dark-grey, */
+/*colors tried deded-e, bfbfb-f, dark-grey, 91919-1, */
 #start2 {
   position: relative;
   top: 40px;
   left: 55px;
   border-style: solid;
   border-width: 33px 0 33px 57px;
-  border-color: transparent transparent transparent #919191;
+  border-color: transparent transparent transparent #878787;
 }
 #start3 {
   position: absolute;
-  top: 44px;
-  left: 57px;
+  top: 42px;
+  left: 56px;
   border-style: solid;
-  border-width: 29px 0 29px 51px;
+  border-width: 31px 0 31px 54px;
   border-color: transparent transparent transparent #fff;
 }
 
