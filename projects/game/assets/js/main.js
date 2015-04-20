@@ -13,7 +13,7 @@ var topScore = document.getElementById('topScore');
 
 var interval;
 var minutes = 0;
-var seconds = 2;
+var seconds = 14;
 var copyButtonClicks = 0;
 
 
@@ -63,30 +63,47 @@ function flashScoreboard() {
     $(scoreboard).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
 };
 function shrinkCopyButton() {
-    $(copyButton).animate({width: '-=23%', height: '-=23%'});
+    $(copyButton).animate({width: '-=30%', height: '-=23%'});
 };
 function shrinkCopyButtonSmaller() {
-    $(copyButton).animate({width: '15px', height: '15px'});
+    $(copyButton).animate({width: '25px', height: '25px'});
 };
 function resetCopyButtonSize() {
     $(copyButton).animate({width: '80%', height: '60px'});
 };
 function changeCopyButtonStyle() {
-    copyButton.style.color = '#000';
+    copyButton.style.color = '#50DE7D';
     copyButton.style.textShadow = 'none';
-    copyButton.style.backgroundColor = '#000';
+    // copyButton.style.backgroundColor = '#000';
 }
 function resetCopyButtonStyle() {
     copyButton.style.color = '#fff';
     copyButton.style.textShadow = ' 0 1px 2px rgba(0, 0, 0, 0.25)';
-    copyButton.style.backgroundColor = '#50DE7D';
+    // copyButton.style.backgroundColor = '#50DE7D';
 }
 function resetCopyButtonClicks() {
     copyButtonClicks = 0;
 };
 function flashScreen() {
-    $("body").animate({backgroundColor: "#ccc"}, 20).delay(10);
-    $("body").animate({backgroundColor: "#fff"}, 20);
+    $("body").animate({backgroundColor: "#ccc"}, 40).delay(10);
+    $("body").animate({backgroundColor: "#fff"}, 40);
+}
+function copyButtonNewPosition() {
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(window).height() - 25;
+    var w = $(window).width() - 25;
+    var nh = Math.floor(Math.random() * h - 450);
+    var nw = Math.floor(Math.random() * w - 180);
+    return [nh,nw]; 
+}
+function animateCopyButton() {
+    if (time.innerHTML == '0:00') {
+           return;
+        };
+    var newq = copyButtonNewPosition();
+    $(copyButton).animate({ top: newq[0], left: newq[1] }, function(){
+      animateCopyButton();  
+    });
 }
 
 
@@ -117,7 +134,7 @@ function clickStart () {
     hideTimesUpMessage();
 };
 function clickReset () {
-    time.innerHTML = "0:10";
+    time.innerHTML = "0:15";
     clearInterval(interval);
     seconds = 9;
     disablePaste();
@@ -171,14 +188,17 @@ function copyButtonEffects() {
     switch(copyButtonClicks) {
         case 2:
             shrinkCopyButton();
-            return
+            return;
         case 3:
             shrinkCopyButton();
-            return
+            return;
         case 4:
             changeCopyButtonStyle();
             shrinkCopyButtonSmaller();
-            return
+            return;
+        case 5:
+            animateCopyButton();
+            return;
         default:
             return;
     };
