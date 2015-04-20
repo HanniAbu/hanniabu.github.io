@@ -66,10 +66,10 @@ hr {
   vertical-align: top;
   width: 40%;
   height: 60px;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 3%;
-  margin-bottom: 2%;
+/*  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;*/
   font-size: 22px;
   color: white;
   text-align: center;
@@ -120,7 +120,7 @@ hr {
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%-50%);
+  -ms-transform: translate(-50%,-50%);
 }
 #counter {
   font-size: 3em;
@@ -146,18 +146,8 @@ hr {
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%-50%);
+  -ms-transform: translate(-50%,-50%);
 }*/
-.copy {
-  position: fixed;
-  bottom: 80px;
-  width: 100%
-}
-#copy {
-  width: 80%;
-  margin-left: 10%; 
-  text-align: center;
-}
 #start {
   position: absolute;
   top: 50%;
@@ -168,7 +158,7 @@ hr {
   border-radius: 100%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%-50%);
+  -ms-transform: translate(-50%,-50%);
 }
 /*colors tried deded-e, bfbfb-f, dark-grey, 91919-1, */
 #start2 {
@@ -191,15 +181,30 @@ hr {
 
 
 /*FOOTER*/
+.copy {
+  position: fixed;
+  bottom: 85px;
+  width: 100%;
+  height: 60px;
+}
+#copy {
+  position: relative;
+  width: 80%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
 .footer {
   position: fixed;
-  bottom: 12px;
+  bottom: 15px;
   width: 100%;
+  height: 60px;
+  text-align: center;
 }
 #paste {
+  position: relative;
   width: 80%;
-  margin-left: 10%; 
-  text-align: center;
 }
 
 

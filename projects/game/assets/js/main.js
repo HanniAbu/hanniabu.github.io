@@ -5,6 +5,7 @@ var pasteButton = document.getElementById('paste');
 var pasteValue = document.getElementById('pasteValue');
 var time = document.getElementById('time');
 var score = document.getElementById('counter');
+var scoreboard = document.getElementById('scoreboard');
 var highscore = document.getElementById('highscore');
 var highscoreMessage = document.getElementById('newHighscoreMessage');
 var timesUpMessage = document.getElementById('timesUp');
@@ -83,7 +84,13 @@ function hideTimesUpMessage() {
     timesUpMessage.style.visibility = 'hidden';
 };
 function flashScoreboard() {
-    $("#scoreboard").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
+    $(scoreboard).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
+}
+function shrinkCopyButton() {
+    $(copyButton).animate({width: '-=10%', height: '-=10%'});
+}
+function resetCopyButton() {
+    $(copyButton).animate({width: '80%', height: '60px'});
 }
 
 function clickStart () {
@@ -108,10 +115,11 @@ function clickReset () {
     showStart();
     hideHighscoreMessage();
     hideTimesUpMessage();
+    resetCopyButton();
 }
 function copyCurrentValue() {
     pasteValue.innerHTML = score.innerHTML;
-    copyButton.setAttribute("style", "-webkit-transform: scale(0.1);");
+    shrinkCopyButton();
 };
 function addPasteValue() {
     var newCountValue = Number(pasteValue.innerHTML) + Number(score.innerHTML);
