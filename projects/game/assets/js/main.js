@@ -6,7 +6,8 @@ var pasteValue = document.getElementById('pasteValue');
 var time = document.getElementById('time');
 var score = document.getElementById('counter');
 var highscore = document.getElementById('highscore');
-var newHighscoreMessage = document.getElementById('newHighscoreMessage');
+var highscoreMessage = document.getElementById('newHighscoreMessage');
+var timesUpMessage = document.getElementById('timesUp');
 
 var interval;
 var minutes = 0;
@@ -18,16 +19,14 @@ function countdown() {
     interval = setInterval(function() {
         if(minutes == 0) {
             if(seconds == 0) {
-                disableCopy();
-                disablePaste();
-                time.innerHTML = "0:00";
+                gameOver();
                 clearInterval(interval);
                 if (time.innerHTML == '0:00') {
                     if (Number(score.innerHTML) > Number(highscore.innerHTML)) {
                         //used to store hgihscore in local storage
                         // document.cookie = "document.getElementById('highscore').innerHTML = Number(counter); expires=Fri, 31 Dec 9999 23:59:59 GMT;"
                         highscore.innerHTML = Number(score.innerHTML);
-                        newHighscore();
+                        showHighscoreMessage();
                         //adds commas to highscore. took out for now b/c turns number into string
                         // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
                     };
@@ -71,6 +70,21 @@ function hideScore() {
 function showScore() {
     score.style.display = 'block';
 }
+function showHighscoreMessage() {
+    highscoreMessage.style.visibility = 'visible';
+};
+function hideHighscoreMessage() {
+    highscoreMessage.style.visibility = 'hidden';
+};
+function showTimesUpMessage() {
+    timesUpMessage.style.visibility = 'visible';
+};
+function hideTimesUpMessage() {
+    timesUpMessage.style.visibility = 'hidden';
+};
+function flashScoreboard() {
+    $("#scoreboard").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
+}
 
 function clickStart () {
     countdown();
@@ -79,6 +93,7 @@ function clickStart () {
     hideStart();
     showReset();
     showScore();
+    hideTimesUpMessage();
 };
 function clickReset () {
     time.innerHTML = "0:10";
@@ -91,33 +106,23 @@ function clickReset () {
     hideReset();
     hideScore();
     showStart();
-    newHighscoreMessage.style.visibility = 'hidden';
+    hideHighscoreMessage();
+    hideTimesUpMessage();
 }
 function copyCurrentValue() {
     pasteValue.innerHTML = score.innerHTML;
+    copyButton.setAttribute("style", "-webkit-transform: scale(0.1);");
 };
-
 function addPasteValue() {
     var newCountValue = Number(pasteValue.innerHTML) + Number(score.innerHTML);
     score.innerHTML = newCountValue;
 };
-
-// $(document).ready(function() {
-//     $('div').hover(function() {
-//         $('div').effect('shake');
-//     });
-//     $('div').click(function() {
-//         $('div').effect('explode');
-//     });
-// });
-function newHighscore() {
-    newHighscoreMessage.style.visibility = 'visible';
-    $("#scoreboard").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150);
-  // $("#counter").effect("shake");
-  // $("#scoreboard").stop().css("background-color", "#FFFF9C")
-  //   .animate({ backgroundColor: "#000"}, 15000);
+function gameOver() {
+    disableCopy();
+    disablePaste();
+    time.innerHTML = "0:00";
+    showTimesUpMessage();
+    flashScoreboard();
 };
-
-
 
 // document.getElementById.
