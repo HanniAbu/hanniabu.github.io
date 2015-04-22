@@ -858,13 +858,6 @@ img {
     background: #496B5F;
     margin: 20px 8px
 }
-#contact {
-    background: #333;
-    background-size: cover
-}
-#contact .section-title span {
-    color: #fff
-}
 #contact .contact-form .controls {
     padding-bottom: 20px
 }
@@ -903,8 +896,7 @@ img {
     box-shadow: none
 }
 #contact .contact-form .btn {
-    color: #fff;
-    font-weight: 300;
+    color: #fff;    font-weight: 300;
     margin-top: 30px;
     font-size: 24px;
     width: 100%;

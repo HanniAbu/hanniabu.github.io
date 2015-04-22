@@ -13,23 +13,26 @@ a {
 a:hover {
   color: #496b5f;
 }
+.btn-common,
 .btn-border {
   background: #AFD338;
   border: 1px solid #103643;
   color: #103643;
 }
+.btn-common:active,
+.btn-common:hover,
 .btn-border:active,
 .btn-border:hover {
   background: #103643;
   border: 1px solid #103643;
   color: #AFD338;
 }
-.btn-common {
+/*.btn-common {
   background: #496b5f;
 }
 .btn-common:hover {
   background: #585858;
-}
+}*/
 .section-title{
 	color: #AFD338;
 }
@@ -46,7 +49,7 @@ a:hover {
 #header .main-navigation{
 	background-color: #fff;
 	border-bottom: 2px solid #496b5f;
-	border-top: 2px solid #496b5f;
+	/*border-top: 2px solid #496b5f;*/
 }
 #header .nav li a{
 	color: #496b5f;
@@ -70,12 +73,12 @@ a:hover {
 #services {
 	background-color: #fff;
 }
-#services h1 {
+/*#services h1 {
 	color: #AFD338;
 }
 #services h1 span {
 	color: #103643;
-}
+}*/
 
 #services .service-box{
 	border: 1px solid #103643;
@@ -178,32 +181,50 @@ a:hover {
 	background: #496b5f;
 }
 /* Contact color */
+#contact {
+	background: #fff;
+}
+#contact-title,
+#contact .overlay h1 .section-title .span {
+	color: #103643;
+}
 #contact .contact-form .controls input.contact_input{
-	border: 1px solid #496b5f;
+	border: 1px solid #103643;
 }
 #contact .contact-form .controls i{
-	color: #496b5f;
-	border-color: #496b5f;
+	color: #103643;
+	border-color: #103643;
 }
 #contact .contact-form textarea{
-	border: 1px solid #496b5f;
+	border: 1px solid #103643;
+}
+#contact .contact-form .btn-common {
+  background: #AFD338;
+  border: 1px solid #103643;
+  color: #103643;
+}
+#contact .contact-form .btn-common:hover,
+#contact .contact-form .btn-common:hover {
+  background: #103643;
+  border: 1px solid #103643;
+  color: #AFD338;
 }
 #connected{
-	background: #496b5f;
+	background: #333;
 }
 #footer{
-	background: #496b5f;
+	background: #fff;
 }
 .scroll-top i:hover{
-	color: #496b5f;
+	color: #AFD338;
 }
 #panel-opener{
 	color: #496b5f;
 }
 /*Selection color*/
 ::selection {
-  background: #496b5f; /* Safari/Chrome */
+  background: #AFD338; /* Safari/Chrome */
   }
 ::-moz-selection {
-  background: #496b5f; /* Firefox */
+  background: #AFD338; /* Firefox */
 }
