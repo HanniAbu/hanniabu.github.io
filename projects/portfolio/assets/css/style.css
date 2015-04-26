@@ -1,0 +1,174 @@
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+
+html {
+	height: 100%;
+}
+
+body {
+    background: #fff;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+hr {
+	padding: 0;
+	margin: 0;
+}
+.buttons {
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	width: 120px;
+	/*font-size: .9em;*/
+	font-size: 12px;
+	padding: 12px 20px;
+	color: #fff;
+	/*background: #000;*/
+	background-color: rgba(0, 0, 0, 0.75);
+	border: 0;
+	margin-top: 40px;
+	margin-left: 1px;
+}
+.buttons:hover,
+.buttons:focus,
+.buttons:active {
+	color: #000;
+	background-color: rgba(256, 256, 256, 0.5);
+}
+
+
+
+
+#top-view {
+	width: 100%;
+	height: 101vh;
+	text-align: center;
+	/*background: #fff;*/
+	/*background: url("../img/14.jpg") no-repeat center center;*/
+	/*background: url("../img/road1.jpg") no-repeat center center;*/
+	/*   13/14  */
+	background: url("../img/14.jpg") no-repeat center center;
+	background-size: cover;
+	/*background-size: auto 100%;*/
+	border-bottom: 1px solid #aaa;
+}
+#name {
+	position: relative;
+	font-size: 65px;
+	font-weight: 800;
+	font-style: oblique;
+	line-height: 63px;
+	/*vvv with buttons vvv*/
+	/*padding-top: 19vh; */
+	/*vvv with no buttons vvv */
+	padding-top: 28vh;
+	color: #fff;
+	text-shadow: 1px 1px #000;
+	/*color: #000;*/
+	/*text-shadow: 1px 1px #fff;*/
+}
+#title {
+	position: relative;
+	font-size: 16px;
+	margin-top: 7px;
+	color: #fff;
+	text-shadow: 1px 1px #000;
+}
+#view-projects {
+	margin-top: 8vh;
+	/*width: 140px;*/
+	width: 190px;
+}
+
+
+
+#middle-view {
+	width: 100%;
+	text-align: left;
+	background: #eee;
+}
+.project {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 22px;
+	padding-top: 8px;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #aaa;
+}
+.project:focus,
+.project:hover,
+.project:active {
+	background-color: #fff;
+}
+.project span {
+	font-size: 22px;
+	font-weight: 300;
+}
+
+
+
+#bottom-view {
+	width: 100%;
+	text-align: left;
+	padding-left: 20px;
+	/*background: #626262;*/
+	/*background: #aaa;*/
+	/*   14 13 10     */
+	background: url("../img/13.jpg") no-repeat center center;
+	/*background: url("../img/10.jpg") no-repeat center center;*/
+	background-size: cover;
+	/*background-size: auto 100%;*/
+	color: #fff;
+	text-shadow: 1px 1px #000;
+	/*color: #000;*/
+	/*text-shadow: 1px 1px #fff;*/
+}
+#contact span {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 60px;
+}
+#contact {
+	padding-top: 10vh;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+}
+#about span {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 60px;
+}
+#about {
+	padding-top: 15vh;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+	margin-right: 75px;
+}
+#copyright span {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 60px;
+}
+#copyright {
+	padding-top: 15vh;
+	font-size: 14px;
+	font-weight: 300;
+	padding-bottom: 70px;
+	line-height: 20px;
+}
+#copyright a {
+	font-weight: 600;
+	text-decoration: none;
+	color: #fff;
+}
+
+
