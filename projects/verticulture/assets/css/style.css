@@ -9,12 +9,12 @@ body {
     background: #fff;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 22px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 h1,
 h2,
@@ -22,12 +22,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700
+    font-weight: 700;
 }
 a {
-    /*color: #F74134;*/
-    text-decoration: none
+    text-decoration: none;
 }
 a {
     -webkit-transition: all .3s ease;
@@ -45,16 +43,37 @@ img {
 .row {
     padding-bottom: 70px
 }
+.center {
+    text-align: center;
+}
+#our-story {
+    font-size: 1em;
+}
+.divider {
+    width: 100%;
+    height: 50vh;
+}
+#divider1 {
+    background: url(../img/background/9.jpg) center center no-repeat;
+}
+#divider2 {
+    background: url(../img/background/1.jpg) center center no-repeat;
+}
+#divider3 {
+    background: url(../img/background/3.jpg) center center no-repeat;
+}
+#our-tilapia {
+
+}
 .section-title {
     text-align: center;
     text-transform: uppercase;
-    /*color: #496B5F;*/
     font-size: 50px;
     font-weight: 700;
     padding: 48px 20px
 }
 .section-title span {
-    /*color: #333*/
+
 }
 ::selection {
     background: #496B5F;
@@ -80,28 +99,11 @@ img {
     transition: all .3s ease
 }
 .btn-border {
-    /*border: 2px solid #496B5F;
-    color: #496B5F;*/
     overflow: hidden;
     font-size: 16px;
     line-height: 22px;
     font-weight: 300
 }
-/*.btn-border:hover,
-.btn-border:active {
-    color: #fff;
-    background: #496B5F
-}
-.btn-common {
-    background: #496B5F
-}
-.btn-common:hover {
-    background: #585858
-}
-#header .main-navigation {
-    background: #fff;
-    border-bottom: 2px solid #496B5F
-}*/
 #header .main-navigation .navbar-header a {
 	margin-bottom: 10px;
 }
@@ -248,15 +250,7 @@ img {
     transition: all .5s ease
 }
 #about {
-    /*background: url(../img/background/4.jpg) center center no-repeat;*/
-	background-color: #103643;
-    background-size: cover;
-    /*color: #fff*/
-}
-
-#about .section-title {
-	/*background: url(../img/background/bg-overlay.png) rgba(0, 0, 0, .6) repeat;*/
-	
+    background-color: #103643;
 }
 #about .side-left {
     text-align: center
@@ -914,15 +908,6 @@ img {
     color: #fff;
     text-align: center
 }
-#connected .section-title {
-    color: #fff
-}
-#connected .discription {
-    font-size: 18px;
-    font-weight: 300;
-    font-style: italic;
-    position: relative
-}
 #connected hr {
     width: 200px;
     text-align: center
@@ -942,30 +927,23 @@ img {
     color: #FDF2F0;
     font-weight: 300;
     font-size: 14px;
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 #connected .contact-item h4 {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px
 }
+#connected .contact-item i:focus,
+#connected .contact-item i:active,
+#connected .contact-item i:hover {
+    color: #AFD338;
+    
+}
 #footer {
     background-color: #496B5F;
-    width: 100%
-}
-#footer .copyright {
-    border-top: 1px solid #fff;
-    padding: 14px 0;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 300
-}
-#footer .copyright a {
-    color: #fff;
-    text-decoration: none
-}
-#footer .copyright a:hover {
-    color: #34495E
+    width: 100%;
+    height: 28px;
 }
 .scroll-top {
     right: 30px;
@@ -1038,7 +1016,7 @@ img {
 .color-container .color-4 {
     background: #34495e
 }
-*/
+
 
 
 
