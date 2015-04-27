@@ -49,29 +49,7 @@ $(document).ready(function() {
 	
     });
 
-//Testimonial Slider
-$(document).ready(function(){
-	/*=== Testimonial ====*/
-    $('#testimonial-slider').owlCarousel({
-    navigation: false, // Show next and prev buttons
-    slideSpeed: 800,
-    paginationSpeed: 400,
-    autoPlay: true,
-    items : 2,
-        itemsCustom : false,
-        itemsDesktop : [1199,1],
-        itemsDesktopSmall : [980,1],
-        itemsTablet: [768,1],
-        itemsTabletSmall: false,
-        itemsMobile : [479,1],
-    });
 
-});
-
-// Mixitup portfolio filter
-$(function(){
-    $('#portfolio-items').mixItUp();  
-});
 //WOW Scroll Spy
 var wow = new WOW({
     //disabled for mobile
