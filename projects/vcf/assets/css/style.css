@@ -121,16 +121,25 @@ img {
     /*overflow: hidden;*/
 }
 #divider1 {
-    background: url(../img/background/4.jpg) center center fixed;
+    background: url(../img/background/4.jpg) center center no-repeat  fixed;
     /*background-image: url(../img/background/4.jpg);*/
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
     background-size: cover;
 }
 #divider2 {
-    background: url(../img/background/1.jpg) center center fixed;
+    background: url(../img/background/1.jpg) center center no-repeat fixed;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
     background-size: cover;
 }
 #divider3 {
-    background: url(../img/background/3.jpg) center center fixed;
+    background: url(../img/background/3.jpg) center center no-repeat fixed;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
     background-size: cover;
 }
 #header .main-navigation{
