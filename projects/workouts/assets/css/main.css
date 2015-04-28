@@ -1,157 +1,58 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://Alvarez.is
- *
- * Project Name: SHIELD - Free Bootstrap 3 Theme
- * Version: 1.0
- * Date: 02-11-2013
- * URL: http://blacktie.co/
- */
-
-
-/* ==========================================================================
-   Base Styles and Bootstrap Modifications
-   ========================================================================== */
 html {
-    height: 100%;
+  height: 100%;
 }
-
 html,
 button,
 input,
 select,
 textarea {
-    color: #222;
+  color: #222;
 }
-
 body {
-    height: 100%;
-    /*background-color: #2b2b2b;*/
-    font-size: 1em;
-    line-height: 1.4;
-    font-family: "Lato";
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
+  height: 100vh;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
-
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
-    font-weight: 300;
-    color: #333;
+  font-family: "Raleway";
+  font-weight: 300;
+  color: #333;
 }
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-.navbar {
-    font-weight: 800;
-    /*background-color: #F2F2F2;*/
-    background-color: white;
-}
-
-.navbar-toggle {
-    /*background-color: #b2b2b2;*/
-    background-color: #3068A5;
-    border-color: transparent;
-    border: 0px solid transparent;
-}
-
-.navbar-inverse .navbar-header .navbar-brand {
-    /*color: #3068A5;*/
-    color: #2b2b2b;
-} 
-.navbar-inverse .navbar-header .navbar-brand:hover {
-    color: #2b2b2b;
-    color: #3068A5;
-} 
-
-.logo {
-    margin-top: -5px;
-    /*margin-left: 5px;*/
-    padding-right: 5px;
-}
-
-.center {
-    text-align: center;
-}
-
-.color {
-    color: #3068A5;
-}
-
-.inline {
-    float: left;
-}
-
-.light-grey {
-    background-color: #F2F2F2;
-}
-
-#footer {
-	background: #2b2b2b;
-	border-bottom: 1px solid #ddd;
-	text-align: center;
-    color: white;
-}
-
-#footer h4 {
-	color: white;
-    font-size: 10px;
-}
-
-#wrap {
-    padding-top: 50px;
-    height: 100%;
-}
-
-
 h1 {
-    margin-top: 30px;
-    margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-
-
-.content {
-  overflow:auto;
-  min-height: 100%;
-  padding-bottom:50px; /* this needs to be bigger than footer height*/
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
-
-#footer {
-  position: relative;
-  margin-top: -50px; /* negative value of footer height */
-  height: 50px;
-  clear:both;
-  padding-top:10px;
-} 
-
-
 .flat-button {
   position: relative;
-  vertical-align: top;
+  vertical-align: center;
   width: 100%;
   height: 60px;
-  padding: 0;
-  margin-top: 40px;
-  margin-bottom: 30px;
+  /*padding: 0;*/
+  /*margin: 0;*/
+  /*margin-top: 40px;*/
+  /*margin-bottom: 30px;*/
   font-size: 22px;
-  color: white;
+  color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   background: #3068A5;
   border: 0;
-  cursor: pointer;/*
-  -webkit-box-shadow: inset 0 -2px #2A5E96;
-  box-shadow: inset 0 -2px #2A5E96;*/
+  cursor: pointer;
 }
 .flat-button:active {
   top: 1px;
@@ -159,6 +60,70 @@ h1 {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.center {
+  text-align: center;
+}
+.color {
+  color: #3068A5;
+}
+.inline {
+  float: left;
+}
+
+
+.logo {
+  margin-top: -5px;
+  padding-right: 5px;
+}
+.navbar {
+  font-weight: 800;
+  background-color: #fff;
+}
+.navbar-toggle {
+  background-color: #3068A5;
+  border-color: transparent;
+  border: 0px solid transparent;
+}
+.navbar-inverse .navbar-header .navbar-brand {
+  color: #2b2b2b;
+} 
+.navbar-inverse .navbar-header .navbar-brand:hover {
+  color: #2b2b2b;
+  color: #3068A5;
+} 
+
+
+#wrap {
+  padding-top: 50px;
+  height: 100vh;
+}
+#dropdown {
+  margin-bottom: 40px;
+}
+.exercise {
+  display: none;
+  text-align: center;
+}
+.gifs {
+  text-align: center;
+  display: inline-block;
+}
+
+
+.next-random-button {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+}
+#next-random-button {
+  position: relative;
+  width: 100%;
+  display: none;
+}
+
+
 
 
 
