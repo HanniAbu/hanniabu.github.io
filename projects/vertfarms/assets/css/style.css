@@ -149,6 +149,7 @@ img {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    max-width: 100vw;
     -webkit-background-size: 100%; 
     -moz-background-size: 100%; 
     -o-background-size: 100%; 
@@ -163,6 +164,7 @@ img {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    max-width: 100vw;
     /*-webkit-background-size: 100%; 
     -moz-background-size: 100%; 
     -o-background-size: 100%; 
