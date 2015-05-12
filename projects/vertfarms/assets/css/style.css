@@ -133,15 +133,15 @@ img {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    background-size: 100%;
-    /*max-width: 100vw;*/
     -webkit-background-size: 100%; 
     -moz-background-size: 100%; 
     -o-background-size: 100%; 
+    /*max-width: 100vw;*/
     background-size: 100%; 
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
+    background-size: cover;
 }
 #divider2 {
     background: url(../img/background/1.jpg);
@@ -160,18 +160,18 @@ img {
 }
 #divider3 {
     background: url(../img/background/3.jpg);
-    background-position: center center;
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
     -webkit-background-size: 100%; 
     -moz-background-size: 100%; 
     -o-background-size: 100%; 
+    /*max-width: 100vw;*/
     background-size: 100%; 
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
     background-size: cover;
-    /*max-width: 100vw;*/
 }
 
 #header .main-navigation{
