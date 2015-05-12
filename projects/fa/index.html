@@ -21,7 +21,7 @@
 	      <script src="assets/js/respond.min.js"></script>
 	    <![endif]-->
   </head>
-  <body data-spy="scroll" data-offset="50" data-target="#navbar-main">
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
 
 	<!-- ==== NAVBAR ==== -->
   	<div id="navbar-main">
@@ -37,14 +37,13 @@
 	        </div>
 	        <div class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <!-- <li><a href="#home" class="smoothScroll">Home</a></li> -->
-				<li> <a href="#yup" class="smoothScroll"> Services</a></li>
+				<li> <a href="#yup" class="smoothScroll"> Why Us</a></li>
 				<li> <a href="#portfolio" class="smoothScroll"> Sites</a></li>
 				<li> <a href="#blog" class="smoothScroll"> About</a></li>
-				<li> <a href="#services" class="smoothScroll"> Pricing</a></li>
+				<li> <a href="#services" class="smoothScroll"> Services</a></li>
 				<li> <a href="#calender" class="smoothScroll"> Calender</a></li>
 				<li> <a href="#contact" class="smoothScroll"> Contact</a></li>
-	        </div><!--/.nav-collapse -->
+	        </div>
 	      </div>
 	    </div>
     </div>
@@ -54,20 +53,18 @@
 	<!-- ==== HEADER ==== -->
 	<div id="abc" >
 		<div id="headerwrap" id="home" name="home">
-			<header class="clearfix">
-  		 		<!-- <h1><span class="icon icon-shield"></span><span class="icon icon-shield"></span><span class="icon icon-shield"></span></h1>
-  		 		<h1></h1> -->
+			<header class="clearfix shift-left">
   		 		<div class="row header-img">
 					<div class="col-lg-4 callout">
 						<span ><img class="header-icons" src="assets/img/icons/greetmd.png" ></span>
-					</div><!-- col-lg-4 -->
+					</div>
 					<div class="col-lg-4 callout">
 						<span ><img class="header-icons" src="assets/img/icons/walkmd.png" ></span>
-					</div><!-- col-lg-4 -->	
+					</div>	
 					<div class="col-lg-4 callout">
 						<span ><img class="header-icons" src="assets/img/icons/catchmd.png" ></span>
-					</div><!-- col-lg-4 -->	
-				</div><!-- row -->
+					</div>
+				</div>
   		 		<p>Everyone Deserves An Adventure</p>
   		 		<p>Even Your Furry Ones</p>
 	  		</header>	    
@@ -76,85 +73,110 @@
 	<!-- ==== HEADER ==== -->
 
 
-	<!-- ==== SERVICES ==== -->
+	<!-- ==== WHY US ==== -->
 	<div id="yup">
 		<div id="greywrap"><br><br><br><br>
 			<div class="row">
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/christmas103.png" ></span>
-					<h2>Adventure Walks</h2>
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#price2">
+						<span ><img class="img dog img-circle" src="assets/img/icons/christmas103.png" ></span>
+						<h2 >Adventure Walks</h2>
+					</div>
 					<p>Don't bore your dog with the same old walk around the block. We'll escort your dog to a nearby park or reserve! </p>
-				</div><!-- col-lg-4 -->
-					
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/tent.png" ></span>
-					<h2>Adventure Weekends</h2>
+				</div>
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#price3">
+						<span ><img class="img dog img-circle" src="assets/img/icons/tent.png" ></span>
+						<h2>Adventure Weekends</h2>
+					</div>
 					<p>Weekend camping trips for the athletic and ambitious dog that needs more adventure and stimulation than just a walk in a park. </p>
-				</div><!-- col-lg-4 -->	
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/runner.png" ></span>
-					<h2>We Can Keep Pace</h2>
+				</div>	
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#pace-modal">	
+						<span ><img class="img dog img-circle" src="assets/img/icons/runner.png" ></span>
+						<h2>We Can Keep Pace</h2>
+					</div>
 					<p>Have your dog walked by someone with the same athletic ability and energy as your dog. We'll let your dog set the pace pace! </p>
-				</div><!-- col-lg-4 -->	
-			</div><!-- row -->
-			<div class="row">
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/greet2xs.png" ></span>
-					<h2>Animal People</h2>
-					<p>We'll love your furry friend and give them all the care and affection you know they deserve - and then some!   </p>
-				</div><!-- col-lg-4 -->
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/eye.png" ></span>
-					<h2>Media Updates</h2>
+				</div>	
+							<div class="modal fade" id="pace-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+							    <div class="modal-dialog">
+							      <div class="modal-content left">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Dog Walks</h4>
+							        </div>
+							        <div class="modal-body ">
+							          <div class="p">- This is your average dog walking service. We  will come to your home and walk your dog around the vicinity of your property. <br>
+							          - Dogs over 60lbs will be walked separately.</div>
+							          <b>Complimentary </b><br>
+							          <div class="p" >Paw cleaning upon return, treats(if allowed), love and kisses, and tummy rubs!</div>
+							          <b>Service Hours </b><br>
+							          <div class="p" >Sat - Sun:  8am - 10pm</div>
+							          <div class="p" style="margin-top: -20px;"><b><a href="#calender">(Check Availability)</a></b></div>
+							           
+								      <div class="p" >*Must be used within 30 days of purchase.</div>
+								      <div class="p" ><b><a href="#contact">Contact us</a></b></div>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							    </div>
+							</div>
+
+
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#extras-modal">
+						<span ><img class="img dog img-circle" src="assets/img/icons/eye.png" ></span>
+						<h2>Complimentary Extras</h2>
+					</div>
 					<p>Never worry again. We'll send cute pictures and videos of your little one throughout the activity! </p>
-				</div><!-- col-lg-4 -->	
-				<div class="col-lg-4 callout">
-					<span ><img class="img dog img-circle" src="assets/img/icons/insurance.png" ></span>
-					<h2>Fully Insured</h2>
-					<!-- <p>**************MUST FILL OUT**************</p> -->
+					<!-- <h2>Media Updates</h2>
+					<p>Never worry again. We'll send cute pictures and videos of your little one throughout the activity! </p> -->
+				</div>	
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#people-modal">
+						<span ><img class="img dog img-circle" src="assets/img/icons/eye.png" ></span>
+						<h2>Animal People</h2>
+					</div>
+					<p>We'll love your furry friend and give them all the care and affection you know they deserve - and then some!   </p>
+				</div>
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 callout">
+					<div class="pointer" data-toggle="modal" href="#insured-modal">
+						<span ><img class="img dog img-circle" src="assets/img/icons/insurance.png" ></span>
+						<h2>Fully Insured</h2>
+					</div>
 					<p>Just in case, we are covered for any damage to property and any injuries to your furry one, or others.</p>
-				</div><!-- col-lg-4 -->	
-			</div><!-- row -->
-		</div><!-- services -->
+				</div>
+			</div>
+		</div>
 	</div>
-	<!-- ==== SERVICES ==== -->
+	<!-- ==== WHY US ==== -->
 
 
 	<!-- ==== SITES/LOCATIONS ==== -->
 	<div class="white-bg">
-		<div class="container" id="portfolio" name="portfolio"><br><br><br><br>
+		<div class="container" id="portfolio" name="portfolio"><br><br><br>
 			<div class="row">
-				<!-- <h1 class="centered">ADVENTURE WALK LOCATIONS</h1> -->
-				<h1 class="centered">ADVENTURE SITES</h1>
+				<h1 class="center">ADVENTURE SITES</h1>
 				<hr>
 				<br>
 				<br>
-			</div><!-- /row -->
+			</div>
 			<div class="container">
 				<div class="row">	
-					<!-- PORTFOLIO IMAGE 1 -->
+					<!-- IMAGE 1 -->
 					<div class="col-md-4 ">
-				    	<div class="grid mask">
+				    	<div class="grid mask" data-toggle="modal" href="#myModal1">
 							<figure>
-								<img class="img-responsive sites" src="assets/img/sites/brookdale1.jpg" alt="" data-toggle="modal" href="#myModal1">
+								<img class="img-responsive" src="assets/img/sites/brookdale1.jpg" alt="">
 								<figcaption>
 								<h5>Brookdale Park</h5>
-								<!-- <div class="row container">
-									<div class="col-md-8">
-										<h5>Brookdale Park</h5>
-									</div>
-									<div class="col-md-4">
-										<a data-toggle="modal" href="#myModal1" class="btn bbtn-primary bbtn-lg">View</a>
-									</div>
-									
-								</div> -->
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-				    	</div><!-- /grid-mask -->
-					</div><!-- /col -->
-									
-							 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create a modal for each of your projects. -->
-							     
+								</figcaption>
+							</figure>
+				    	</div>
+					</div>
+
 						<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						    <div class="modal-dialog">
 						      <div class="modal-content">
@@ -169,9 +191,6 @@
 									  <div class="carousel-inner">
 									    <div class="item active">
 									     <img class="img-responsive gallery" src="assets/img/sites/brookdale1.jpg" alt="...">
-									      <!-- <div class="carousel-caption">
-									        One Image
-									      </div> -->
 									    </div>
 									    <div class="item" >
 									      <img class="img-responsive gallery" src="assets/img/sites/brookdale2.jpg" alt="...">
@@ -204,23 +223,22 @@
 						        <div class="modal-footer">
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        </div>
-						      </div><!-- /.modal-content -->
-						    </div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
+						      </div>
+						    </div>
+						</div>
 				
-					<!-- PORTFOLIO IMAGE 2 -->
+					<!-- IMAGE 2 -->
 					<div class="col-md-4">
-				    	<div class="grid mask">
+				    	<div class="grid mask" data-toggle="modal" href="#myModal2">
 							<figure>
-								<img class="img-responsive" src="assets/img/sites/garret1.jpg" alt="" data-toggle="modal" href="#myModal2">
+								<img class="img-responsive" src="assets/img/sites/garret1.jpg" alt="">
 								<figcaption >
 									<h5>Garret Mtn. Reservation</h5>
-									<!-- <a data-toggle="modal" href="#myModal2" class="btn btn-primary btn-lg">Take a Look</a> -->
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-				    	</div><!-- /grid-mask -->
-					</div><!-- /col -->
-					
+								</figcaption>
+							</figure>
+				    	</div>
+					</div>
+
 							<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
 							      <div class="modal-content">
@@ -261,21 +279,20 @@
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							        </div>
-							      </div><!-- /.modal-content -->
-							    </div><!-- /.modal-dialog -->
-							</div><!-- /.modal -->
+							      </div>
+							    </div>
+							</div>
 
-					<!-- PORTFOLIO IMAGE 3 -->
+					<!-- IMAGE 3 -->
 					<div class="col-md-4">
-				    	<div class="grid mask">
+				    	<div class="grid mask" data-toggle="modal" href="#myModal3">
 							<figure>
-								<img class="img-responsive" src="assets/img/sites/eaglerock1.jpg" alt="" data-toggle="modal" href="#myModal3">
+								<img class="img-responsive" src="assets/img/sites/eaglerock1.jpg" alt="">
 								<figcaption >
 									<h5>Eagle Rock Reservation</h5>
-									<!-- <a data-toggle="modal" href="#myModal3" class="btn btn-primary btn-lg">Take a Look</a> -->
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-				    	</div><!-- /grid-mask -->
+								</figcaption>
+							</figure>
+				    	</div>
 
 				    		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
@@ -320,33 +337,30 @@
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							        </div>
-							      </div><!-- /.modal-content -->
-							    </div><!-- /.modal-dialog -->
-							</div><!-- /.modal -->
+							      </div>
+							    </div>
+							</div>
 
-					</div><!-- /col -->
-				</div><!-- /row -->
+					</div>
+				</div>
 				<br>
 				<br>
-			</div><!-- /row -->
+			</div>
 
 			<div class="container gallery2">
 				<div class="row">	
-						<!-- PORTFOLIO IMAGE 4 -->
+						<!-- IMAGE 4 -->
 						<div class="col-md-4 ">
-					    	<div class="grid mask">
+					    	<div class="grid mask" data-toggle="modal" href="#myModal4">
 								<figure>
-									<img class="img-responsive sites" src="assets/img/sites/mills2.jpg" alt="" data-toggle="modal" href="#myModal4">
+									<img class="img-responsive" src="assets/img/sites/mills2.jpg" alt="">
 									<figcaption >
 										<h5>Mills Reservation</h5>
-										<!-- <a data-toggle="modal" href="#myModal4" class="btn btn-primary btn-lg">Take a Look</a> -->
-									</figcaption><!-- /figcaption -->
-								</figure><!-- /figure -->
-					    	</div><!-- /grid-mask -->
-						</div><!-- /col -->
-										
-								 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create a modal for each of your projects. -->
-								     
+									</figcaption>
+								</figure>
+					    	</div>
+						</div>
+
 							<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
 							      <div class="modal-content">
@@ -387,22 +401,21 @@
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							        </div>
-							      </div><!-- /.modal-content -->
-							    </div><!-- /.modal-dialog -->
-							</div><!-- /.modal -->
+							      </div>
+							    </div>
+							</div>
 					
-						<!-- PORTFOLIO IMAGE 5 -->
+						<!-- IMAGE 5 -->
 						<div class="col-md-4">
-					    	<div class="grid mask">
+					    	<div class="grid mask" data-toggle="modal" href="#myModal5">
 								<figure>
-									<img class="img-responsive" src="assets/img/sites/hilltop1.jpg" alt="" data-toggle="modal" href="#myModal5">
-									<figcaption >
+									<img class="img-responsive" src="assets/img/sites/hilltop1.jpg" alt="">
+									<figcaption>
 										<h5>Hilltop Reservation</h5>
-										<!-- <a data-toggle="modal" href="#myModal5" class="btn btn-primary btn-lg">Take a Look</a> -->
-									</figcaption><!-- /figcaption -->
-								</figure><!-- /figure -->
-					    	</div><!-- /grid-mask -->
-						</div><!-- /col -->
+									</figcaption>
+								</figure>
+					    	</div>
+						</div>
 						
 								<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								    <div class="modal-dialog">
@@ -444,22 +457,21 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div><!-- /.modal-content -->
-								    </div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
+								      </div>
+								    </div>
+								</div>
 
-						<!-- PORTFOLIO IMAGE 6 -->
+						<!-- IMAGE 6 -->
 						<div class="col-md-4">
-					    	<div class="grid mask">
+					    	<div class="grid mask" data-toggle="modal" href="#myModal6">
 								<figure>
-									<img class="img-responsive" src="assets/img/sites/westessex1.jpg" alt="" data-toggle="modal" href="#myModal6">
+									<img class="img-responsive" src="assets/img/sites/westessex1.jpg" alt="">
 									<figcaption >
 										<h5>West Essex Park</h5>
-										<!-- <a data-toggle="modal" href="#myModal6" class="btn btn-primary btn-lg">Take a Look</a> -->
-									</figcaption><!-- /figcaption -->
-								</figure><!-- /figure -->
-					    	</div><!-- /grid-mask -->
-						</div><!-- /col -->
+									</figcaption>
+								</figure>
+					    	</div>
+						</div>
 
 							<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								    <div class="modal-dialog">
@@ -501,15 +513,15 @@
 								        <div class="modal-footer">
 								          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								        </div>
-								      </div><!-- /.modal-content -->
-								    </div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->
-					</div><!-- /row -->
+								      </div>
+								    </div>
+								</div>
+					</div>
 					<br>
 					<br>
-				</div><!-- /row -->
+				</div>
 			</div>
-		</div><!-- /container -->
+		</div>
 	</div>
 	<!-- ==== SITES/LOCATIONS ==== -->
 
@@ -518,198 +530,342 @@
 	<div class="white-bg">
 		<div class="containser" id="blog" name="blog"><br><br><br>
 			<div class="row">
-				<!-- <br> -->
-				<!-- <h1 class="centered">WE ARE ADVENTURERS</h1> -->
-				<h1 class="centered">OUR STORY</h1>
+				<h1 class="center">OUR STORY</h1>
 				<hr>
 				<br>
 				<br>
-			</div><!-- /row -->
-			
+			</div>
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 blog-bg">
-					<div class="col-lg-4 centered">
+					<div class="col-lg-4 center">
 						<br>
 						<p><img id="pic1" class="img img-circle" src="assets/img/team/grace.jpg" width="100px" height="100px"></p>
 						<h4>Grace Anne Vigilia</h4>
 						<h5>Age 23</h5>
-						<!-- <br> -->
 						<p><img class="img img-circle" src="assets/img/team/hanni.jpg" width="100px" height="100px"></p>
 						<h4>Hanni Abukhater</h4>
 						<h5>Age 24</h5>
 					</div>
 					<div class="col-lg-8 blog-content">
-						<!-- <div class="container"> -->
-						
 						<h2>We Are Adventurers</h2>
-						<!-- <h2>We're All Adventurers</h2> -->
-						<!-- <p>Since birth, our mutual interests have been adventure and our furry companions. We always spent as much time as we possibly could nurturing animals with love and ourselves with adventure. We never were the type of people who could be satisfied with the same experience over and over again. We need a change of scenery and a little more adventure than what we have grown accustomed to. The same goes for your furry friend. An appreciation for adventure is not something only people can possess, animals have it too! </p> -->
-
-						<p>Ever since we have met, our mutual love for animals and adventure have brought us closer together. We always spend as much time as we possible nurturing animals with love and ourselves with adventure. We never were the type of people who could be satisfied with the same experience over and over again. We need a change of scenery and a little more adventure than what we have grown accustomed to.</p>
-
-						<p>The same goes for your furry friend. An appreciation for adventure is not something only people can possess, animals have it too! This is why we started Furry Adventures.
+						<p>Ever since we met, a mutual love for animals and adventure have brought us closer together. Our time is spent showering animals with unconditional love and satisfying our hunger for adventure. We never were the type to be satisfied by the same mundane experiences over and over again. There is a burning desire within us to find that extra excitement, that change of scenery, and that extra dose of adventure. </p>
+						<p>And our furry friends are no different. An appreciation for adventure is not something only humans can possess, animals have it too! This is why we started Furry Adventures.
 						</p>
-						<!-- <p><a href="#" class="icon icon-link"> Read More</a></p> -->
-						<br>
-						<!-- </div> -->
-					</div>
-				</div><!-- /col -->
-
-				<!-- <div class="col-lg-6 blog-bg">
-					<div class="col-lg-4 centered">
-					<br>
-						<p><img class="img" src="assets/img/icons/couple1.png" width="100px" height="100px"></p>
-						<h4>Met</h4>
-						<h5>June 1st, 2013</h5>
-						
-						<p><img class="img" src="assets/img/icons/love2md.png" width="100px" height="100px"></p>
-						<h4>Together</h4>
-						<h5>Ever Since</h5>
-					</div>
-					<div class="col-lg-8 blog-content">
-						<h2>A Beautiful Story</h2>
-						<p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-						<p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-						
 						<br>
 					</div>
-				</div> --><!-- /col -->
-				
-			</div><!-- /row -->
+			</div>
 			<br>
 			<br>
 		</div>
 	</div>
 	<!-- ==== ABOUT ==== -->
 
-
-	<!-- ==== PRICING ==== -->
+	
+	<!-- ==== SERVICES ==== -->
 	<div class="white-bg">
 		<div class="container" id="services" name="services"><br><br><br>
 			<div class="row">
-				<h1 class="centered">MEMBERSHIP PLANS</h1>
+				<h1 class="center">SERVICES</h1>
 				<hr>
-				<br>
-				<div class="container">
+				<br><br>
+				</div>
 					<div class="row">
-		    			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<!-- PRICE ITEM -->
-							<div class="panel price panel-red">
-								<div class="panel-heading  text-center">
-								<h3>PRO PLAN</h3>
-								</div>
-								<div class="panel-body text-center">
-									<p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
-								</div>
-								<ul class="list-group list-group-flush text-center">
-									<li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
-									<li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
-									<li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
-								</ul>
-								<div class="panel-footer">
-									<a class="btn btn-lg btn-block" href="#">Buy Now</a>
-								</div>
-							</div>
-							<!-- /PRICE ITEM -->
-						</div>
 
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<!-- PRICE ITEM -->
-							<div class="panel price panel-blue">
-								<div class="panel-heading arrow_box text-center">
-								<h3>DEV PLAN</h3>
-								</div>
-								<div class="panel-body text-center">
-									<p class="lead" style="font-size:40px"><strong>$20 / month</strong></p>
-								</div>
-								<ul class="list-group list-group-flush text-center">
-									<li class="list-group-item"><i class="icon-ok text-info"></i> Personal use</li>
-									<li class="list-group-item"><i class="icon-ok text-info"></i> Unlimited projects</li>
-									<li class="list-group-item"><i class="icon-ok text-info"></i> 27/7 support</li>
-								</ul>
-								<div class="panel-footer">
-									<a class="btn btn-lg btn-block" href="#">Buy Now</a>
-								</div>
-							</div>
-							<!-- /PRICE ITEM -->
-						</div>
 
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<!-- PRICE ITEM -->
-							<div class="panel price panel-green">
-								<div class="panel-heading arrow_box text-center">
-								<h3>FREE PLAN</h3>
+		    			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="panel pointer" data-toggle="modal" href="#price1">
+								<div class="panel-top center">
+									<h3>Dog Walks</h3>
 								</div>
-								<div class="panel-body text-center">
-									<p class="lead" style="font-size:40px"><strong>$0 / month</strong></p>
-								</div>
-								<ul class="list-group list-group-flush text-center">
-									<li class="list-group-item"><i class="icon-ok text-success"></i> Personal use</li>
-									<li class="list-group-item"><i class="icon-ok text-success"></i> Unlimited projects</li>
-									<li class="list-group-item"><i class="icon-ok text-success"></i> 27/7 support</li>
-								</ul>
-								<div class="panel-footer">
-									<a class="btn btn-lg btn-block" href="#">Buy Now</a>
+								<div class="panel-bottom">
+									<a class="btn btn-lg btn-block">More Info</a>
 								</div>
 							</div>
-							<!-- /PRICE ITEM -->
 						</div>
+							<div class="modal fade" id="price1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Dog Walks</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>- This is your average dog walking service. We  will come to your home and walk your dog around the vicinity of your property. <br>
+							          - Dogs over 60lbs will be walked separately.</p>
+							          <b>Complimentary </b><br>
+							          <p>Paw cleaning upon return, treats(if allowed), love and kisses, and tummy rubs!</p>
+							          <b>Service Hours </b><br>
+							          <p>Sat - Sun:  8am - 10pm</p>
+							          <p style="margin-top: -20px;"><b><a href="#calender" >(Check Availability)</a></b></p>
+							            <table>
+							            	<tr>
+							            		<th> Options </th>
+							            		<th> Rate </th>
+							            	</tr>
+											<tr> 
+												<td> 15min </td>
+												<td> $15 </td>
+											</tr>
+											<tr> 
+												<td> 15min x 10* </td>
+												<td> $12 </td>
+											</tr>
+											<tr>
+												<td> 30min </td> 
+												<td> $25 </td>
+											</tr>
+											<tr>
+												<td> 30min x 10* </td> 
+												<td> $22 </td>
+											</tr>
+											<tr>
+												<td> + 1 Dog </td> 
+												<td> + $5 </td>
+											</tr>
+											<tr>
+												<td> + 2 Dogs </td> 
+												<td> + $8 </td>
+											</tr>
+											
+										</table>
+								      <p>*Must be used within 30 days of purchase.</p>
+								      <p><b><a href="#contact" >Contact us</a></b></p>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							    </div>
+							</div>
 
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<!-- PRICE ITEM -->
-							<div class="panel price panel-grey">
-								<div class="panel-heading arrow_box text-center">
-								<h3>FREE PLAN</h3>
+
+
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="panel pointer" data-toggle="modal" href="#price2">
+								<div class="panel-top center">
+									<h3>Adventure Walks</h3>
 								</div>
-								<div class="panel-body text-center">
-									<p class="lead" style="font-size:40px"><strong>$0 / month</strong></p>
-								</div>
-								<ul class="list-group list-group-flush text-center">
-									<li class="list-group-item"><i class="icon-ok text-success"></i> Personal use</li>
-									<li class="list-group-item"><i class="icon-ok text-success"></i> Unlimited projects</li>
-									<li class="list-group-item"><i class="icon-ok text-success"></i> 27/7 support</li>
-								</ul>
-								<div class="panel-footer">
-									<a class="btn btn-lg btn-block" href="#">Buy Now</a>
+								<div class="panel-bottom">
+									<a class="btn btn-lg btn-block">More Info</a>
 								</div>
 							</div>
-							<!-- /PRICE ITEM -->
 						</div>
-					</div>
-				</div>
-			</div><!-- row -->
+							<div class="modal fade" id="price2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Adventure Walks</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>- This is your average dog walking service. We  will come to your home and walk your dog around the vicinity of your property. <br>
+							          - Dogs over 60lbs will be walked separately. </p>
+							          <b>Complimentary </b><br>
+							          <p>Paw cleaning upon return, treats(if allowed), excitement, love and kisses, and tummy rubs!</p>
+							          <b>Service Hours </b><br>
+							          <p>Sat - Sun:  8am - 9pm</p>
+							          <p style="margin-top: -20px;"><b><a href="#calender" >(Check Availability)</a></b></p>
+							            <table>
+							            	<tr>
+							            		<th> Options </th>
+							            		<th> Rate </th>
+							            	</tr>
+											<tr> 
+												<td> 15min </td>
+												<td> $15 </td>
+											</tr>
+											<tr> 
+												<td> 15min x 10* </td>
+												<td> $12 </td>
+											</tr>
+											<tr>
+												<td> 30min </td> 
+												<td> $25 </td>
+											</tr>
+											<tr>
+												<td> 30min x 10* </td> 
+												<td> $22 </td>
+											</tr>
+											<tr>
+												<td> + 1 Dog </td> 
+												<td> + $5 </td>
+											</tr>
+											<tr>
+												<td> + 2 Dogs </td> 
+												<td> + $8 </td>
+											</tr>
+											
+										</table>
+								      <p>*Ask about multi-dog or extended service discounts.</p>
+								      <p><b><a href="#contact" >Contact us</a></b></p>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							    </div>
+							</div>
+
+
+
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="panel pointer" data-toggle="modal" href="#price3">
+								<div class="panel-top center">
+									<h3>Adventure Weekends</h3>
+								</div>
+								<div class="panel-bottom">
+									<a class="btn btn-lg btn-block">More Info</a>
+								</div>
+							</div>
+						</div>
+							<div class="modal fade" id="price3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Adventure Weekends</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>- This is your average dog walking service. We  will come to your home and walk your dog around the vicinity of your property. <br>
+							          - Dogs over 60lbs will be walked separately. </p>
+							          <b>Complimentary </b><br>
+							          <p>Paw cleaning upon return, treats(if allowed), love and kisses, and tummy rubs!</p>
+							          <b>Service Hours </b><br>
+							          <p>Sat - Sun:  8am - 10pm</p>
+							          <p style="margin-top: -20px;"><b><a href="#calender" >(Check Availability)</a></b></p>
+							            <table>
+							            	<tr>
+							            		<th> Options </th>
+							            		<th> Rate </th>
+							            	</tr>
+											<tr> 
+												<td> 15min </td>
+												<td> $15 </td>
+											</tr>
+											<tr> 
+												<td> 15min x 10* </td>
+												<td> $12 </td>
+											</tr>
+											<tr>
+												<td> 30min </td> 
+												<td> $25 </td>
+											</tr>
+											<tr>
+												<td> 30min x 10* </td> 
+												<td> $22 </td>
+											</tr>
+											<tr>
+												<td> + 1 Dog </td> 
+												<td> + $5 </td>
+											</tr>
+											<tr>
+												<td> + 2 Dogs </td> 
+												<td> + $8 </td>
+											</tr>
+											
+										</table>
+								      <p>*Ask about extended service discounts.</p>
+								      <p><b><a href="#contact" >Contact us</a></b></p>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							    </div>
+							</div>
+
+
+
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="panel pointer" data-toggle="modal" href="#price4">
+								<div class="panel-top center">
+									<h3>House Sitting</h3>
+								</div>
+								<div class="panel-bottom">
+									<a class="btn btn-lg btn-block">More Info</a>
+								</div>
+							</div>
+						</div>
+							<div class="modal fade" id="price4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">House Sitting</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>- This is your average dog walking service. We  will come to your home and walk your dog around the vicinity of your property. <br>
+							          - Dogs over 60lbs will be walked separately. </p>
+							          <b>Complimentary </b><br>
+							          <p>Food and water change, 2 walks, treats(if allowed), litter change(if cat), mail retrieval, curtain/light rotation, and affection in the comfort of your home.</p>
+							          <b>Service Hours </b><br>
+							          <p>Sat - Sun:  All day and night</p>
+							          <p style="margin-top: -20px;"><b><a href="#calender" >(Check Availability)</a></b></p>
+							            <table>
+							            	<tr>
+							            		<th> Options </th>
+							            		<th> Rate </th>
+							            	</tr>
+											<tr> 
+												<td> 15min </td>
+												<td> $15 </td>
+											</tr>
+											<tr> 
+												<td> 15min x 10* </td>
+												<td> $12 </td>
+											</tr>
+											<tr>
+												<td> 30min </td> 
+												<td> $25 </td>
+											</tr>
+											<tr>
+												<td> 30min x 10* </td> 
+												<td> $22 </td>
+											</tr>
+											<tr>
+												<td> + 1 Dog </td> 
+												<td> + $5 </td>
+											</tr>
+											<tr>
+												<td> + 2 Dogs </td> 
+												<td> + $8 </td>
+											</tr>
+											
+										</table>
+								      <p>*Ask about multi-dog or extended service discounts.</p>
+								      <p><b><a href="#contact" >Contact us</a></b></p>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							    </div>
+							</div>
+
+					</div><br>
 			<div class="row">
-				<!-- <br> -->
 				<div class="col-lg-offset-2 col-lg-8">
-				<p class="asterisk centered">*Payments can also be made in cash upon arrival.</p>
-				</div><!-- col -->
-			</div><!-- row -->
-			<!-- <div class="row">
-				<hr>
-				<br>
-				<div class="col-lg-offset-2 col-lg-8">
+				<p class="asterisk center">*Payments can be made through Paypal or in cash upon arrival.</p>
 				</div>
-			</div> -->
-		</div><!-- container -->
+			</div>
+		</div>
 	</div>
-	<!-- ==== PRICING ==== -->
-		
+	<!-- ==== SERVICES ==== -->
+
 
 	<!-- ==== CALENDER ==== -->
 	<div class="white-bg">
-		<div id="calender"><br><br><br><br>
+		<div id="calender"><br>
 			<div id="greywrap">
 				<div class="container">
 					<div class="row">
-						<!-- <br> -->
-						<h1 class="centered">CALENDER</h1>
+						<h1 class="center">CALENDER</h1>
 						<hr>
 						<br>
 						<br>
-					</div><!-- /row -->
+					</div>
 					<div class="row">
-						<div class="col-lg-8 centered">
-							<!-- <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%2321916f&amp;src=rdsldkspg4077udo1m7rha1lig%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style=" border:solid 2px #777; border-radius:7px;" width="75%" height="400px" frameborder="0" scrolling="no"></iframe> -->
+						<div class="col-lg-8 center">
 							<iframe id="calender-frame" src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%2374CFAE&amp;src=rdsldkspg4077udo1m7rha1lig%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style=" border:solid 2px #777; border-radius:7px;"  frameborder="0" scrolling="no"></iframe>
 						</div>
 						<div class="col-lg-4">
@@ -717,7 +873,7 @@
 							<p>Does your pet have a yearning to be in the wild and explore? Of course! Contact us to schedule an adventure! (Check the calender for availability.)</p>
 							<p><a href="#contact" class="btn button">Contact Us</a></p>
 						</div>					
-					</div><!-- row -->
+					</div>
 				</div>
 				<br>
 				<br>
@@ -728,20 +884,17 @@
 
 
 	<!-- ==== CONTACT ==== -->
-	<section id="contact" class="white-bg" ><br><br><br><br>
+	<section id="contact" class="white-bg">
+		<br><br><br><br>
 		<div class="row">
-			<!-- <br> -->
-			<h1 class="centered">CONTACT US</h1>
+			<h1 class="center">CONTACT US</h1>
 			<hr>
 			<br>
 			<br>
-		</div><!-- /row -->
-	  <!-- <div class="overlay"> -->
+		</div>
 	    <div class="container">
-		  <!-- <h1 class="section-title centered"><span>Contact</span> Us</h1> -->
 		  <div class="row">
 			<div class="contact-form">
-			  <!-- <form role="form" method="post"> -->
 			  <form action="https://formspree.io/info.furryadventures@gmail.com" method="post">
 				<div class="col-sm-6 col-md-6 col-xs-10">
 					<div class="controls">
@@ -771,19 +924,9 @@
 			    <input type="hidden" name="_cc" value="hanniabu@gmail.com" />
 			    <input type="text" name="_gotcha" style="display:none" />
 			  </form>
-				<!-- <form action="https://formspree.io/info.furryadventures@gmail.com" method="post">
-				    <input type="text" name="name" placeholder="name">
-				    <input type="email" name="_replyto" placeholder="email">
-				    <input type="hidden" name="_next" value="https://formspree.io/thanks" />
-				    <input type="hidden" name="_subject" value="Contact Form Submission" />
-				    <input type="hidden" name="_cc" value="hanniabu@gmail.com" />
-				    <input type="text" name="_gotcha" style="display:none" />
-				    <input type="submit" value="Send">
-				</form> -->
 			</div>
 		  </div>
-		</div>	
-	  <!-- </div> -->
+		</div>
 	</section>
 	<!-- ==== CONTACT ==== -->
 
@@ -808,7 +951,7 @@
 							<span>Glen Ridge</span><br>
 							<span>Montclair</span><br>
 						</p>
-					</div><!-- col -->
+					</div>
 					<div class="col-md-4">
 						<p>
 							<span>North Caldwell</span><br>
@@ -816,7 +959,7 @@
 							<span>Upper Montclair</span><br>
 							<span>Verona</span><br>
 						</p>
-					</div><!-- col -->
+					</div>
 					<div class="col-md-4">
 						<p>
 							<span>Wayne</span><br>
@@ -824,9 +967,9 @@
 							<span>West Orange</span><br>
 							<span>Woodland Park</span><br>
 						</p>
-					</div><!-- col -->
+					</div>
 				</div>
-			</div><!-- row -->
+			</div>
 			<hr>
 			<h4>Created by <a href="https://hanniabu.com">Hanni Abu</a> - Copyright 2015</h4>
 			<div id="credit" >Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
@@ -844,4 +987,28 @@
 	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
 	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+	<script type="text/javascript">
+		$(function () {
+		    var isIE = window.ActiveXObject || "ActiveXObject" in window;
+		    if (isIE) {
+		        $('.modal').removeClass('fade');
+		    }
+		});
+
+		$(document).on('click','.navbar-collapse.in',function(e) {
+		    if( $(e.target).is('a') ) {
+		        $(this).collapse('hide');
+		    }
+		});
+
+		$(window).bind('scroll', function() {
+		    if($(window).scrollTop() >= $('#contact').offset().top) {
+		      $('.modal').modal('hide');
+		    }
+		    if($(window).scrollTop() >= $('#calender').offset().top) {
+		      $('.modal').modal('hide');
+		    }
+		});
+
+	</script>
   </body>
