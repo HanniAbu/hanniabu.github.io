@@ -44,9 +44,10 @@ img {
 .navbar-toggle {
     background-color: #74CFAE;
 }
+.navbar-inverse .navbar-header .navbar-brand:focus,
 .navbar-inverse .navbar-header .navbar-brand:hover {
     color: #74CFAE;
-} 
+}
 .header-icons {
     height: 150px;
     width: auto;
@@ -217,7 +218,7 @@ body {
 	background: #74CFAE;
 }
 .modal-header h4 {
-	color: white;
+	color: #fff;
 }
 .modal-footer {
     background: #74CFAE;
@@ -234,15 +235,10 @@ body {
 	background-color: #16a085;
 	color: black;
 }
-/*.navbar-main .navbar-inverse .navbar-collapse .navbar-nav li:hover,
-.navbar-main .navbar-inverse .navbar-collapse .nav li:hover {
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
     color: #74CFAE;
 }
-.navbar-nav > li > a:hover, 
-.navbar-nav > li > a:focus {
-    background-color: #FFFF00;
-    color: #FFC0CB;
-}*/
 hr {
     position: relative;
     border: none;
