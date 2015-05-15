@@ -353,6 +353,9 @@ img {
 #contact {
     background: #fff;
 }
+#contact::-ms-backdrop {
+    background-color: #000;
+}
 #contact-title,
 #contact .overlay h1 .section-title .span {
     color: #103643;

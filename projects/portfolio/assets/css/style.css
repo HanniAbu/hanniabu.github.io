@@ -46,6 +46,7 @@ hr {
 
 
 #top-view {
+	position: fixed;
 	width: 100%;
 	height: 101vh;
 	text-align: center;
@@ -57,6 +58,7 @@ hr {
 	background-size: cover;
 	/*background-size: auto 100%;*/
 	border-bottom: 1px solid #aaa;
+	z-index: 0;
 }
 #name {
 	position: relative;
@@ -92,6 +94,7 @@ hr {
 	width: 100%;
 	text-align: left;
 	background: #eee;
+	z-index: 1;
 }
 .project {
 	font-size: 22px;
