@@ -75,19 +75,19 @@ function changeCopyButtonStyle() {
     copyButton.style.color = '#50DE7D';
     copyButton.style.textShadow = 'none';
     // copyButton.style.backgroundColor = '#000';
-}
+};
 function resetCopyButtonStyle() {
     copyButton.style.color = '#fff';
     copyButton.style.textShadow = ' 0 1px 2px rgba(0, 0, 0, 0.25)';
     // copyButton.style.backgroundColor = '#50DE7D';
-}
+};
 function resetCopyButtonClicks() {
     copyButtonClicks = 0;
 };
 function flashScreen() {
     $("body").animate({backgroundColor: "#ccc"}, 40).delay(10);
     $("body").animate({backgroundColor: "#fff"}, 40);
-}
+};
 function copyButtonNewPosition() {
     // Get viewport dimensions (remove the dimension of the div)
     var h = $(window).height() - 25;
@@ -95,7 +95,11 @@ function copyButtonNewPosition() {
     var nh = Math.floor(Math.random() * h - 450);
     var nw = Math.floor(Math.random() * w - 180);
     return [nh,nw]; 
-}
+};
+function shuffleCopyButton() {
+    $("#copy").animate({"left": "-43%"}, 1200)
+              .animate({"left": "43%"}, 1200, shuffleCopyButton);
+};
 function animateCopyButton() {
     if (time.innerHTML == '0:00') {
            return;
@@ -104,7 +108,7 @@ function animateCopyButton() {
     $(copyButton).animate({ top: newq[0], left: newq[1] }, function(){
       animateCopyButton();  
     });
-}
+};
 
 
 function countdown() {
@@ -149,12 +153,10 @@ function clickReset () {
     resetCopyButtonSize();
     resetCopyButtonClicks();
     resetCopyButtonStyle();
-    // $(topScore).animate({color: "#000"}, 4000);
 };
 function clickCopy() {
     pasteValue.innerHTML = score.innerHTML;
     copyButtonClicks += 1;
-    console.log(copyButtonClicks);
     copyButtonEffects();
 };
 function clickPaste() {
@@ -177,8 +179,6 @@ function checkIfHighScore() {
         // document.cookie = "document.getElementById('highscore').innerHTML = Number(counter); expires=Fri, 31 Dec 9999 23:59:59 GMT;"
         highscore.innerHTML = Number(score.innerHTML);
         showHighscoreMessage();
-        // $(highscore).animate({color: "#000"}, 'fast');
-        // $(highscore).animate({color: "#000"}, 5000);
         //adds commas to highscore. took out for now b/c turns number into string
         // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
     };
@@ -197,6 +197,15 @@ function copyButtonEffects() {
             shrinkCopyButtonSmaller();
             return;
         case 5:
+            shuffleCopyButton();
+            return;
+        case 6:
+            shuffleCopyButton();
+            return;
+        case 7:
+            shuffleCopyButton();
+            return;
+        case 8:
             animateCopyButton();
             return;
         default:
