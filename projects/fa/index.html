@@ -952,13 +952,15 @@
 				<div class="col-sm-6 col-md-6">
 					<textarea class="form-control" name="message" rows="7" placeholder="Message"></textarea>
 				</div>
-				<input type="hidden" name="_next" value="https://formspree.io/thanks" />
-			    <!-- <input type="hidden" name="_subject" value="Contact Form Submission" />
-			    <input type="hidden" name="_cc" value="hanniabu@gmail.com" />
-			    <input type="text" name="_gotcha" style="display:none" /> -->
 				<div class="col-sm-6 col-md-12">
-					<p><a type="submit" id="submit" class="btn button" value="Send">Send</a></p>
+				<!-- TRy making a button instead of p>a -->
+					<!-- <p><a type="submit" id="submit" class="btn button" value="Send">Send</a></p> -->
+					<button type="submit" id="submit" class="btn" value="Send">Send</button>
 				</div>
+				<input type="hidden" name="_next" value="https://formspree.io/thanks" />
+			    <input type="hidden" name="_subject" value="Contact Form Submission" />
+			    <!-- <input type="hidden" name="_cc" value="hanniabu@gmail.com" /> -->
+			    <input type="text" name="_gotcha" style="display:none" />
 			  </form>
 			</div>
 		  </div>
