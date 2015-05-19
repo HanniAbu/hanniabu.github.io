@@ -23,17 +23,22 @@ html {
     height: 100%;
 }
 html,
+div,
 button,
 input,
 select,
 textarea {
     color: #222;
+    padding: 0;
+    margin: 0;
 }
 body {
     height: 100%;
     font-family: 'Lato';
     font-size: 16px;
     color: #555;
+    padding: 0;
+    margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
@@ -192,8 +197,8 @@ hr {
   top: 0;
   width: 80%;
   margin: 5px;
-  /*margin-left: 50%;
-  -webkit-transform: translateX(-50%);
+  /*margin-left: 50%;*/
+ /* -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   -ms-transform: translateX(-50%);*/
 }

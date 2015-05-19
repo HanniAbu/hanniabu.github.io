@@ -74,12 +74,10 @@ function resetCopyButtonSize() {
 function changeCopyButtonStyle() {
     copyButton.style.color = '#50DE7D';
     copyButton.style.textShadow = 'none';
-    // copyButton.style.backgroundColor = '#000';
 };
 function resetCopyButtonStyle() {
     copyButton.style.color = '#fff';
     copyButton.style.textShadow = ' 0 1px 2px rgba(0, 0, 0, 0.25)';
-    // copyButton.style.backgroundColor = '#50DE7D';
 };
 function resetCopyButtonClicks() {
     copyButtonClicks = 0;
@@ -96,10 +94,41 @@ function copyButtonNewPosition() {
     var nw = Math.floor(Math.random() * w - 180);
     return [nh,nw]; 
 };
-function shuffleCopyButton() {
-    $("#copy").animate({"left": "-43%"}, 1200)
-              .animate({"left": "43%"}, 1200, shuffleCopyButton);
+
+
+
+
+
+
+
+function shuffleCopyButtonSlow() {
+    if (time.innerHTML == '0:00' || time.innerHTML == '0:15') {
+        console.log('initiate postition1 reset');
+        resetCopyButtonPosition();
+    } else {
+        console.log('shuffle initiated');
+        $("#copy").animate({"left": "-43%"}, 2000)
+        if (time.innerHTML == '0:00' || time.innerHTML == '0:15') {
+            console.log('initiate postition2 reset');
+            resetCopyButtonPosition();
+        } else {
+            $("#copy").animate({"left": "43%"}, 2000);
+            if (time.innerHTML == '0:00' || time.innerHTML == '0:15') {
+                console.log('initiate postition3 reset');
+                resetCopyButtonPosition();
+            } else {
+                shuffleCopyButtonSlow;
+            }
+        }
+    }
 };
+
+
+
+
+
+
+
 function animateCopyButton() {
     if (time.innerHTML == '0:00') {
            return;
@@ -108,6 +137,13 @@ function animateCopyButton() {
     $(copyButton).animate({ top: newq[0], left: newq[1] }, function(){
       animateCopyButton();  
     });
+};
+function resetCopyButtonPosition() {
+    // $("#copy").animate({"left": "0"}, 50);
+    console.log(time.innerHTML);
+    $("#copy").stop();
+    // $('#copy').animate({'top': originTop,'left' : originLeft});
+    // $('#copy').animate({'top': 0,'left' : 0});
 };
 
 
@@ -140,7 +176,7 @@ function clickStart () {
 function clickReset () {
     time.innerHTML = "0:15";
     clearInterval(interval);
-    seconds = 9;
+    seconds = 14;
     disablePaste();
     disableCopy();
     score.innerHTML = '1';
@@ -150,8 +186,9 @@ function clickReset () {
     showStart();
     hideHighscoreMessage();
     hideTimesUpMessage();
-    resetCopyButtonSize();
     resetCopyButtonClicks();
+    resetCopyButtonPosition();
+    resetCopyButtonSize();
     resetCopyButtonStyle();
 };
 function clickCopy() {
@@ -169,9 +206,6 @@ function gameOver() {
     time.innerHTML = "0:00";
     showTimesUpMessage();
     flashScoreboard();
-    resetCopyButtonClicks();
-    // resetCopyButtonSize();
-    // showCopyButtonText();
 };
 function checkIfHighScore() {
     if (Number(score.innerHTML) > Number(highscore.innerHTML)) {
@@ -197,18 +231,16 @@ function copyButtonEffects() {
             shrinkCopyButtonSmaller();
             return;
         case 5:
-            shuffleCopyButton();
+            shuffleCopyButtonSlow();
             return;
-        case 6:
-            shuffleCopyButton();
-            return;
-        case 7:
-            shuffleCopyButton();
-            return;
-        case 8:
-            animateCopyButton();
-            return;
+        // case 6:
+        //     shuffleCopyButtonFast();
+        //     return;
+        // case 7:
+        //     animateCopyButton();
+        //     return;
         default:
+            shuffleCopyButtonSlow();
             return;
     };
 };
