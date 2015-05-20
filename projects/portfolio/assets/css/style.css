@@ -5,7 +5,6 @@ html {
 }
 
 body {
-    background: #fff;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -15,6 +14,7 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     overflow-x: hidden;
+    /*z-index: -1;*/
 }
 hr {
 	padding: 0;
@@ -25,11 +25,9 @@ hr {
 	text-align: center;
 	display: inline-block;
 	width: 120px;
-	/*font-size: .9em;*/
 	font-size: 12px;
 	padding: 12px 20px;
 	color: #fff;
-	/*background: #000;*/
 	background-color: rgba(0, 0, 0, 0.75);
 	border: 0;
 	margin-top: 40px;
@@ -46,19 +44,60 @@ hr {
 
 
 #top-view {
-	position: fixed;
+	/*position: fixed;*/
 	width: 100%;
 	height: 101vh;
 	text-align: center;
-	/*background: #fff;*/
-	/*background: url("../img/14.jpg") no-repeat center center;*/
-	/*background: url("../img/road1.jpg") no-repeat center center;*/
-	/*   13/14  */
-	background: url("../img/14.jpg") no-repeat center center;
-	background-size: cover;
-	/*background-size: auto 100%;*/
 	border-bottom: 1px solid #aaa;
-	z-index: 0;
+}
+.wrapper {
+	position: absolute;
+	width: 100%;
+	height: 101vh;
+	background-color: rgba(28,255,195,0.5);
+	/*background-color: rgba(0,0,0,.5);*/
+	/*z-index: 0;*/
+}
+#bg1 {
+	background: url("http://media.giphy.com/media/3rgXBLTr8N4TuoLFGE/giphy.gif") no-repeat center center;
+	/*background: url("../img/g3.jpg") no-repeat center center;*/
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: .9;
+	/*background-color: rgba(1,137,105,0.8);*/
+    z-index: 3;
+}
+#bg2 {
+	background: url("http://media.giphy.com/media/3rgXBLTr8N4TuoLFGE/giphy.gif") no-repeat center center;
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: .5;
+    z-index: 2;
+}
+
+
+
+#header {
+	top: 28vh;
+	text-align: center;
+	position: relative;
+	/*background-color: rgba(0,0,0,0.3);*/
+}
+.text-bg {
+	/*background-color: rgba(0,0,0,0.75);*/
+	/*margin: 0 10%;*/
 }
 #name {
 	position: relative;
@@ -66,27 +105,28 @@ hr {
 	font-weight: 800;
 	font-style: oblique;
 	line-height: 63px;
-	/*vvv with buttons vvv*/
-	/*padding-top: 19vh; */
-	/*vvv with no buttons vvv */
-	padding-top: 28vh;
 	color: #fff;
 	text-shadow: 1px 1px #000;
 	/*color: #000;*/
 	/*text-shadow: 1px 1px #fff;*/
+	/*background-color: rgba(0,0,0,0.5);*/
+	z-index: 5;
 }
 #title {
 	position: relative;
 	font-size: 16px;
-	margin-top: 7px;
+	padding-top: 7px;
 	color: #fff;
 	text-shadow: 1px 1px #000;
+	/*background-color: rgba(0,0,0,0.5);*/
+	z-index: 5;
 }
 #view-projects {
 	margin-top: 8vh;
-	/*width: 140px;*/
 	width: 190px;
+	z-index: 5;
 }
+
 
 
 
@@ -94,7 +134,7 @@ hr {
 	width: 100%;
 	text-align: left;
 	background: #eee;
-	z-index: 1;
+	/*z-index: 1;*/
 }
 .project {
 	font-size: 22px;
@@ -117,17 +157,13 @@ hr {
 
 
 
+
 #bottom-view {
 	width: 100%;
 	text-align: left;
 	padding-left: 20px;
-	/*background: #626262;*/
-	/*background: #aaa;*/
-	/*   14 13 10     */
 	background: url("../img/13.jpg") no-repeat center center;
-	/*background: url("../img/10.jpg") no-repeat center center;*/
 	background-size: cover;
-	/*background-size: auto 100%;*/
 	color: #fff;
 	text-shadow: 1px 1px #000;
 	/*color: #000;*/
