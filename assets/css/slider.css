@@ -91,12 +91,11 @@ label { cursor: pointer; }
 #slide7:checked ~ #controls label:nth-child(8),
 #slide8:checked ~ #controls label:nth-child(1),
 #slide5:checked ~ #controls label:nth-child(6) {
-  background: url('assets/img/right-arrow.png') no-repeat;
+  background: url('../img/right-arrow.png') no-repeat;
   float: right;
   margin: 0 -70px 0 0;
   display: block;
 }
-
 
 #slide1:checked ~ #controls label:nth-child(8),
 #slide2:checked ~ #controls label:nth-child(1),
@@ -106,7 +105,7 @@ label { cursor: pointer; }
 #slide7:checked ~ #controls label:nth-child(6),
 #slide8:checked ~ #controls label:nth-child(7),
 #slide5:checked ~ #controls label:nth-child(4) {
-  background: url('assets/img/left-arrow.png') no-repeat;
+  background: url('../img/left-arrow.png') no-repeat;
   float: left;
   margin: 0 0 0 -70px;
   display: block;
