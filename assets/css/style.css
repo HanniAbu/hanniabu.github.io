@@ -121,7 +121,7 @@ hr {
 }
 #name {
 	position: relative;
-	padding-top: 100px;
+	padding-top: 25%;
 	padding-top: 25vh;
 	font-size: 65px;
 	font-weight: 800;
@@ -138,7 +138,7 @@ hr {
 	text-shadow: 1px 1px #000;
 }
 #view-projects {
-	/*margin-top: 100px;*/
+	margin-top: 10%;
 	margin-top: 10vh;
 	width: 190px;
 }
@@ -229,10 +229,14 @@ hr {
 	font-size: 20px;
 	border-radius: 5px;
 }
-#resume span {
+#resume p {
 	display: block;
 	font-size: 13px;
 	margin-top: 10px;
+}
+#resume p span {
+	color: #555;
+	font-weight: 400;
 }
 
 
@@ -247,6 +251,7 @@ hr {
 	font-size: 35px;
 	color: #555;
 	font-weight: 300;
+	line-height: 38px;
 }
 #footer .title {
 	margin-bottom: 30px;
@@ -263,16 +268,6 @@ hr {
 	margin-bottom: 30px;
 	/*color: #555;*/
 }
-#copyright {
-	font-size: 16px;
-	font-weight: 400;
-	color: #999;
-	margin-top: -15px;
-}
-#copyright span {
-	color: #555;
-	color: #999;
-}
 
 
 /* ==========================================================================
@@ -280,7 +275,8 @@ hr {
    ========================================================================== */
 @media all and (min-width: 768px) and (max-width: 1280px) { 
 	#name {
-		padding-top: 150px;
+		/*padding-top: 150px;*/
+		padding-top: 20%;
 		padding-top: 20vh;
 		font-size: 150px;
 		line-height: 140px;
@@ -291,7 +287,8 @@ hr {
 		padding-top: 10px;
 	}
 	#view-projects {
-		margin-top: 80px;
+		/*margin-top: 80px;*/
+		margin-top: 12%;
 		margin-top: 12vh;
 		width: 240px;
 		height: 60px;
@@ -304,5 +301,12 @@ hr {
 	#footer img {
 		width: 175px;
 		height: auto;
+	}
+}
+
+@media all and (min-width: 420px) and (max-width: 768px) {
+	#name {
+		font-size: 100px;
+		line-height: 100px;
 	}
 }
