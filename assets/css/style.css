@@ -229,14 +229,16 @@ hr {
 	font-size: 20px;
 	border-radius: 5px;
 }
-#resume p {
+#resume p>a {
 	display: block;
+	color: #fff;
+	text-decoration: underline;
 	font-size: 13px;
 	margin-top: 10px;
 }
-#resume p span {
+#resume p>a:hover,
+#resume p>a:visited {
 	color: #555;
-	font-weight: 400;
 }
 
 
