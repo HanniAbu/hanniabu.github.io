@@ -41,13 +41,6 @@ hr {
 	margin-top: 25px;
 	margin-bottom: 35px;
 }
-a:hover {
-	color: #eee;
-	box-shadow: 3px 2px 2px #555
-}
-a:focus {
-	color: #eee;
-}
 .buttons {
 	position: relative;
 	text-align: center;
@@ -163,6 +156,13 @@ a:focus {
 	-ms-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
+}
+.arrow:hover {
+	color: #eee;
+	box-shadow: 3px 2px 2px #555
+}
+.arrow:focus {
+	color: #eee;
 }
 .bounce {
   -moz-animation: bounce 2s infinite;
