@@ -1,16 +1,11 @@
 
 // eases the scrolling to page sections
-$(document).ready(function(){
-	$('a[href^="#"]').on('click',function (e) {
-	    e.preventDefault();
-
-	    var target = this.hash;
-	    var $target = $(target);
-
-	    $('html').stop().animate({
-	        'scrollTop': $target.offset().top
-	    }, 900, 'swing', function () {
-	        window.location.hash = target;
-	    });
+$(function () {
+	$('a[href^="#"]').click(function(event) {
+		var id = $(this).attr("href");
+		var offset = 0;
+		var target = $(id).offset().top - offset;
+		$('body').animate({scrollTop:target}, 800);
+		event.preventDefault();
 	});
 });
