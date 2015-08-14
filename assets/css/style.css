@@ -359,7 +359,7 @@ hr {
 /* ==========================================================================
      MEDIA QUERIES
    ========================================================================== */
-@media all and (min-width: 768px) and (max-width: 1280px) { 
+@media all and (min-width: 768px) { 
 	#name {
 		/*padding-top: 150px;*/
 		padding-top: 20%;
