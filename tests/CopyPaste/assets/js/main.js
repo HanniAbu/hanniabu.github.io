@@ -226,7 +226,7 @@ function runCountdown() {
 }
 function resetTimer() {
   stopShotclock();
-  time.html('0:05');
+  time.html('0:15');
 }
 function resetGame() {
   score.html('1').addClass('hide');
@@ -312,7 +312,7 @@ function loadHighScore() {
       resetGame();
     }
   });
-  
+
   copyButton.click(function() {
     pasteValue.html(score.html());
     disableButtons();
