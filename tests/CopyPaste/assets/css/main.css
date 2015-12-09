@@ -1,0 +1,384 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #fff;
+  background-color: #F4F5F6;
+}
+hr {
+  border-top: 1px solid #ccc;
+  margin-top: 3px;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  background-color: #46C8A7;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+button:active {
+  background-color: #3CAA8F;
+  padding-top: 11px;
+  padding-bottom: 9px;
+}
+button:focus {
+  outline: 0;
+}
+button:disabled {
+  background-color: #D3EDE7;
+  color: #ccc;
+  box-shadow: none;
+}
+.center {
+  text-align: center;
+}
+.block {
+  display: block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.row {
+  clear: both;
+}
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.shadow {
+  box-shadow: 0 1px 3px 0 #888;
+}
+.hide {
+  display: none;
+}
+
+/*=========================
+        ANIMATIONS
+==========================*/
+.fadeIn {
+  animation: fadeIn 1s 1;
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  47% {opacity: 1;}
+  100% {opacity: 1;}
+}
+.fadeOut {
+  animation: fadeOut 1s 1;
+}
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  53% {opacity: 0;}
+  100% {opacity: 0;}
+}
+.fadeInHalf {
+  animation: fadeInHalf 1s 1;
+}
+@keyframes fadeInHalf {
+  0% {opacity: 0;}
+  47% {opacity: .5;}
+  100% {opacity: .5;}
+}
+.fadeOutHalf {
+  animation: fadeOutHalf 1s 1;
+}
+@keyframes fadeOutHalf {
+  0% {opacity: .5;}
+  53% {opacity: 0;}
+  100% {opacity: 0;}
+}
+.slideInUp {
+  animation: slideInUp 1s 1;
+}
+@keyframes slideInUp {
+  0% {top: 100%;}
+  53% {top: 0;}
+  100% {top: 0;}
+}
+.slideInDown {
+  animation: slideInDown 1s 1;
+}
+@keyframes slideInDown {
+  0% {bottom: 100%;}
+  53% {bottom: 0;}
+  100% {bottom: 0;}
+}
+.slideOutDown {
+  animation: slideOutDown 1s 1;
+}
+@keyframes slideOutDown {
+  0% {top: 0;}
+  53% {top: 100%;}
+  100% {top: 100%;}
+}
+.slideOutUp {
+  animation: slideOutUp 1s 1;
+}
+@keyframes slideOutUp {
+  0% {bottom: 0;}
+  53% {bottom: 100%;}
+  100% {bottom: 100%;}
+}
+
+
+/*=========================
+        LOAD SCREEN
+==========================*/
+#load-screen {
+  z-index: 500;
+  background-color: #46C8A7;
+}
+
+
+/*=========================
+     HIGHSCORE SCREEN
+==========================*/
+#high-score-screen {
+  z-index: 400;
+  background-color: #F4F5F6;
+}
+#high-score-screen h1 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding-top: 10px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 2em;
+  background-color: #37D6EB;
+}
+#close-high-scores {
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  font-size: 1.6em;
+  font-weight: 100;
+}
+
+
+/*=========================
+      LAYOVER SCREENS
+==========================*/
+.layover-screen {
+  position: absolute;
+  z-index: 300;
+  width: 80%;
+  /*height: 80%;*/
+  height: calc(200px + 23%);
+  height: calc(200px + 23vh);
+  bottom: 0;
+  left: 10%;
+  /*margin: 10vh 0;*/
+  margin-bottom:  calc((100% - 200px - 23%)/2);
+  margin-bottom:  calc((100vh - 200px - 23vh)/2);
+  background-color: #fff;
+}
+.layover-screen h1 {
+  background-color: #37D6EB;
+  font-weight: 300;
+  margin-top: 0;
+  padding: 20px 0;
+  text-align: center;
+}
+.layover-screen p {
+  font-weight: 300;
+  color: #555;
+  margin: 15px;
+  /*margin-top: 6%;
+  margin-top: 6vh;*/
+  position: relative;
+  top: 2%;
+  top: 2vh;
+  text-align: center;
+}
+.layover-screen >  div {
+  color: #555;
+  text-align: center;
+}
+.layover-screen .buttons {
+  position: absolute;
+  width: 100%;
+  bottom: 7%;
+  bottom: 7vh;
+  text-align: center;
+}
+.layover-screen button:nth-child(1) {
+  width: 150px;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+.layover-screen button:nth-child(2) {
+  width: 120px;
+  font-size: 1em;
+}
+
+
+/*=========================
+      GAME OVER SCREEN
+==========================*/
+#new-game-screen img {
+  position: absolute;
+  bottom: 0;
+  margin: 0 0 10px 10px;
+  opacity: 0.6;
+  padding: 5px;
+  border-radius: 100%;
+  background-color: #f7f7f7;
+  box-shadow: 0 1px 3px 0 #888;
+
+}
+
+
+/*=========================
+      GAME OVER SCREEN
+==========================*/
+#game-over-screen #final-score {
+  margin-top: 20px;
+  font-size: 1.3em;
+}
+
+
+/*=========================
+        DIM SCREEN
+==========================*/
+#dim-screen {
+  z-index: 200;
+  background-color: #333;
+  opacity: .5;
+}
+
+
+/*=========================
+        START SCREEN
+==========================*/
+#start-screen {
+  z-index: 100;
+  /*background-color: #F4F5F6;*/
+}
+#start-screen h1 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 26%;
+  margin: 0;
+  padding-top: 18%;
+  padding-top: 18vh;
+  text-align: center;
+  font-weight: 100;
+  font-size: 3em;
+  background-color: #37D6EB;
+  font-style: italic;
+}
+#start-screen .buttons {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  padding-bottom: 8%;
+  padding-bottom: 8vh;
+  text-align: center;
+}
+#start-screen button {
+  margin: 0 auto;
+}
+#start-screen button:nth-child(1) {
+  width: 200px;
+  margin-bottom: 10px;
+  font-size: 1.7em;
+}
+#start-screen button:nth-child(2) {
+  width: 180px;
+  font-size: 1.2em;
+}
+
+
+
+
+/*=========================
+        PLAY SCREEN
+==========================*/
+#play-screen {
+  z-index: 0;
+  background-color: #F4F5F6;
+}
+
+/*HEADER*/
+#header {
+  background-color: #37D6EB;
+  color: #fff;
+}
+#header .row div {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  font-size: .9em;
+  padding-bottom: 0;
+}
+#header #time,
+#header #paste-value {
+  font-size: 1.2em;
+}
+#header #reset-button {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  width: 32px;
+  height: 32px;
+}
+#header #high-score {
+  padding-bottom: 3px;
+}
+/*SCORE*/
+#score-board {
+  position: absolute;
+  width: 100%;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  background-color: #fff;
+  margin-top: -10px;
+}
+#score {
+  font-size: 2em;
+  color: #555;
+  font-weight: 100;
+  padding: 40px 0;
+  padding: 12vh 0;
+}
+#countdown {
+  font-size: 2em;
+  color: #555;
+  font-weight: 300;
+  padding: 40px 0;
+  padding: 12vh 0;
+}
+
+/*COPY/PASTE BUTTONS*/
+#play-screen .buttons {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+#play-screen .buttons button {
+  width: 80%;
+  margin: 8px auto;
+  font-size: 1.5em;
+}

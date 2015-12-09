@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="assets/img/content-copy.png">
+	<title> CopyPaste</title>
+
+	<!-- Roboto Font -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700italic,700,500italic,500,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+	<!-- CSS Animations -->
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css' rel='stylesheet'>
+	<!-- Custom CSS -->
+	<link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Load Screen -->
+	<section id="load-screen" class="screen hide">
+	</section>
+
+	<!-- High Score Screen -->
+	<section id="high-score-screen" class="screen hide">
+		<h1 class="shadow">High Scores </h1>
+		<div id="close-high-scores">⨉</div>
+		<div id="high-score-table">
+			<div class="row">
+				<div class="left">Name</div>
+				<div class="right">Score</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- New Game Screen -->
+	<section id="new-game-screen" class="shadow slideInDown hide layover-screen">
+		<h1>Let's Play!</h1>
+		<p>Find the best combination of copy and pastes to get a high score</p>
+		<div class="buttons">
+			<button id="play-button" class="button shadow">Play</button>
+			<button class="high-scores-button button shadow">High Scores</button>
+		</div>
+		<!-- <div id="sound-control"> -->
+			<img id="sound-control" src="assets/img/sound-on.svg">
+		<!-- </div> -->
+	</section>
+
+	<!-- Game Over Screen -->
+	<section id="game-over-screen" class="shadow slideInDown hide layover-screen">
+		<h1>Time's Up!</h1>
+		<p>Score:</p>
+		<div id="final-score"></div>
+		<div class="buttons">
+			<button id="retry-button" class="button shadow">Retry</button>
+			<button class="high-scores-button button shadow">High Scores</button>
+		</div>
+	</section>
+
+	<!-- New High Score Screen -->
+	<section id="new-high-score-screen" class="shadow slideInDown hide layover-screen">
+		<h1>Congratulations!</h1>
+		<p>You got a new high score!</p>
+		<div class="buttons">
+			<button id="save-high-score-button" class="button shadow">Play</button>
+			<button class="high-scores-button button shadow">High Scores</button>
+		</div>
+	</section>
+
+	<!-- Dim Screen -->
+	<section id="dim-screen" class="screen hide"></section>
+
+	<!-- Start Screen -->
+	<section id="start-screen" class="screen hide">
+		<h1 class="shadow">CopyPaste</h1>
+		<div class="buttons">
+			<button id="start-button" class="button shadow">Start</button>
+			<button class="high-scores-button button shadow">High Scores</button>
+		</div>
+	</section>
+
+	<!-- Play Screen -->
+	<section id="play-screen" class="screen hide">
+		<div id="header" class="shadow">
+			<!-- Shot Clock and Current Paste -->
+			<div class="row">
+				<div class="left">Shot Clock</div>
+				<div class="right">Current Paste</div>
+			</div>
+			<div class="row">
+				<div id="time" class="left">0:15</div>
+				<div id="paste-value" class="right">1</div>
+			</div>
+			<!-- Reset Button -->
+			<span id="reset-button" class="new-game-button"><img src="assets/img/reset.png"></span>
+			<!-- High Score -->
+			<div class="row center">
+				<div id="high-score">High Score: <span id="current-high-score">0</span></div>
+			</div>
+		</div>
+		<!-- Score -->
+		<div id="score-board">
+			<div id="score" class="center hide">1</div>
+			<div id="countdown" class="center">3</div>
+		</div>
+		<!-- Copy/Paste Buttons -->
+		<div class="buttons">
+			<button id="copy-button" class="button shadow" disabled>Copy</button>
+			<button id="paste-button" class="button shadow" disabled>Paste</button>
+		</div>
+		<!-- Beep Sounds -->
+		<audio id="boop" class="hide">
+			<source src="assets/audio/boop.mp3" type="audio/mpeg">
+			<source src="assets/audio/boop.wav" type="audio/wav">
+		</audio>
+		<audio id="beep" class="hide">
+			<source src="assets/audio/beep.mp3" type="audio/mpeg">
+			<source src="assets/audio/beep.wav" type="audio/wav">
+		</audio>
+	</section>
+
+
+
+
+<!-- Javascript Files -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<!-- Custom JS -->
+<script src="assets/js/log.js"></script>
+<script src="assets/js/easytimer.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
