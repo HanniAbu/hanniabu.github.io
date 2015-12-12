@@ -332,7 +332,7 @@ button:disabled {
 #header #paste-value {
   font-size: 1.2em;
 }
-#header #reset-button {
+#header #new-game-button {
   position: absolute;
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
