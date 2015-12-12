@@ -189,35 +189,35 @@ function runCountdown() {
   changeCount('3');
   countdown.removeClass('hide');
   // if (sound == 'off') {
+    // setTimeout(function(){
+    //   changeCount('2');
+    // }, 1100);
+    // setTimeout(function(){
+    //   changeCount('1');
+    // }, 2100);
+    // setTimeout(function(){
+    //   countdown.addClass('hide');
+    //   score.removeClass('hide');
+    //   enableButtons();
+    // }, 3100);
+  // } else {
     setTimeout(function(){
+      playBoop();
+    }, 100);
+    setTimeout(function(){
+      playBoop();
       changeCount('2');
     }, 1100);
     setTimeout(function(){
+      playBoop();
       changeCount('1');
     }, 2100);
     setTimeout(function(){
       countdown.addClass('hide');
+      playBeep();
       score.removeClass('hide');
       enableButtons();
     }, 3100);
-  // } else {
-  //   setTimeout(function(){
-  //     playBoop();
-  //   }, 100);
-  //   setTimeout(function(){
-  //     playBoop();
-  //     changeCount('2');
-  //   }, 1100);
-  //   setTimeout(function(){
-  //     playBoop();
-  //     changeCount('1');
-  //   }, 2100);
-  //   setTimeout(function(){
-  //     countdown.addClass('hide');
-  //     playBeep();
-  //     score.removeClass('hide');
-  //     enableButtons();
-  //   }, 3100);
   // }
 }
 function resetTimer() {
