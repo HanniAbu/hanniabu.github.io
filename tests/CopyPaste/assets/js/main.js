@@ -11,23 +11,24 @@ var loadScreen = $('#load-screen'),
   retryButton = $('#retry-button'),
   highScoresButton = $('.high-scores-button'),
   closeHighScoresButton = $('#close-high-scores'),
-  newGameButton = $('.new-game-button'),
-  score = $('#score'),
-  finalScore = $('#final-score'),
-  countdown = $('#countdown'),
+  newGameButton = $('#new-game-button'),
   copyButton = $('#copy-button'),
   pasteButton = $('#paste-button'),
+  time = $('#time'),
   pasteValue = $('#paste-value'),
   currentHighScore = $('#current-high-score'),
-  time = $('#time'),
-  boop = $('#boop')[0],
-  beep = $('#beep')[0],
-  countdownLength = 15, //Make 15 seconds
+  score = $('#score'),
+  finalScore = $('#final-score'),
   soundControl = $('#sound-control'),
   sound = localStorage.getItem('sound'),
+  gameLength = 15,
+  countdown = $('#countdown'),
+  boop = $('#boop')[0],
+  beep = $('#beep')[0],
   t1 = 500,
   t2 = 1000,
-  t3 = 250;
+  t3 = 250,
+  highScores = highScores || [];
 
 
 
@@ -63,10 +64,10 @@ function hidePlayScreen() {
   }, t2);
 }
 function showHighScoreScreen() {
-  highScoreScreen.addClass('slideInUp');;
+  highScoreScreen.addClass('slideInUp');
   highScoreScreen.removeClass('hide');
   setTimeout(function(){
-    highScoreScreen.removeClass('slideInUp')
+    highScoreScreen.removeClass('slideInUp');
   }, t1);
 }
 function hideHighScoreScreen() {
@@ -77,10 +78,10 @@ function hideHighScoreScreen() {
   }, t1);
 }
 function showDimScreen() {
-  dimScreen.addClass('fadeInHalf');;
+  dimScreen.addClass('fadeInHalf');
   dimScreen.removeClass('hide');
   setTimeout(function(){
-    dimScreen.removeClass('fadeInHalf')
+    dimScreen.removeClass('fadeInHalf');
   }, t1);
 }
 function hideDimScreen() {
@@ -91,10 +92,10 @@ function hideDimScreen() {
   }, t1);
 }
 function showNewGameScreen() {
-  newGameScreen.addClass('slideInDown');;
+  newGameScreen.addClass('slideInDown');
   newGameScreen.removeClass('hide');
   setTimeout(function(){
-    newGameScreen.removeClass('slideInDown')
+    newGameScreen.removeClass('slideInDown');
   }, t1);
 }
 function hideNewGameScreen() {
@@ -105,10 +106,10 @@ function hideNewGameScreen() {
   }, t1);
 }
 function showGameOverScreen() {
-  gameOverScreen.addClass('slideInDown');;
+  gameOverScreen.addClass('slideInDown');
   gameOverScreen.removeClass('hide');
   setTimeout(function(){
-    gameOverScreen.removeClass('slideInDown')
+    gameOverScreen.removeClass('slideInDown');
   }, t1);
 }
 function hideGameOverScreen() {
@@ -119,10 +120,10 @@ function hideGameOverScreen() {
   }, t1);
 }
 function showNewHighScoreScreen() {
-  newHighScoreScreen.addClass('slideInDown');;
+  newHighScoreScreen.addClass('slideInDown');
   newHighScoreScreen.removeClass('hide');
   setTimeout(function(){
-    newHighScoreScreen.removeClass('slideInDown')
+    newHighScoreScreen.removeClass('slideInDown');
   }, t1);
 }
 function hideNewHighScoreScreen() {
@@ -150,7 +151,7 @@ function disableButtons() {
 }
 function startNewShotclock() {
   timer = new Timer();
-  timer.start({countdown: true, startValues: {seconds: countdownLength}});
+  timer.start({countdown: true, startValues: {seconds: gameLength}});
   if (timer.getTimeValues().seconds > 9) {
     time.html('0:' + timer.getTimeValues().seconds);
   } else {
@@ -172,14 +173,6 @@ function startNewShotclock() {
     // }
   });
 }
-function stopShotclock() {
-
-  timer.stop();
-};
-function pauseShotclock() {
-
-  timer.pause();
-};
 
 
 function startGame() {
@@ -188,44 +181,47 @@ function startGame() {
     startNewShotclock();
   }, 3100);
 }
+function changeCount(num) {
+  countdown.html(num);
+}
 function runCountdown() {
-  countdown.html('3').css({'color':'#555'});
+  // sound = localStorage.getItem('sound');
+  changeCount('3');
   countdown.removeClass('hide');
-  sound = localStorage.getItem('sound');
-  if (sound == 'off') {
+  // if (sound == 'off') {
     setTimeout(function(){
-      countdown.html('2').css({'color':'#555'});
+      changeCount('2');
     }, 1100);
     setTimeout(function(){
-      countdown.html('1').css({'color':'#555'});
+      changeCount('1');
     }, 2100);
     setTimeout(function(){
       countdown.addClass('hide');
       score.removeClass('hide');
       enableButtons();
     }, 3100);
-  } else {
-    setTimeout(function(){
-      playBoop();
-    }, 100);
-    setTimeout(function(){
-      playBoop();
-      countdown.html('2').css({'color':'#555'});
-    }, 1100);
-    setTimeout(function(){
-      playBoop();
-      countdown.html('1').css({'color':'#555'});
-    }, 2100);
-    setTimeout(function(){
-      countdown.addClass('hide');
-      playBeep();
-      score.removeClass('hide');
-      enableButtons();
-    }, 3100);
-  }
+  // } else {
+  //   setTimeout(function(){
+  //     playBoop();
+  //   }, 100);
+  //   setTimeout(function(){
+  //     playBoop();
+  //     changeCount('2');
+  //   }, 1100);
+  //   setTimeout(function(){
+  //     playBoop();
+  //     changeCount('1');
+  //   }, 2100);
+  //   setTimeout(function(){
+  //     countdown.addClass('hide');
+  //     playBeep();
+  //     score.removeClass('hide');
+  //     enableButtons();
+  //   }, 3100);
+  // }
 }
 function resetTimer() {
-  stopShotclock();
+  timer.stop();
   time.html('0:15');
 }
 function resetGame() {
@@ -238,8 +234,8 @@ function endGame()  {
   disableButtons();
   showDimScreen();
   finalScore.html(score.html());
-  showGameOverScreen();
   checkHighScore();
+  showGameOverScreen();
 }
 
 function toggleSound() {
@@ -254,6 +250,9 @@ function toggleSound() {
 }
 
 function checkHighScore() {
+  if (highScores.length < 11) {
+    
+  }
   if (Number(score.html()) > Number(currentHighScore.html())) {
     currentHighScore.html(score.html());
     localStorage.setItem('current-high-score',score.html());
@@ -268,9 +267,11 @@ function loadHighScore() {
 
 (function () {
   $(document).ready(function() {
-    hideLoadScreen();
-    showStartScreen();
-    loadHighScore();
+    setTimeout(function() {
+      hideLoadScreen();
+      showStartScreen();
+      loadHighScore();
+    },800);
     if (sound == 'off') {
       soundControl.attr('src','assets/img/sound-off.svg');
     }
@@ -303,7 +304,7 @@ function loadHighScore() {
 
   soundControl.click(function() {
     toggleSound();
-  })
+  });
 
   newGameButton.click(function() {
     if (time.html() !== '0:15') {
