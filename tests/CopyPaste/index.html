@@ -22,12 +22,19 @@
 	<!-- High Score Screen -->
 	<section id="high-score-screen" class="screen hide">
 		<h1 class="shadow">High Scores </h1>
-		<div id="close-high-scores">⨉</div>
-		<div id="high-score-table">
-			<div class="row">
-				<div class="left">Name</div>
-				<div class="right">Score</div>
-			</div>
+		<img id="close-high-scores" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA6UlEQVRIS62W0Q2DMAxELxsxAiN0hI7QERiho3SEjtBRuoErI4ISN44PCF8IwXu2lVxIIvICsKSUPhh4ici0crcbldxGSSqmFj1SYlkpT2WEpMXYBVc78QqsBGclve7/BEcl0WibAlYSwZXjCiIJAw8FnoSFUwIr2ZY1vTG7IyqTo6haH9O7/ojgDuAJ4DtcICIZPgPQEFPRzGRX2EEJz8DWMy+Io2W6V26rZSW9jebCi4AM3/GiIvyQlbTCjoYzEhvXh+GRpDxwTsN7klXArgjmn8Cy9NC/XLkVV0wReQN4MLuS6cCMa/oBfkLarcC3bP4AAAAASUVORK5CYII="/>
+		<!-- <div id="close-high-scores"></div> -->
+		<div class="shadow">
+			<table cellspacing="0">
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Score</th>
+				</tr>
+				<tbody id="high-score-table">
+					
+				</tbody>
+			</table>
 		</div>
 	</section>
 
@@ -39,9 +46,7 @@
 			<button id="play-button" class="button shadow">Play</button>
 			<button class="high-scores-button button shadow">High Scores</button>
 		</div>
-		<!-- <div id="sound-control"> -->
-			<img id="sound-control" src="assets/img/sound-on.svg">
-		<!-- </div> -->
+		<!-- <img id="sound-control" src="assets/img/sound-on.svg"> -->
 	</section>
 
 	<!-- Game Over Screen -->
@@ -59,9 +64,12 @@
 	<section id="new-high-score-screen" class="shadow slideInDown hide layover-screen">
 		<h1>Congratulations!</h1>
 		<p>You got a new high score!</p>
+		<div id="new-high-score-value"></div>
+		<input id="new-high-score-name" type="text" placeholder="type your name"/>
+		<!-- <span>only use letters or numbers<br>maximum of 12 characters</span> -->
+		<span>12 characters max: 	&nbsp;a-z, 	&nbsp;0-9, 	&nbsp;_</span>
 		<div class="buttons">
-			<button id="save-high-score-button" class="button shadow">Play</button>
-			<button class="high-scores-button button shadow">High Scores</button>
+			<button id="save-high-score-button" class="button shadow">Save</button>
 		</div>
 	</section>
 
@@ -107,14 +115,14 @@
 			<button id="paste-button" class="button shadow" disabled>Paste</button>
 		</div>
 		<!-- Beep Sounds -->
-		<audio id="boop" class="hide">
+		<!-- <audio id="boop" class="hide">
 			<source src="assets/audio/boop.mp3" type="audio/mpeg">
 			<source src="assets/audio/boop.wav" type="audio/wav">
 		</audio>
 		<audio id="beep" class="hide">
 			<source src="assets/audio/beep.mp3" type="audio/mpeg">
 			<source src="assets/audio/beep.wav" type="audio/wav">
-		</audio>
+		</audio> -->
 	</section>
 
 
@@ -122,10 +130,11 @@
 
 <!-- Javascript Files -->
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- External Libs -->
+<script src="assets/js/easytimer.min.js"></script>
 <!-- Custom JS -->
 <script src="assets/js/log.js"></script>
-<script src="assets/js/easytimer.min.js"></script>
 <script src="assets/js/main.js"></script>
 
 </body>

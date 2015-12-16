@@ -1,3 +1,4 @@
+"use strict";
 var loadScreen = $('#load-screen'),
   highScoreScreen = $('#high-score-screen'),
   newGameScreen = $('#new-game-screen'),
@@ -14,21 +15,24 @@ var loadScreen = $('#load-screen'),
   newGameButton = $('#new-game-button'),
   copyButton = $('#copy-button'),
   pasteButton = $('#paste-button'),
+  saveHighScoreButton = $('#save-high-score-button'),
+  newHighScoreName = $('#new-high-score-name'),
+  newHighScoreValue = $('#new-high-score-value'),
   time = $('#time'),
   pasteValue = $('#paste-value'),
   currentHighScore = $('#current-high-score'),
   score = $('#score'),
   finalScore = $('#final-score'),
-  soundControl = $('#sound-control'),
-  sound = localStorage.getItem('sound'),
-  gameLength = 15,
   countdown = $('#countdown'),
-  boop = $('#boop')[0],
-  beep = $('#beep')[0],
+  highScoreTable = $('#high-score-table'),
+  // boop = $('#boop')[0],
+  // beep = $('#beep')[0],
+  timer = new Timer(),
+  gameLength = 15,
   t1 = 500,
   t2 = 1000,
   t3 = 250,
-  highScores = highScores || [];
+  highScores = [];
 
 
 
@@ -120,6 +124,7 @@ function hideGameOverScreen() {
   }, t1);
 }
 function showNewHighScoreScreen() {
+  newHighScoreValue.html(score.html());
   newHighScoreScreen.addClass('slideInDown');
   newHighScoreScreen.removeClass('hide');
   setTimeout(function(){
@@ -132,14 +137,6 @@ function hideNewHighScoreScreen() {
     newHighScoreScreen.addClass('hide');
     newHighScoreScreen.removeClass('slideOutUp');
   }, t1);
-}
-function playBoop() {
-
-  boop.play();
-}
-function playBeep() {
-
-  beep.play();
 }
 function enableButtons() {
   copyButton.removeAttr('disabled');
@@ -166,11 +163,7 @@ function startNewShotclock() {
   });
   timer.addEventListener('targetAchieved', function (e) {
     time.html('0:00');
-    // if (Number(score.html()) > 'highScoreList[highScoreList.length()]') {
-
-    // } else {
-      endGame();
-    // }
+    endGame();
   });
 }
 
@@ -185,40 +178,19 @@ function changeCount(num) {
   countdown.html(num);
 }
 function runCountdown() {
-  // sound = localStorage.getItem('sound');
   changeCount('3');
   countdown.removeClass('hide');
-  // if (sound == 'off') {
-    // setTimeout(function(){
-    //   changeCount('2');
-    // }, 1100);
-    // setTimeout(function(){
-    //   changeCount('1');
-    // }, 2100);
-    // setTimeout(function(){
-    //   countdown.addClass('hide');
-    //   score.removeClass('hide');
-    //   enableButtons();
-    // }, 3100);
-  // } else {
     setTimeout(function(){
-      playBoop();
-    }, 100);
-    setTimeout(function(){
-      playBoop();
       changeCount('2');
     }, 1100);
     setTimeout(function(){
-      playBoop();
       changeCount('1');
     }, 2100);
     setTimeout(function(){
       countdown.addClass('hide');
-      playBeep();
       score.removeClass('hide');
       enableButtons();
     }, 3100);
-  // }
 }
 function resetTimer() {
   timer.stop();
@@ -235,34 +207,62 @@ function endGame()  {
   showDimScreen();
   finalScore.html(score.html());
   checkHighScore();
-  showGameOverScreen();
 }
-
-function toggleSound() {
-  sound = localStorage.getItem('sound');
-  if (sound === 'off') {
-    soundControl.attr('src','assets/img/sound-on.svg');
-    localStorage.setItem('sound','on');
-  } else if (sound === 'on') {
-    soundControl.attr('src','assets/img/sound-off.svg');
-    localStorage.setItem('sound','off');
+function sortArray(a,b) {
+  a = a[1];
+  b = b[1];
+  return a == b ? 0 : (a < b ? 1 : -1)
+}
+function saveHighScoreArray() {
+  localStorage.setItem('high-scores', JSON.stringify(highScores));
+}
+function loadHighScoreArray() {
+  if (localStorage.getItem('high-scores')) {
+    highScores = JSON.parse(localStorage.getItem('high-scores'));
   }
 }
-
 function checkHighScore() {
-  if (highScores.length < 11) {
-    
-  }
-  if (Number(score.html()) > Number(currentHighScore.html())) {
-    currentHighScore.html(score.html());
-    localStorage.setItem('current-high-score',score.html());
+  if (highScores.length < 10) {
+    showNewHighScoreScreen();
+  } else if (highScores[highScores.length - 1][1] < Number(score.html())) {
+    showNewHighScoreScreen();
+  } else {
+    showGameOverScreen();
   }
 }
-function loadHighScore() {
-    currentHighScore.html(localStorage.getItem('current-high-score'));
+function saveHighScore() {
+  var name = newHighScoreName.val().replace(/[^\w]/g, '').toLowerCase().slice(0, 12);
+  var score = Number(newHighScoreValue.html());
+  if (highScores.length > 9) {
+    highScores.pop();
+  }
+  highScores[highScores.length] = [name, score];
+  highScores.sort(sortArray);
+  saveHighScoreArray();
+  loadHighestScore();
+  fillHighScoreTable();
 }
 
+function loadHighestScore() {
+  if (localStorage.getItem('high-scores')) {
+    currentHighScore.html(highScores[0][1]);
+  }
+}
 
+function fillHighScoreTable() {
+  if (localStorage.getItem('high-scores')) {
+    var i = 0;
+    var limit = highScores.length;
+    var raw_fragment = document.createDocumentFragment();
+
+    for (i; i < limit; i++) {
+      var tr = $('<tr/>');
+      tr.html("<td>" + (i + 1) + "</td><td>" + highScores[i][0] + "</td><td>" + highScores[i][1] + "</td>");
+      raw_fragment.appendChild(tr[0]);
+    }
+    highScoreTable.html(raw_fragment);
+  }
+}
 
 
 (function () {
@@ -270,12 +270,18 @@ function loadHighScore() {
     setTimeout(function() {
       hideLoadScreen();
       showStartScreen();
-      loadHighScore();
     },800);
-    if (sound == 'off') {
-      soundControl.attr('src','assets/img/sound-off.svg');
+    loadHighScoreArray();
+    loadHighestScore();
+    fillHighScoreTable();
+
+    if (localStorage.getItem('high-scores')) {
+      console.log('High: ' + highScores[0][1] + ', Low: ' + highScores[highScores.length - 1][1] + ', Count: ' + highScores.length);
+      console.log('Array: ' + highScores);
     }
   });
+
+  // FastClick.attach(document.body);
 
   startButton.click(function() {
     hideStartScreen();
@@ -302,10 +308,6 @@ function loadHighScore() {
     startGame();
   });
 
-  soundControl.click(function() {
-    toggleSound();
-  });
-
   newGameButton.click(function() {
     if (time.html() !== '0:15') {
       showDimScreen();
@@ -325,6 +327,14 @@ function loadHighScore() {
   pasteButton.click(function() {
     var total = Number(score.html()) + Number(pasteValue.html());
     score.html(total);
+  });
+
+  saveHighScoreButton.click(function() {
+    saveHighScore();
+    hideNewHighScoreScreen();
+    setTimeout(function(){
+      showGameOverScreen();
+    }, 400);
   });
 
   retryButton.click(function() {

@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -164,9 +164,42 @@ button:disabled {
 #close-high-scores {
   position: absolute;
   right: 15px;
-  top: 8px;
-  font-size: 1.6em;
-  font-weight: 100;
+  top: 15px;
+  width: 20px;
+}    
+#high-score-screen > div {
+  overflow: scroll;
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  margin: 80px 20px 10px 20px;
+  background-color: #fff;
+}
+#high-score-screen table {
+  width: 100%;
+  padding: 15px 10px 30px 10px;
+  overflow: scroll;
+  text-align: left;
+  background-color: #fff;
+  color: #555;
+}
+#high-score-screen td {
+  padding: 8px 0 5px 2px;
+}
+#high-score-screen th {
+  padding: 0px 0 2px 5px;
+  border-bottom: 1px solid #bbb;
+  font-weight: 400;
+}
+#high-score-screen td:nth-child(2),
+#high-score-screen th:nth-child(2),
+#high-score-screen td:nth-child(3),
+#high-score-screen th:nth-child(3) {
+  padding-left: 10px;
+}
+
+#high-score-table {
+  position: relative;
+  color: #555;
 }
 
 
@@ -177,12 +210,11 @@ button:disabled {
   position: absolute;
   z-index: 300;
   width: 80%;
-  /*height: 80%;*/
+  width: 80vw;
   height: calc(200px + 23%);
   height: calc(200px + 23vh);
   bottom: 0;
   left: 10%;
-  /*margin: 10vh 0;*/
   margin-bottom:  calc((100% - 200px - 23%)/2);
   margin-bottom:  calc((100vh - 200px - 23vh)/2);
   background-color: #fff;
@@ -198,8 +230,6 @@ button:disabled {
   font-weight: 300;
   color: #555;
   margin: 15px;
-  /*margin-top: 6%;
-  margin-top: 6vh;*/
   position: relative;
   top: 2%;
   top: 2vh;
@@ -229,7 +259,7 @@ button:disabled {
 
 
 /*=========================
-      GAME OVER SCREEN
+      NEW GAME SCREEN
 ==========================*/
 #new-game-screen img {
   position: absolute;
@@ -254,6 +284,53 @@ button:disabled {
 
 
 /*=========================
+    NEW HIGH SCORE SCREEN
+==========================*/
+#new-high-score-screen {
+  text-align: center;
+}
+#new-high-score-screen p {
+  top: 1%;
+  top: 1vh;
+  font-size: 1.1em;
+  margin-bottom: 0;
+  padding-bottom: 3%;
+  padding-bottom: 3vh;
+}
+#new-high-score-screen div {
+  padding-top: 1%;
+  padding-top: 1vh;
+  font-size: 1.05em;
+  color: #46C8A7;
+}
+#new-high-score-screen input {
+  margin: 4px auto;
+  outline: none;
+  border: none;
+  width: 70%;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.4em;
+  background-color: #F4F5F6;
+}
+#new-high-score-screen span {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  font-size: .8em;
+  line-height: 1.3em;
+  color: #888;
+}
+#new-high-score-screen .buttons {
+  bottom: 5%;
+  bottom: 5vh;
+}
+
+
+/*=========================
         DIM SCREEN
 ==========================*/
 #dim-screen {
@@ -265,10 +342,9 @@ button:disabled {
 
 /*=========================
         START SCREEN
-==========================*/
+======================= ===*/
 #start-screen {
   z-index: 100;
-  /*background-color: #F4F5F6;*/
 }
 #start-screen h1 {
   position: absolute;
@@ -304,8 +380,6 @@ button:disabled {
   width: 180px;
   font-size: 1.2em;
 }
-
-
 
 
 /*=========================
@@ -382,3 +456,7 @@ button:disabled {
   margin: 8px auto;
   font-size: 1.5em;
 }
+
+
+
+
