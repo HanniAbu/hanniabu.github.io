@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, minimum-scale=1. maximum-scale=1" name=
+  <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name=
   "viewport">
   <title>Hanni Abu // Developer</title>
   <meta content=
@@ -123,7 +123,6 @@
   </section>
 
 
-
   <section class="divide red">
     <div class="container white">
       <div class="row title">
@@ -145,7 +144,7 @@
   </section>
 
 
-  <section class="next" id="skills">
+  <section id="skills">
     <div class="container">
       <div class="row title">
         Skills &amp; Experience
@@ -246,7 +245,6 @@
   </section>
 
 
-
   <section class="divide grey">
     <div class="container white">
       <div class="row title">
@@ -266,7 +264,6 @@
       </div>
     </div>
   </section>
-
 
 
   <section id="projects">
@@ -292,7 +289,7 @@
                     <h3>Verticulture Farms</h3>
                     <img alt="Velcro" src="assets/img/vcf-software.png">
                     <p>A custom monitoring and control system for an aquaponic farm.</p>
-                    <a class="buttons" href="https://hanniabu.com/vcf-software.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/vcf-software.min.html">View More Details</a>
                   </article>
 
                   <article class="center">
@@ -300,8 +297,9 @@
                     <a href="https://hanniabu.com/Velcro/" target="_blank">
                       <img alt="Velcro" src="assets/img/velcro.jpg">
                     </a>
+                    <div class="demo-link">(Click image for demo)</div>
                     <p>A visual panel used to customize and create base Bootstrap 3 components.</p>
-                    <a class="buttons" href="https://hanniabu.com/velcro.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/velcro.min.html">View More Details</a>
                   </article>
 
                   <article class="center">
@@ -309,15 +307,16 @@
                     <a href="https://hanniabu.com/CopyPaste/" target="_blank">
                       <img alt="CopyPaste" src="assets/img/cp.png">
                     </a>
+                    <div class="demo-link">(Click image for demo)</div>
                     <p>A game based off the question of what the maximal pattern of copying and pasting is.</p>
-                    <a class="buttons" href="https://hanniabu.com/copypaste.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/copypaste.min.html">View More Details</a>
                   </article>
 
                   <article class="center">
                     <h3>Portfolio</h3>
                     <img alt="CopyPaste" src="assets/img/portfolio.png">
                     <p>A website to display my skills and projects(this website).</p>
-                    <a class="buttons" href="https://hanniabu.com/portfolio.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/portfolio.min.html">View More Details</a>
                   </article>
 
                   <article class="center">
@@ -325,8 +324,9 @@
                     <a href="https://furryadventure.com/" target="_blank">
                       <img alt="Furry Adventures" src="assets/img/fa.jpg">
                     </a>
+                    <div class="demo-link">(Click image for demo)</div>
                     <p>A website for a local dog walking service.</p>
-                    <a class="buttons" href="https://hanniabu.com/fa.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/fa.min.html">View More Details</a>
                   </article>
 
                   <article class="center">
@@ -334,8 +334,9 @@
                     <a href="https://verticulturefarms.com/" target="_blank">
                       <img alt="Verticulture Farms" src="assets/img/vcf-website.jpg">
                     </a>
+                    <div class="demo-link">(Click image for demo)</div>
                     <p>A landing page for a Brooklyn-based aquaponic company.</p>
-                    <a class="buttons" href="https://hanniabu.com/vcf-website.html">View More Details</a>
+                    <a class="buttons" href="https://hanniabu.com/vcf-website.min.html">View More Details</a>
                   </article>
 
 
@@ -355,7 +356,6 @@
   </section>
 
 
-
   <section id="resume">
     <div class="container">
       <div class="row title">
@@ -372,7 +372,6 @@
       </div>
     </div>
   </section>
-
 
 
   <section id="footer">
@@ -410,13 +409,20 @@
                       var hop_count = speed/moving_frequency
                       var getScrollTopDocumentAtBegin = getScrollTopDocument();
                       var gap = (getScrollTopElement(element) - getScrollTopDocumentAtBegin) / hop_count;
+                      // The window doesn't scroll exactly to the element. This margin increases further down the page at a constant percentage relative to the element's distance down the page(0.010084034%). The additional number is to scroll past the margin at the beginning of the section.
+                      var extra = getScrollTopElement(element)*0.010084034 + 80;
+                      // console.log("getScrollTopDocumentAtBegin = " + getScrollTopDocumentAtBegin);
+                      // console.log("getScrollTopElement(element) = " + getScrollTopElement(element));
+                      // console.log("hop_count = " + hop_count);
+                      // console.log("gap = " + gap);
+                      // console.log("--------------------------");
 
                       for(var i = 1; i <= hop_count; i++)
                       {
                           (function()
                           {
                               var hop_top_position = gap*i;
-                              setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin + 50); }, moving_frequency*i);
+                              setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin + extra); }, moving_frequency*i);
                           })();
                       }
                   }
