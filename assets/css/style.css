@@ -501,7 +501,107 @@ header .logo {
 }
 
 
+body p{color:#333;}
+  a {/*color: #56FFAA;
+    color: #00BFBF;*/
+    color: #FF5656;
+    font-weight: bold;}
+    a:focus,
+    a:hover {
+      color: #00BFBF;
+    }
+  h6 {padding-left: 40px; padding-top: 5px;} 
+  .sub {padding-left: 40px; margin-top: -8px;}
+  .subsub {padding-left: 70px; margin-top: -10px;}
+  h5 {margin-top: 47px; line-height: 28px;}
+  .first {margin-top: -8px;}
+  blockquote p {margin-top: 17px;}
+  blockquote em {font-size: 85%}
+  @media (max-width: 1200px) {
+    h6, .sub {padding-left: 30px;}
+    .subsub {padding-left: 55px; margin-top: -10px;}
+  }
+  @media (max-width: 500px) {
+    h6, .sub {padding-left: 20px;}
+    .subsub {padding-left: 35px; margin-top: -10px;}
+  }
+  blockquote{
+    display:block;
+    background: #fff;
+    padding: 10px 20px 10px 45px;
+    margin: 40px 0 60px 0;
+    position: relative;
+    font-family: Georgia, serif;
+    line-height: 1.2;
+    text-align: justify;
+    border-left: 15px solid #00BFBF;
+    border-right: 2px solid #00BFBF;
+    box-shadow: 2px 2px 15px #ccc;
+  }
+  blockquote::before{
+    content: "\201C"; /*Unicode for Quote*/
+    font-size: 55px;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    left: 12px;
+    top:5px;
+  }
+  form {
+    padding: 25px;
+    margin: 30px 0;
+    text-align: center;
+    border-left: 15px solid #00BFBF;
+    border-right: 2px solid #00BFBF;
+    box-shadow: 2px 2px 15px #ccc;
+  }
+  form label { 
+    font-weight: bold;
+    font-size: 18px;
+  }
+  form input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+  form input:focus {
+    outline: none;
+    border: 1px solid #00BFBF
 
+  }
+  form input[type="submit"] {
+    width: 60%;
+    background-color: #00BFBF;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  form input[type="submit"]:hover {
+    background-color: #fff;
+    color: #00BFBF;
+    border: 1px solid #00BFBF;
+  }
+  @media (max-width: 500px) {
+    form input,
+    form input[type="submit"] {
+      width: 100%;
+    }
+  }
+  .eq {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 120%;
+    text-align: center;
+  }
 
 
 
