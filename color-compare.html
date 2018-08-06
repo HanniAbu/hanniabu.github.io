@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Color Compare</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	</head>
+	<body>
+		<style type="text/css">
+			body {
+				width: 100vw;
+				height: 100vh;
+				margin: 0px auto;
+				overflow: hidden;
+			    position: relative;
+			}
+			#left {
+				background-color: #fff;
+				width: 33.3%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				margin-right: -4px;
+				padding-top: 8px;
+				display: inline-block;
+				border-right: 1px solid #555;
+				text-align: center;
+			}
+			#center {
+				background-color: #555;
+				width: 33.3%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				margin-right: -4px;
+				padding-top: 8px;
+				display: inline-block;
+				border-right: 1px solid #555;
+				text-align: center;
+			}
+			#right {
+				background-color: #333;
+				width: 33.3%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				margin-right: -4px;
+				padding-top: 8px;
+				display: inline-block;
+				text-align: center;
+			}
+			input, input:focus, input:hover, input:active {
+				/*remove style*/
+				appearance: none !important;
+				outline: none !important;
+				outline: 0 !important;
+				border-style: none !important;
+				border-color: none !important;
+				box-shadow: none !important;
+				/*add style*/
+				text-align: center;
+				border-radius: 8px;
+				padding: 5px;
+				font-size: .9em;
+				border: 1px solid #aaa !important;
+			}
+		</style>
+
+		<div id="left">
+			<input id="left-color" type="text" name="left-color" placeholder="Left Panel Color" onkeyup="updateColor()" value="#fff">
+		</div>
+		<div id="center">
+			<input id="center-color" type="text" name="center-color" placeholder="Center Panel Color" onkeyup="updateColor()" value="#555">
+		</div>
+		<div id="right">
+			<input id="right-color" type="text" name="right-color" placeholder="Right Panel Color" onkeyup="updateColor()" value="#333">
+		</div>
+
+
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('left-color').value = localStorage.getItem("left-color");
+			    document.getElementById('center-color').value = localStorage.getItem("center-color");
+			    document.getElementById('right-color').value = localStorage.getItem("right-color");
+				document.getElementById("left").style.backgroundColor = localStorage.getItem("left-color");
+				document.getElementById("center").style.backgroundColor = localStorage.getItem("center-color");
+				document.getElementById("right").style.backgroundColor = localStorage.getItem("right-color");
+				// updateColor();
+			};
+
+
+			function updateColor() {
+				if(event.keyCode==13){
+			        event.keyCode = null;
+				    var leftColor = document.getElementById('left-color').value;
+				    var centerColor = document.getElementById('center-color').value;
+				    var rightColor = document.getElementById('right-color').value;
+				    document.getElementById("left").style.backgroundColor = leftColor;
+				    document.getElementById("center").style.backgroundColor = centerColor;
+				    document.getElementById("right").style.backgroundColor = rightColor;
+				    localStorage.setItem("left-color", leftColor);
+				    localStorage.setItem("center-color", centerColor);
+				    localStorage.setItem("right-color", rightColor);
+			    }
+			}
+
+		</script>
+	</body>
+</html>
