@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+		<title>Proposal Formatter | Hanni Abu</title>
+		<meta content="Easily output proper format for Blocknet newsletters." name="description">
+		<meta content="proposal, blocknet, superblock, format" name="keywords">
+		<meta content="Hanni Abu" name="author">
+		<meta content="© 2015, Hanni Abu. All rights reserved." name="copyright">
+		<meta content="index,follow" name="robots">
+		<link href="assets/img/logo.gif" rel="icon" type="image/gif">
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+		<meta content="en_us">
+		<meta content="Hanni Abu">
+		<meta content="website">
+		<meta content="index.html">
+		<meta content="assets/img/logo.gif">
+		<meta content="Easily output proper format for Blocknet newsletters.">
+		<meta content="index.html" name="twitter:url">
+		<meta content="Proposal Formatter | Hanni Abu" name="twitter:title">
+		<meta content="Easily output proper format for Blocknet newsletters." name="twitter:description">
+		<meta content="assets/img/logo.gif" name="twitter:image">
+		
+		<script async="" src="//www.google-analytics.com/analytics.js"></script><script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-63358219-1', 'auto'); ga('send', 'pageview'); 
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+			body {
+				width: 100vw;
+				max-width: 450px;
+				margin: 0 auto;
+				margin-bottom: 40px;
+		    position: relative;
+		    padding: 20px;
+			}
+			input, input:focus, input:hover, input:active {
+				/*remove style*/
+				appearance: none !important;
+				outline: none !important;
+				outline: 0 !important;
+				border-style: none !important;
+				border-color: none !important;
+				box-shadow: none !important;
+				/*add style*/
+				background-color: rgba(255,255,255,0.65);
+				color: #555;
+				text-align: center;
+				border-radius: 5px;
+				padding: 5px;
+				font-size: .9em;
+			}
+			p {
+				color: red;
+			}
+			#content {
+				margin-left: 10px;
+			}
+			strong {
+				margin-left: -10px;
+			}
+
+		</style>
+
+
+		<p>Double check the passed/failed status, vote counts, and net results</p>
+		<div id="content"></div>
+
+
+		<script type="text/javascript">
+			function logError(error) {
+			  console.log('Fetch Error: ', error.message);
+			}
+			function log(data) {
+				document.getElementById("content").innerHTML = data;
+			}
+			function processResult(result) {
+				var data = result[0]["Voting"]["Finalized"];
+				var superblockKeysArray = Object.keys(data);
+				var output = "";
+				for (var superblockKeyIndex in superblockKeysArray) {
+					var superblockNumber = superblockKeysArray[superblockKeyIndex];
+					var proposalGroupKeyArray = Object.keys(data[superblockNumber]);
+					// console.log(data[superblockNumber]);
+					// console.log(superblockNumber);
+					// output = output + "<br><strong>" + superblockNumber + "</strong><br>";
+					output = "<br><strong>" + superblockNumber + "</strong><br>";
+					for (var proposalGroupKeyIndex in proposalGroupKeyArray) {
+						var proposalGroup = proposalGroupKeyArray[proposalGroupKeyIndex];
+						var proposalKeyArray = Object.keys(data[superblockNumber][proposalGroup]);
+						// console.log(data[superblockNumber][proposalGroup]);
+						// console.log("\t"+proposalGroup);
+						for (var proposalKeyIndex in proposalKeyArray) {
+							var proposalName = proposalKeyArray[proposalKeyIndex];
+							var proposalData = data[superblockNumber][proposalGroup][proposalName];
+							// console.log("\t\t"+proposalName);
+							var name = proposalData["name"];
+							var status = "Failed";
+							var payment = proposalData["totalpayment"];
+							var yayVotes = proposalData["votingyeas"];
+							var nayVotes = proposalData["votingnays"];
+							var netVotes = yayVotes - nayVotes;
+							var snodes = proposalData["active_nodes"];
+							if (netVotes > Math.ceil(snodes/10)) {
+								status = "Passed";
+							}
+							// [name] - [passed/failed]: [payment] BLOCK [yay]-[nay], Net [yay-nay]
+							var formattedResult = name + " - " + status + ": " + payment + " BLOCK " + yayVotes + "-" + nayVotes + ", Net " + netVotes;
+							// output = output + formattedResult + "\n";
+							output = output + formattedResult + "<br>";
+						}
+					}
+					console.log("\n");
+				}
+				log(output);
+			}
+
+			// example response
+				// {  
+				//   "Voting":{  
+				//      "Finalized":{  
+				//         "1036800":{  
+				// 					"1101600":{  
+				//             "marketing-1036800":{  
+				// 							"name":"marketing-1036800",
+				// 							"blockstart":"1036800",
+				// 							"blockend":"1101600",
+				// 							"blockleft":14054,
+				// 							"timeleft":"09:18:14:00",
+				// 							"paymentaddress":"BgSDpy7F7PuBZpG4PQfryX9m94NNcmjWAX",
+				// 							"isestablished":"Yes",
+				// 							"isvalid":"Yes",
+				// 							"totalpayment":3545,
+				// 							"active_nodes":382,
+				// 							"Actual":"100%",
+				// 							"Needed":"70.31914893617%",
+				// 							"Status":"Passes",
+				// 							"votingend":"1036800",
+				// 							"votingfreezeend":"1036800",
+				// 							"votingendtimestamp":null,
+				// 							"votingyeas":"94",
+				// 							"votingnays":"0"
+				//             },
+				//           }
+				//         },
+				//         "1080000":{  
+				//           "1144800":{  },
+				//           "1274400":{  
+				//             "CoinatomyExchange":{  }
+				//           },
+				//           "1620000":{  
+				//             "BlockchainCoferences":{  }
+				//           }
+				//         }
+				//      }
+				//   }
+				// },
+
+			function saveResult(result) {
+			  localStorage.setItem("info", JSON.stringify(result));
+			  return result;
+			}
+			function logResult(result) {
+			  console.log(result);
+			  return result;
+			}
+			function readResponseAsJSON(response) {
+			  return response.json();
+			}
+			function validateResponse(response) {
+			  if (!response.ok) {
+			    throw Error(response.statusText);
+			  }
+			  return response;
+			}
+			function fetchJSON(pathToResource) {
+			  fetch(pathToResource)
+			  .then(validateResponse)
+			  .then(readResponseAsJSON)
+			  // .then(saveResult)
+			  // .then(logResult)
+			  .then(processResult)
+			  .catch(logError);
+			}
+			function runApp() {
+			 //  if (localStorage.getItem("info") === null) {
+			 //  	console.log("Fetch data from API...");
+			 //  	fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
+				// } else {
+				// 	console.log("Fetch data from local storage...");
+				// 	var data = JSON.parse(localStorage.getItem("info"));
+				// 	processResult(data);
+				// }
+				fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
+			}
+			runApp();
+		</script>
+	</body>
+</html>
