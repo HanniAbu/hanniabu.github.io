@@ -107,7 +107,7 @@
               if (netVotes > Math.ceil(snodes/10)) {
                 status = "Passed";
               }
-              if (proposalKeyIndex == 0) {
+              if (proposalGroupKeyIndex == 0 && proposalKeyIndex == 0) {
                 var summary = "For Superblock " + superblockNumber + " there was a total of " + snodes + " Service Nodes, requiring a net of at least " + Math.ceil(snodes/10) + " votes for a proposal to pass. The results are as follows:<br>"
                 output = output + summary;
               }
