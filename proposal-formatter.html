@@ -77,7 +77,11 @@
     <textarea id="raw" rows="15" cols="75" oninput="runApp()" onchange="runApp()"></textarea>
     <p>2. Select Superblock period:</p>
     <select id="superblocks" onselect="format()"></select>
-    <p>3. Copy formatted summary:</p>
+    <p>3. Copy formatted summary
+      <button onclick="CopyToClipboard('formatted')">
+        <span style="font-size: .875em; margin-right: .125em; position: relative; top: -.25em; left: -.125em">📄<span style="position: absolute; top: .25em; left: .25em">📄</span></span>
+      </button>
+    </p>
     <div id="formatted"></div>
 
 
@@ -162,19 +166,6 @@
       function runApp() {
         // fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
 
-        // {
-        //   "hash": "4c934ce71417cd189e11bb194b351abbe13cc7f4bdb7b298fc31a323914a76b8",
-        //   "name": "atc-infra-1512000",
-        //   "superblock": 1512000,
-        //   "amount": 750,
-        //   "address": "BmUU2AFk1XsRL5w83bC6R4BnF46fUJdbXj",
-        //   "url": "https://bit.ly/3dqDVVc",
-        //   "description": "atc-infra",
-        //   "votes_yes": 96,
-        //   "votes_no": 0,
-        //   "votes_abstain": 0,
-        //   "status": "passed"
-        // },
         var raw = document.getElementById("raw").value;
         proposals = JSON.parse( "[" + raw.split("[")[1] );
         populateDropdown();
@@ -201,13 +192,31 @@
         var summary = "";
         for (var proposal in proposals) {
           if ( proposals[proposal]["superblock"] == superblock ) {
-            // desired format: name, amount BLOCK, Y:yes | N:no | A:abstain, status
             var p = proposals[proposal];
             var formatted = p["name"] + ", " + p["amount"] + " BLOCK, Y:" + p["votes_yes"] + " | N:" + p["votes_no"] + " | A:" + p["votes_abstain"] + ", " + p["status"][0].toUpperCase() + p["status"].slice(1) + "<br>";
             summary += formatted;
           }
         }
         document.getElementById("formatted").innerHTML = summary;
+      }
+      function CopyToClipboard(containerid) {
+        var e = document.getElementById(containerid);
+        // for Internet Explorer
+        if(document.body.createTextRange) {
+          var range = document.body.createTextRange();
+          range.moveToElementText(e);
+          range.select();
+          document.execCommand("Copy");
+        }
+        else if(window.getSelection) {
+          // other browsers
+          var selection = window.getSelection();
+          var range = document.createRange();
+          range.selectNodeContents(e);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand("Copy");
+        }
       }
       // runApp();
     </script>
