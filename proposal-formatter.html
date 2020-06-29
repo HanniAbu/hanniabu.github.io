@@ -189,15 +189,18 @@
       function format() {
         var dropdown = document.getElementById("superblocks");
         var superblock = dropdown.options[dropdown.selectedIndex].value;
-        var summary = "";
+        var summary = [];
         for (var proposal in proposals) {
           if ( proposals[proposal]["superblock"] == superblock ) {
             var p = proposals[proposal];
-            var formatted = p["name"] + ", " + p["amount"] + " BLOCK, Y:" + p["votes_yes"] + " | N:" + p["votes_no"] + " | A:" + p["votes_abstain"] + ", " + p["status"][0].toUpperCase() + p["status"].slice(1) + "<br>";
-            summary += formatted;
+            var formatted = p["name"] + ", " + p["amount"] + " BLOCK, Y:" + p["votes_yes"] + " | N:" + p["votes_no"] + " | A:" + p["votes_abstain"] + ", " + p["status"][0].toUpperCase() + p["status"].slice(1);
+            summary.push(formatted);
           }
         }
-        document.getElementById("formatted").innerHTML = summary;
+        summary.sort(function (a, b) {
+          return a.toLowerCase().localeCompare(b.toLowerCase());
+        });
+        document.getElementById("formatted").innerHTML = summary.join("<br>");
       }
       function CopyToClipboard(containerid) {
         var e = document.getElementById(containerid);
