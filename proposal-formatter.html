@@ -31,7 +31,7 @@
     <style type="text/css">
       body {
         width: 100vw;
-        max-width: 450px;
+        max-width: 500px;
         margin: 0 auto;
         margin-bottom: 40px;
         position: relative;
@@ -53,29 +53,42 @@
         padding: 5px;
         font-size: .9em;
       }
+      code {
+        background-color: #eee;
+        color: maroon;
+        font-family: monospace;
+      }
+      textarea {
+        overflow: auto;
+        width: 100%
+      }
+      select {
+        width: 150px;
+        padding: 5px 10px;
+      }
       p {
-        color: red;
-      }
-      #content {
-        margin-left: 10px;
-      }
-      strong {
-        margin-left: -10px;
+        font-weight: bold;
       }
 
     </style>
 
 
-    <p>Double check the passed/failed status, vote counts, and net results</p>
-    <div id="content"></div>
+    <p>1. Paste <code>listproposals</code> output here:</p>
+    <textarea id="raw" rows="15" cols="75" oninput="runApp()" onchange="runApp()"></textarea>
+    <p>2. Select Superblock period:</p>
+    <select id="superblocks" onselect="format()"></select>
+    <p>Formatted:</p>
+    <div id="formatted"></div>
 
 
     <script type="text/javascript">
+      var dev = true;
+      var proposals;
       function logError(error) {
         console.log('Fetch Error: ', error.message);
       }
-      function log(data) {
-        document.getElementById("content").innerHTML = data;
+      function log(msg) {
+        if (dev) { console.log(msg); }
       }
       function processResult(result) {
         var data = result[0]["Voting"]["Finalized"];
@@ -84,19 +97,18 @@
         for (var superblockKeyIndex in superblockKeysArray) {
           var superblockNumber = superblockKeysArray[superblockKeyIndex];
           var proposalGroupKeyArray = Object.keys(data[superblockNumber]);
-          // console.log(data[superblockNumber]);
-          // console.log(superblockNumber);
-          // output = output + "<br><strong>" + superblockNumber + "</strong><br>";
+          log(data[superblockNumber]);
+          log(superblockNumber);
           output = "<br><strong>" + superblockNumber + "</strong><br>";
           for (var proposalGroupKeyIndex in proposalGroupKeyArray) {
             var proposalGroup = proposalGroupKeyArray[proposalGroupKeyIndex];
             var proposalKeyArray = Object.keys(data[superblockNumber][proposalGroup]);
-            // console.log(data[superblockNumber][proposalGroup]);
-            // console.log("\t"+proposalGroup);
+            log(data[superblockNumber][proposalGroup]);
+            log("\t"+proposalGroup);
             for (var proposalKeyIndex in proposalKeyArray) {
               var proposalName = proposalKeyArray[proposalKeyIndex];
               var proposalData = data[superblockNumber][proposalGroup][proposalName];
-              // console.log("\t\t"+proposalName);
+              log("\t\t"+proposalName);
               var name = proposalData["name"];
               var status = "Failed";
               var payment = proposalData["totalpayment"];
@@ -117,58 +129,16 @@
               output = output + formattedResult + "<br>";
             }
           }
-          // console.log("\n");
+          log("\n");
         }
-        log(output);
+        document.getElementById("content").innerHTML = output;
       }
-
-      // example response
-
-        // "Voting":{  
-        //  "Finalized":{  // data
-        //    "1036800":{  // for (var superblockKeyIndex in superblockKeysArray)
-        //      "1101600":{  // for (var proposalGroupKeyIndex in proposalGroupKeyArray)
-        //        "marketing-1036800":{  // for (var proposalKeyIndex in proposalKeyArray)
-        //          "name":"marketing-1036800",
-        //          "blockstart":"1036800",
-        //          "blockend":"1101600",
-        //          "blockleft":14054,
-        //          "timeleft":"09:18:14:00",
-        //          "paymentaddress":"BgSDpy7F7PuBZpG4PQfryX9m94NNcmjWAX",
-        //          "isestablished":"Yes",
-        //          "isvalid":"Yes",
-        //          "totalpayment":3545,
-        //          "active_nodes":382,
-        //          "Actual":"100%",
-        //          "Needed":"70.31914893617%",
-        //          "Status":"Passes",
-        //          "votingend":"1036800",
-        //          "votingfreezeend":"1036800",
-        //          "votingendtimestamp":null,
-        //          "votingyeas":"94",
-        //          "votingnays":"0"
-        //        },
-        //      }
-        //    },
-        //    "1080000":{  
-        //      "1144800":{  },
-        //      "1274400":{  
-        //        "CoinatomyExchange":{  }
-        //      },
-        //      "1620000":{  
-        //        "BlockchainCoferences":{  }
-        //      }
-        //    }
-        //  }
-        // }
-
-
       function saveResult(result) {
         localStorage.setItem("info", JSON.stringify(result));
         return result;
       }
       function logResult(result) {
-        console.log(result);
+        log(result);
         return result;
       }
       function readResponseAsJSON(response) {
@@ -185,22 +155,61 @@
         .then(validateResponse)
         .then(readResponseAsJSON)
         // .then(saveResult)
-        // .then(logResult)
+        .then(logResult)
         .then(processResult)
         .catch(logError);
       }
       function runApp() {
-       //  if (localStorage.getItem("info") === null) {
-       //   console.log("Fetch data from API...");
-       //   fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
-        // } else {
-        //  console.log("Fetch data from local storage...");
-        //  var data = JSON.parse(localStorage.getItem("info"));
-        //  processResult(data);
-        // }
-        fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
+        // fetchJSON('https://cors-anywhere.herokuapp.com/https://api.block-node.info/getLastVoting.php');
+
+        // {
+        //   "hash": "4c934ce71417cd189e11bb194b351abbe13cc7f4bdb7b298fc31a323914a76b8",
+        //   "name": "atc-infra-1512000",
+        //   "superblock": 1512000,
+        //   "amount": 750,
+        //   "address": "BmUU2AFk1XsRL5w83bC6R4BnF46fUJdbXj",
+        //   "url": "https://bit.ly/3dqDVVc",
+        //   "description": "atc-infra",
+        //   "votes_yes": 96,
+        //   "votes_no": 0,
+        //   "votes_abstain": 0,
+        //   "status": "passed"
+        // },
+        var raw = document.getElementById("raw").value;
+        proposals = JSON.parse( "[" + raw.split("[")[1] );
+        populateDropdown();
       }
-      runApp();
+      function populateDropdown() {
+        var superblockPeriods = [];
+        for (var proposal in proposals) {
+          if ( !superblockPeriods.includes(proposals[proposal]["superblock"]) ) {
+            superblockPeriods.push( proposals[proposal]["superblock"] );
+          }
+        }
+        var superblockDrowdown = document.getElementById("superblocks");
+        for (var superblock in superblockPeriods) {
+          var option = document.createElement("option");
+          option.text = superblockPeriods[superblock];
+          option.value = superblockPeriods[superblock];
+          superblockDrowdown.add(option);
+        }
+        format();
+      }
+      function format() {
+        var dropdown = document.getElementById("superblocks");
+        var superblock = dropdown.options[dropdown.selectedIndex].value;
+        var summary = "";
+        for (var proposal in proposals) {
+          if ( proposals[proposal]["superblock"] == superblock ) {
+            // desired format: name, amount BLOCK, Y:yes | N:no | A:abstain, status
+            var p = proposals[proposal];
+            var formatted = p["name"] + ", " + p["amount"] + " BLOCK, Y:" + p["votes_yes"] + " | N:" + p["votes_no"] + " | A:" + p["votes_abstain"] + ", " + p["status"][0].toUpperCase() + p["status"].slice(1) + "<br>";
+            summary += formatted;
+          }
+        }
+        document.getElementById("formatted").innerHTML = summary;
+      }
+      // runApp();
     </script>
   </body>
 </html>
