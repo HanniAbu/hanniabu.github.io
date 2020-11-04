@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Log Viewer | Hanni Abu</title>
     <meta content="Easily view log contents." name="description">
     <meta content="log, file, view" name="keywords">
@@ -57,12 +58,12 @@
       getLogAjax().then(processLog).then(showSummary);
       function getLogAjax() {
         var promise = new Promise(function(resolve, reject){
-          var alert = "Failed to load log, refresh page";
+          var alertMsg = "Failed to load log, refresh page";
           var xhr = new XMLHttpRequest();
           var status = true;
           xhr.timeout = 2000;  
           xhr.addEventListener("timeout", function(e) {
-            alert(alert);
+            alert(alertMsg);
           });
           var url = "http://45.79.148.58:3000/shrewdly-ferocity-trough";
           xhr.open('GET', url);
@@ -75,7 +76,7 @@
                 // log = JSON.parse(processedData);
                 resolve(response);
               } else {
-                alert(alert);
+                alert(alertMsg);
               }
             }
           }
