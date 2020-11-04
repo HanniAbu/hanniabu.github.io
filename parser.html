@@ -26,132 +26,158 @@
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-63358219-1', 'auto'); ga('send', 'pageview'); 
     </script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </head>
   <body>
     <style type="text/css">
       body {
-        width: 100vw;
-        max-width: 500px;
-        margin: 0 auto;
-        margin-bottom: 40px;
-        position: relative;
-        padding: 20px;
+        padding-left: 50px;
       }
-      input, input:focus, input:hover, input:active {
-        /*remove style*/
-        appearance: none !important;
-        outline: none !important;
-        outline: 0 !important;
-        border-style: none !important;
-        border-color: none !important;
-        box-shadow: none !important;
-        /*add style*/
-        background-color: rgba(255,255,255,0.65);
-        color: #555;
-        text-align: center;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: .9em;
-      }
-      code {
-        background-color: #eee;
-        color: maroon;
-        font-family: monospace;
-      }
-      textarea {
-        overflow: auto;
-        width: 100%
-      }
-      select {
-        width: 150px;
-        padding: 5px 10px;
-      }
-      p {
-        font-weight: bold;
-        margin-top: 10px;
-      }
-
     </style>
 
 
-    <p>1. Select log file:</p>
-    <input id="fileInput" type="file" name="file" />
-    <p>2. Raw contents:
-      <span onclick="CopyToClipboard('formatted')" title="copy" style="border: solid 1px #dfdfdf; padding: 4px 6px; border-radius:2px; background-color: #fff; float: right; cursor: pointer;">
-        <span style="font-size: .875em; margin-right: .125em; position: relative; top: -.25em; left: -.125em">📄<span style="position: absolute; top: .25em; left: .25em">📄</span></span>
-      </span>
-    </p>
-    <textarea id="raw" rows="2" cols="75"></textarea>
-    <p>3. Summary:
-      <span onclick="CopyToClipboard('summary')" title="copy" style="border: solid 1px #dfdfdf; padding: 4px 6px; border-radius:2px; background-color: #fff; float: right; cursor: pointer;">
-        <span style="font-size: .875em; margin-right: .125em; position: relative; top: -.25em; left: -.125em">📄<span style="position: absolute; top: .25em; left: .25em">📄</span></span>
-      </span>
-    </p>
-    <textarea id="summary" rows="15" cols="75"></textarea>
-
-
-
     <script type="text/javascript">
-      window.addEventListener('load', function() {
-        document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
-      })
       var rawLog;
-      var log;
+      var indent = "&nbsp;&nbsp;&nbsp;&nbsp;";
+      var dindent = indent + indent;
       var currentEpoch = Date.now(); // milliseconds
+      // log format
+        // [
+        //   {
+        //     uuid: string
+        //     fname: string
+        //     lname: string
+        //     username: string
+        //     query: string
+        //     timestamp: epoch int
+        //   },
+        //   ...
+        // ]
 
 
-      function handleFileSelect(event){
-        const reader = new FileReader();
-        reader.onload = handleFileLoad;
-        reader.readAsText(event.target.files[0]);
+      getLogAjax().then(processLog).then(showSummary);
+      function getLogAjax() {
+        var promise = new Promise(function(resolve, reject){
+          var alert = "Failed to load log, refresh page";
+          var xhr = new XMLHttpRequest();
+          var status = true;
+          xhr.timeout = 2000;  
+          xhr.addEventListener("timeout", function(e) {
+            alert(alert);
+          });
+          var url = "http://45.79.148.58:3000/shrewdly-ferocity-trough";
+          xhr.open('GET', url);
+          xhr.send();
+          xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200){
+                var response = this.responseText;
+                // var processedData = "[" + response.split("}{").join("},{") + "]";
+                // log = JSON.parse(processedData);
+                resolve(response);
+              } else {
+                alert(alert);
+              }
+            }
+          }
+        });
+        return promise;
       }
-      function handleFileLoad(event){
-        rawLog = event.target.result;
-        document.getElementById('raw').textContent = rawLog;
-        processData(rawLog);
+      function processLog(rawLog) {
+        var jsonLog = convertToJson(rawLog);
+        var adjustedLog = addUsernames(jsonLog);
+        var cleanedLog = cleanLog(adjustedLog);
+        return cleanedLog;
       }
-      function processData(rawLog) {
-        var processedData = "[" + rawLog.split("}{").join("},{") + "]";
-        log = JSON.parse(processedData);
-        var summary = generateSummary();
-        document.getElementById('summary').textContent = summary;
+      function convertToJson(rawLog) {
+        // convert string log to json
+        return JSON.parse("[" + rawLog.split("}{").join("},{") + "]");
       }
-
-      function getTotalRequests() {
+      function addUsernames(jsonLog) {
+        // add username if not present, suffixed with ***
+        var adjustedLog = jsonLog;
+        for (var user in adjustedLog) {
+          var username = adjustedLog[user]["username"];
+          if (username === undefined) {
+            var fname = adjustedLog[user]["fname"];
+            var lname = adjustedLog[user]["lname"] ? adjustedLog[user]["lname"] : "";
+            adjustedLog[user]["username"] = fname + lname + "***";
+          } 
+        }
+        return adjustedLog;
+      }
+      function cleanLog(adjustedLog) {
+        // remove in-progress searches
+        var cleanedLog = [];
+        var users = getUniqueUsers(adjustedLog);
+        var bufferTime = 4000; // milliseconds
+        var times = [];
+        for (var user in users) {
+          var requests = getUserRequests(adjustedLog, users[user]);
+          var r0 = requests[0];
+          for (var request in requests) {
+            if (r0 == requests[0] && requests.length == 1) {
+              cleanedLog.push(r0);
+            } else if (r0 != undefined && r0 != requests[request]) {
+              var rf = requests[request];
+              var timeDiff = rf["timestamp"] - r0["timestamp"];
+              var includes = rf["query"].startsWith(r0["query"]);
+              var repeat = includes && r0["query"] != "";
+              // if not a repeat request, save the previous request
+              if (!repeat) {
+                cleanedLog.push(r0);
+              }
+              // if last request, save, otherwise set rf to r0 to reset
+              if (request == requests.length - 1) {
+                cleanedLog.push(rf);
+              } else {
+                r0 = rf;
+              }
+            }
+          }
+        }
+        return cleanedLog;
+      }
+      function showSummary(log) {
+        var summary = generateSummary(log);
+        document.body.innerHTML = summary;
+      }
+      function getTotalRequests(log) {
         return log.length;
+        // output:
+        // int
       }
-      function getUniqueUsers() {
+      function getUniqueUsers(log) {
         var users = [];
         for (var entry in log) {
-          var username = log[entry]["Username"];
+          var username = log[entry]["username"];
           if ( !users.includes(username) ) {
             users.push(username);
           }
         }
         return users;
+        // output:
+        // [ "usernameA", "usernameB", "usernameN" ]
       }
-      function getTotalUsers() {
-        var users = getUniqueUsers();
+      function getTotalUsers(log) {
+        var users = getUniqueUsers(log);
         return users.length;
+        // output:
+        // int
       }
-      function getAveRequestsPerUser() {
-        var totalRequests = getTotalRequests();
-        var totalUsers = getTotalUsers();
+      function getAveRequestsPerUser(log) {
+        var totalRequests = getTotalRequests(log);
+        var totalUsers = getTotalUsers(log);
         return Math.round( (totalRequests/totalUsers)*10 ) / 10;
+        // output:
+        // int
       }
-      function getTotalRequestsPerUser() {
-        var users = getUniqueUsers();
+      function getTotalRequestsPerUser(log) {
+        var users = getUniqueUsers(log);
         var requestsPerUser = [];
         for (var user in users) {
-          requestsPerUser.push({ "username": users[user], "totalRequests": getUserRequestCount(users[user]) });
+          requestsPerUser.push({ "username": users[user], "totalRequests": getUserRequestCount(log, users[user]) });
         }
-        // sory user metrics my total requests
+        // sort user metrics by total requests
         requestsPerUser.sort(function(a, b) {
           var keyA = new Date(a.totalRequests);
           var keyB = new Date(b.totalRequests);
@@ -160,27 +186,46 @@
           return 0;
         });
         return requestsPerUser;
+        // output:
+        // [
+        //   {
+        //     username: "usernameA",
+        //     totalRequests: int
+        //   },
+        //   ...
+        // ]
       }
-      function getUserRequestCount(user) {
-        var requestCount = 0;
+      function getUserRequests(log, user) {
+        var requests = [];
         for (var entry in log) {
-          if (log[entry]["Username"] == user) {
-            requestCount++;
+          if (log[entry]["username"] == user) {
+            requests.push(log[entry]);
           }
         }
-        return requestCount;
+        return requests;
+        // output:
+        // [ reqObj1, reqObj2, reqObjN ]
       }
-      function getTotalRequestsPerUserSummary() {
+      function getUserRequestCount(log, user) {
+        return getUserRequests(log, user).length;
+        // output:
+        // int
+      }
+      function getTotalRequestsPerUserSummary(log) {
         var requestsPerUserSummary = "";
-        var requestsPerUser = getTotalRequestsPerUser();
+        var requestsPerUser = getTotalRequestsPerUser(log);
         for (var user in requestsPerUser) {
-          requestsPerUserSummary += "\n\t" + requestsPerUser[user]["username"] + ": " + requestsPerUser[user]["totalRequests"];
+          requestsPerUserSummary += `<br>${indent}` + requestsPerUser[user]["username"] + ": " + requestsPerUser[user]["totalRequests"];
         }
         return requestsPerUserSummary;
+        // output:
+        // usernameA: numA
+        // usernameB: numB
+        // usernameN: numN
       }
-      function getMostActiveUsers(num) {
-        var totalUsers = getTotalUsers()
-        var usersRank = getTotalRequestsPerUser();
+      function getMostActiveUsers(log, num) {
+        var totalUsers = getTotalUsers(log)
+        var usersRank = getTotalRequestsPerUser(log);
         var mostActiveUsers;
         if (num < totalUsers) {
           mostActiveUsers = usersRank.slice(0, num);
@@ -188,36 +233,165 @@
           mostActiveUsers = usersRank;
         }
         return mostActiveUsers;
+        // output:
+        // [
+        //   {
+        //     username: "usernameA",
+        //     totalRequests: int
+        //   },
+        //   ...
+        // ]
       }
-      function getMostActiveUsersSummary(num) {
+      function getMostActiveUsersSummary(log, num) {
         var mostActiveUsers = getMostActiveUsers(num);
         var mostActiveUsersSummary = "";
         for (var user in mostActiveUsers) {
-          // username (userRequestCount)
-          // mostActiveUsersSummary += mostActiveUsers[user]["username"] + " (" + mostActiveUsers[user]["totalRequests"] + ")";
-          // username: userRequestCount
-          mostActiveUsersSummary += "\n\t" + mostActiveUsers[user]["username"] + ": " + mostActiveUsers[user]["totalRequests"];
+          mostActiveUsersSummary += "<br>" + indent + mostActiveUsers[user]["username"] + ": " + mostActiveUsers[user]["totalRequests"];
         }
-        return mostActiveUsersSummary; 
+        return mostActiveUsersSummary;
+        // output
+        // usernameA: numA
+        // usernameB: numB
+        // usernameN: numN
       }
-      function generateSummary() {
-        var totalRequests = getTotalRequests();
-        var totalUsers = getTotalUsers();
-        var aveRequestsPerUser = getAveRequestsPerUser();
-        var totalRequestsPerUser = getTotalRequestsPerUserSummary();
-        var mostActiveUsers = getMostActiveUsersSummary(5);
+      function getUniqueRequests(log) {
+        var requests = [];
+        for (var entry in log) {
+          var request = log[entry]["query"];
+          if ( !requests.includes(request) ) {
+            requests.push(request);
+          }
+        }
+        return requests;
+        // output:
+        // [ "reqA", "reqB", "reqN" ]
+      }
+      function getRequestFrequency(log, request) {
+        var requestFrequency = 0;
+        for (var entry in log) {
+          if ( request == log[entry]["query"] ) {
+            requestFrequency++;
+          }
+        }
+        return requestFrequency;
+        // output:
+        // int
+      }
+      function getRequestRank(log) {
+        var requests = getUniqueRequests(log);
+        var requestRank = [];
+        for (var request in requests) {
+          requestRank.push({ "request": requests[request], "frequency": getRequestFrequency(log, requests[request]) });
+        }
+        // sort requests by frequency
+        requestRank.sort(function(a, b) {
+          var keyA = new Date(a.frequency);
+          var keyB = new Date(b.frequency);
+          if (keyA < keyB) return 1;
+          if (keyA > keyB) return -1;
+          return 0;
+        });
+        return requestRank;
+        // output:
+        // [
+        //   {
+        //     request: "reqA",
+        //     frequency: int
+        //   },
+        //   ...
+        // ]
+      }
+      function getMostCommonRequests(log, num) {
+        var requestRank = getRequestRank(log);
+        var totalRequests = requestRank.length;
+        var mostCommonRequests;
+        if (num < totalRequests) {
+          mostCommonRequests = requestRank.slice(0, num);
+        } else {
+          mostCommonRequests = requestRank;
+        }
+        return mostCommonRequests;
+        // output:
+        // [
+        //   {
+        //     request: "reqA",
+        //     frequency: int
+        //   },
+        //   ...
+        // ]
+      }
+      function getMostCommonRequestsSummary(log, num) {
+        var requestRank = getMostCommonRequests(log, num);
+        var mostCommonRequestsSummary = "";
+        for (var request in requestRank) {
+          mostCommonRequestsSummary += "<br>" + indent + requestRank[request]["request"] + ": " + requestRank[request]["frequency"];
+        }
+        return mostCommonRequestsSummary;
+        // output
+        // requestA: numA
+        // requestB: numB
+        // requestN: numN
+      }
+      function getAveRequestsPerDay(log) {
+        var totalRequests = getTotalRequests(log);
+        var timeStart = log[0]["timestamp"];
+        var timeEnd = log[totalRequests - 1]["timestamp"];
+        var timeDelta = timeEnd - timeStart;
+        var days = timeDelta / 86400000;
+        var aveRequestsPerDay = Math.round( (totalRequests / days) * 10 ) / 10;
+        return aveRequestsPerDay;
+        // output:
+        // int
+      }
+      function getLogIntervalSlices(interval) {
+
+      }
+      function getReadableLog(log) {
+        var readableLog = "";
+        for (var entry in log) {
+          readableLog += `
+            <br>${indent} ${entry}. (${log[entry]["timestamp"]}) ${log[entry]["username"]} - ${log[entry]["query"]}`;
+        }
+        // output:
+        // (timestampA) usernameA - queryA
+        // (timestampB) usernameB - queryB
+        // (timestampN) usernameN - queryN
+        return readableLog;
+          // log format
+          //   [
+          //     {
+          //       uuid: string
+          //       fname: string
+          //       lname: string
+          //       username: string
+          //       query: string
+          //       timestamp: epoch int
+          //     },
+          //     ...
+          //   ]
+      }
+      function generateSummary(log) {
+        var now = new Date(currentEpoch);
+        var date = (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getFullYear();
+        var totalRequests = getTotalRequests(log);
+        var totalUsers = getTotalUsers(log);
+        var aveRequestsPerUser = getAveRequestsPerUser(log);
+        var totalRequestsPerUser = getTotalRequestsPerUserSummary(log);
+        var mostActiveUsers = getMostActiveUsersSummary(log, 5);
+        var mostCommonRequests = getMostCommonRequestsSummary(log, 10)
+        var allRequests = getReadableLog(log);
+        var aveRequestsPerDay = getAveRequestsPerDay(log);
         var summary = `
-Total Requests: ${totalRequests}
-Unique Users: ${totalUsers}
-Ave. Searches Per User: ${aveRequestsPerUser}
-Total Searches Per User: ${totalRequestsPerUser}
-Most Active Users: ${mostActiveUsers}
-Requests Last Month: 
-Requests Last Week: 
-Requests This Month (Projected): 
-Most Common Requests: 
-Percent Active Last Week: 
+<strong>${date}</strong>
+<br>Total Requests: ${totalRequests}
+<br>Unique Users: ${totalUsers}
+<br>Ave. Searches Per User: ${aveRequestsPerUser}
+<br>Ave. Searches Per Day: ${aveRequestsPerDay}
+<br>Total Searches Per User: ${totalRequestsPerUser}
+<br>Most Common Requests: ${mostCommonRequests}
         `;
+// <br><br>All Requests: ${allRequests}
+// <br>Most Active Users: ${mostActiveUsers}
         // percent unique users in last week
         return summary;
       }
