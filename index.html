@@ -1,60 +1,134 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-63358219-1', 'auto'); ga('send', 'pageview'); </script>
+
+  <meta http-equiv="Content-Type" content="text/html" />
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name=
-  "viewport">
-  <title>Hanni Abu</title>
-  <meta content=
-  "Hanni Abu is a software developer, engineer, and blockchain enthusiast." name=
-  "description">
-  <meta content="engineer, software, developer, blockchain, hanni abu, web" name=
-  "keywords">
-  <meta content="Hanni Abu" name="author">
-  <meta content="© 2015, Hanni Abu. All rights reserved." name="copyright">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="hanni abu, engineer, software, developer, blockchain, ethereum, solidity, qa">
+  <meta name="description" content="Hanni Abu is a software developer, engineer, and blockchain enthusiast.">
+  <meta content="© 2021, Hanni Abu. All rights reserved." name="copyright">
   <meta content="index,follow" name="robots">
-  <link href="assets/img/logo.gif" rel="icon" type="image/gif">
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet'
-  type='text/css'>
-  <meta content="en_us">
-  <meta content="Hanni Abu">
-  <meta content="website">
-  <meta content="index.html">
-  <meta content="assets/img/logo.gif">
-  <meta content="Hanni Abu">
-  <meta content=
-  "Hanni Abu is a software developer, engineer, and blockchain enthusiast.">
-  <meta content="index.html" name="twitter:url">
-  <meta content="Hanni Abu" name="twitter:title">
-  <meta content=
-  "Hanni Abu is a software developer, engineer, and blockchain enthusiast." name=
-  "twitter:description">
-  <meta content="assets/img/logo.gif" name="twitter:image">
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-63358219-1', 'auto'); ga('send', 'pageview'); 
-  </script>
+  <title>Hanni Abu</title>
+
+  <link rel="canonical" href="https://hanniabu.com">
+  <link rel="shortcut icon" href="assets/img/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+  <!-- <meta name="msapplication-TileColor" content="#fff"> -->
+  <!-- <meta name="theme-color" content="#fff"> -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hanni Abu">
+  <meta property="og:description" content="Hanni Abu is a software developer, engineer, and blockchain enthusiast.">
+  <meta property="og:url" content="https://hanniabu.com">
+  <meta property="og:site_name" content="Hanni Abu">
+  <meta property="og:image" content="assets/img/logo.png">
+  <meta property="og:image:secure_url" content="https://hanniabu.com/assets/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="Hanni Abu is a software developer, engineer, and blockchain enthusiast.">
+  <meta name="twitter:title" content="Hanni Abu">
+  <meta name="twitter:image" content="assets/img/logo.png">
+  <meta name="twitter:image:alt" content="Hanni Abu">
+  <meta name="twitter:site" content="@hanni_abu">
+  <!-- <meta name="twitter:creator" content="@hann_iabu"> -->
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-  <header id="header">
-    <div id="name">
-      HANNI<br class="name">
-      ABU
-    </div>
-    <div id="title">
-      ENGINEERING | SOFTWARE | BLOCKCHAIN<br>
-    </div>
-    <div class="row links">
-      <a class="buttons link" id="email" onclick="this.innerHTML = 'hanniabu&#64;gmail.com'; this.classList.add('nohover');">EMAIL</a><br>
-      <a class="buttons link" href="https://twitter.com/hanni_abu" target="_blank" rel="noopener noreferrer">TWITTER</a><br>
-      <a class="buttons link" href="https://t.me/hanniabu" target="_blank" rel="noopener noreferrer">TELEGRAM</a> 
-    </div>
+<style type="text/css">
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+  }
+  @media (max-width: 767px) {
+    .markdown-body {
+      padding: 15px;
+    }
+  }
+  /*=============
+    CUSTOM CSS
+  =============*/
+  header {
+    padding-bottom: .7em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eaecef;
+  }
+  header h1 {
+    border: none !important;
+    margin-top: 0 !important;
+    margin-bottom: .12em !important;
+  }
+  #logo {
+    max-height: 95px;
+    float: right;
+    margin-right: 5px;
+    margin-top: -11px;
+  }
+  #email {
+    margin-left: 2px;
+    margin-left: 3px;
+    max-width: 154px;
+  }
+</style>
+<body class="markdown-body">
+
+  <header id="hanni-abu">
+    <img id="logo" src="assets/img/logo.png">
+    <h1>Hanni Abu</h1>
+    <img id="email" src="assets/img/email.png">
   </header>
 
+  <p>
+    <a href="https://www.linkedin.com/in/hanniabu/">LinkedIn</a> | 
+    <a href="https://github.com/hanniabu">Github</a>
+  </p>
+
+  <h3 id="skills">Skills</h3>
+  <ul>
+    <li><u>Operating Systems</u> - MacOS, Windows, Linux (Ubuntu)</li>
+    <li><u>Programming Languages</u> - Python, Javascript, HTML, CSS, Solidity (learning)</li>
+    <li><u>Software</u> - Google Suite, MS Office, Atlassian, Trello, Git/Github</li>
+  </ul>
+
+  <h3 id="current-projects">Current Projects</h3>
+  <ul>
+    <li><u>Convenient Digital</u> - A working group dedicated to building open source software, tools, and resources. [<a href="https://github.com/convenientdigital">Github</a>, <a href="https://convenientdigital.com/">Website</a>]</li>
+  </ul>
+
+  <h3 id="past-projects">Past Projects</h3>
+  <ul>
+    <li><u>Blocknet API Documentation</u> - An API usage and reference guide for the Blocknet Protocol. [<a href="https://github.com/hanniabu/api-docs">Github</a>, <a href="https://api.blocknet.co/">Website</a>]</li>
+    <li><u>Blocknet Documentation</u> - A documentation and knowledgebase for the Blocknet Protocol. [<a href="https://github.com/hanniabu/documentation">Github</a>, <a href="https://docs.blocknet.co/">Website</a>]</li>
+    <li><u>Block DX Website</u> - A website for a decentralized exchange powered by the Blocknet Protocol. [<a href="https://github.com/hanniabu/blockdx-website">Github</a>, <a href="http://blockdx.com/">Website</a>]</li>
+  </ul>
+
+
   <script type="text/javascript">
-
-
+    document.addEventListener("DOMContentLoaded", function() {
+      // open external links and pdfs in new tab
+      var links = document.getElementsByTagName('a');
+      for (var link in links) {
+        // set all links to open in new tab
+        if (/^(https?:)?\/\//.test(links[link].getAttribute('href'))) {
+          links[link].target = '_blank';
+        }
+        // if current domain, use same tab
+        if (/^(https?:\/\/hanniabu\.com\/?)$/.test(links[link].getAttribute('href'))) {
+          links[link].target = '_self';
+        }
+        // open all pdfs in new tab
+        if (/(\.pdf)/.test(links[link].getAttribute('href'))) {
+          links[link].target = '_blank';
+        }
+      }
+    });
   </script>
-  
 </body>
 </html>
